@@ -6,6 +6,9 @@ export default function Navbar (props) {
     <div class="topnav">
   <a class="active" href="#home">Study<b>Buddy</b></a>
   <a href="#logged">Logged as </a>
+  <a href="#logged">Logged as </a>
+  <a href="#logged">Logged as </a>
+  <a href="#logged">Logged as </a>
   <a href="#dm">DM</a>
   <a href="#logout">Logout</a>
 </div>
