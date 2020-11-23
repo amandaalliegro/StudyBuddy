@@ -7,9 +7,8 @@ export default function Landing(props) {
       <div class="container">
         <div class="jumbotron">
           <h1>Study Buddy</h1>
-          <p>Find someone to study with you</p>
-          <p>This is some text.</p>
-          <p>This is another text.</p>
+          <p>Study Together!</p>
+          <a href="#register">Create a profile </a>
         </div>
       </div>
       <div class="row">
