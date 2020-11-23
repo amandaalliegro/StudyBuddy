@@ -4,6 +4,7 @@ import useApplicationData from './hooks/useApplicationData';
 import './App.css';
 import { SET_USERS } from './reducers/dataReducer';
 import Navbar from './components/navbar.js'
+import Landing from './components/landing.js'
 
 
 
@@ -27,10 +28,7 @@ function App() {
 
   return (<div className="App" >
     <Navbar/>
-    <h1> Users </h1>
-    
-
-    <ul> {userList} </ul>
+    <Landing/>
   </div >
   );
 }
