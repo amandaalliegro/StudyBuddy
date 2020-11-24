@@ -11,17 +11,19 @@ export default function Navbar(props) {
       <a href="/profile">Logged as</a>
       <a href="/dm">DM</a>
       <a href="/">Logout</a>
-      <form class="#login_form">
-        <input
-          type="text"
-          placeholder="Email"
-        />
-        <input
-          type="text"
-          placeholder="Password"
-        />
-        <button class="btn btn-outline-success" type="button"><a href="/login">Sign in!</a></button>
-      </form>
+      <div id="login_nav">
+        <form class="login_form">
+          <input
+            type="text"
+            placeholder="Email"
+          />
+          <input
+            type="text"
+            placeholder="Password"
+          />
+          <button class="btn btn-outline-success" type="button"><a href="/login">Sign in!</a></button>
+        </form>
+      </div>
         </div>
     
 

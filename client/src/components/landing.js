@@ -13,7 +13,7 @@ export default function Landing(props) {
         <div class="jumbotron" id="#jumbo">
           <div id="#brand_box">
           <h1 id="font-size-brand"><b>Study Buddy</b></h1>
-          <p>Study Together!</p>
+          <p id="subtitle_brand">Study Together!</p>
           <button className={buttonClass}>
           <a href="/register">Create a profile! </a>
           </button>
