@@ -14,6 +14,7 @@ import Landing from './components/Landing.js';
 import Register from './components/Register.js'
 import Profile from './components/Profile.js';
 import EditProfile from './components/EditProfile.js';
+import UserProfile from './components/UserProfile.js';
 
 
 
@@ -42,7 +43,10 @@ function App() {
           <Navbar/>
         </nav>
         <Switch>
-        <Route path="/profile/id">
+          <Route path="/profile/user_id">
+            <UserProfile />
+          </Route>
+          <Route path="/profile/id">
             <EditProfile />
           </Route>
           <Route path="/profile">

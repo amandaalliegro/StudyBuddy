@@ -13,7 +13,7 @@ export default function Profile(props) {
       <hr />
       <div className="container bootstrap snippet">
         <div className="row">
-          <div className="col-sm-10"><h1>Affaf Rai</h1></div>
+          <div className="col-sm-10"><h1>User Profile</h1></div>
           <h3>Rating 8.6</h3>
         </div>
         <div className="row">
@@ -27,7 +27,7 @@ export default function Profile(props) {
                 <hr />
                   <div className="form-group">
                       <label><h4>Email:</h4></label>
-                      <label><h4>Affaf-rai@hotmail.com</h4></label>
+                      <label><h4>Amanda@hotmail.com</h4></label>
                   </div>
                   <div className="form-group">
                       <label><h4>Location:</h4></label>
@@ -39,11 +39,11 @@ export default function Profile(props) {
                   </div>
                   <div className="form-group">
                       <label><h4>You are a:</h4></label>
-                      <label><h4>Student - Mentor</h4></label>
+                      <label><h4>Mentor</h4></label>
                   </div>
                   <div className="form-group">
                       <label><h4>Ocupation:</h4></label>
-                      <label><h4>Web Developer</h4></label>
+                      <label><h4>Web Designer</h4></label>
                   </div>
                   <div className="form-group">
                       <label><h4>preferred Subjects:</h4></label>
@@ -51,11 +51,11 @@ export default function Profile(props) {
                   </div>
                   <div className="form-group">
                       <label><h4>Description:</h4></label>
-                      <label><h4>jfhgfhg cgfhmg , ,g,jg, gufdtrdjytf uf ,g</h4></label>
+                      <label><h4>sdfghjklsdfghjklsdfghjk sdfghjk dfghjkl</h4></label>
                   </div>
                   <div className="form-group">
                       <br />
-                      <button type="submit" class="btn btn-primary">Edit Profile</button>
+                      <button type="button" class="btn btn-primary">Send a message</button>
                   </div>
                 <hr />
            </div>   
