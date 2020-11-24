@@ -30,7 +30,8 @@ export default function Register(props) {
               name='age'
             />
           </form>
-          <button type="submit" class="btn btn-primary">Register!</button>
+          <button on Click= {name of function} type="submit" class="btn btn-primary">Register!</button>
+         
         </div>
       </div>
     </div>
