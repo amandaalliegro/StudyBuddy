@@ -46,7 +46,7 @@ function App() {
           <Route path="/profile/user_id">
             <UserProfile />
           </Route>
-          <Route path="/profile/id">
+          <Route path="/profile/edit">
             <EditProfile />
           </Route>
           <Route path="/profile">
