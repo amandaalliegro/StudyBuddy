@@ -1,4 +1,4 @@
-
+import "./profile.css"
 
 import React from "react";
 
@@ -58,7 +58,7 @@ export default function Profile(props) {
                   </div>
                   <div className="form-group">
                       <br />
-                      <button type="submit" class="btn btn-primary">Edit Profile</button>
+                      <button type="submit" class="btn btn-primary" id="#edit_btn">Edit Profile</button>
                   </div>
                 <hr />
            </div>   

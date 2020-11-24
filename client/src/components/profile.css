@@ -1,0 +1,14 @@
+#edit_btn {
+  border-radius: 1rem;
+  border: 0;
+  font-size: 1.5rem;
+  height: 2rem;
+  line-height: 1.2rem;
+  margin-right: 0;
+  width: 15rem;
+  border-width: 2px;
+  border-style: solid;
+  border-color: rgb(233, 102, 69);
+  color: rgb(233, 102, 69);
+  background-color: rgb(233, 102, 69) !important;
+}
