@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-import "./profile.css"
-
-=======
->>>>>>> e0d916f2ff9ff19bf43da9b3de2d0682e0e77033
 import React from "react";
 
 // find the html code i used in https://bootsnipp.com/snippets/5Moza
