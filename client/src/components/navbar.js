@@ -1,14 +1,17 @@
 import React from "react";
 import "./navbar.css"
+import classNames from 'classnames/bind';
 
 export default function Navbar(props) {
+  
   return (
-    <div className="topnav">
-      <a className="active" href="/home">Study<b>Buddy</b></a>
+    <div class="topnav">
+    
+      <a class="active brand_text" id="#font_jumbo" href="/home">Study<b>Buddy</b></a>
       <a href="/profile">Logged as</a>
       <a href="/dm">DM</a>
       <a href="/">Logout</a>
-      <form>
+      <form class="#login_form">
         <input
           type="text"
           placeholder="Email"
@@ -17,8 +20,10 @@ export default function Navbar(props) {
           type="text"
           placeholder="Password"
         />
-        <button type="submit" class="btn btn-primary">Sign in</button>
+        <button class="btn btn-outline-success" type="button"><a href="/login">Sign in!</a></button>
       </form>
         </div>
+    
+
   )
 }

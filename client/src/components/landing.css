@@ -1,14 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@100;200;400&display=swap');
+
 .jumbotron {
-  background-image: url("Students-in-a-study-group-008.jpg");
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 210px;
+  background-image: url("Students.jpeg");
+  margin-block-start: 0px;
   background-size: cover;
-  height: 400px;
+  background-repeat: no-repeat;
+  height: 500px;
+  text-align: center;
+  color: #ffffff;
+  margin-bottom:0 !important;
+  margin-top: 0 !important;
+  padding-top: 0px;
+  background-color: #eeeeee;
+  font-family: 'Montserrat Alternates', sans-serif;
 }
+
+#jumbo{
+  font-size: 4em;
+}
+#font-size-brand{
+  font-size: 5em;
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-weight: 600;
+ 
+}
+#subtitle_brand {
+  font-size: 4em;
+}
+
 * {
   box-sizing: border-box;
+}
+#jumbo {
+  margin-block-start: 0 !important;
+  padding: 0%;
+}
+#brand_box{
+  display: block;
+  justify-content: flex-end;
+  margin-right: 100px;
+  font-size: 5em;
+  font-family: 'Montserrat Alternates', sans-serif;
+  
+}
+#brand_box .h1{
+  font-size: 7em !important;
 }
 
 body {
   font-family: Arial, Helvetica, sans-serif;
+  padding-top: 0px;
 }
 
 /* Float four columns side by side */
@@ -19,7 +64,12 @@ body {
 }
 
 /* Remove extra left and right margins, due to padding in columns */
-.row {margin: 0 -5px;}
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 -5px;
+}
 
 /* Clear floats after the columns */
 .row:after {
@@ -30,10 +80,33 @@ body {
 
 /* Style the counter cards */
 .card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+  box-shadow: 0px 6px 10px 0px rgba(0, 0, 0, 0.5); /* this adds the "card" effect */
   padding: 16px;
   text-align: center;
-  background-color: #f1f1f1;
+  background-color: rgb(235, 123, 95) !important;
+  height: 200px;
+  color: #ffffff;
+  font-family: 'Montserrat Alternates', sans-serif;
+}
+
+.button {
+  border-radius: 1rem;
+  border: 0;
+  font-size: 1.5rem;
+  height: 2rem;
+  line-height: 1.2rem;
+  margin-right: 1rem;
+  width: 15rem;
+  border-width: 2px;
+  border-style: solid;
+  border-color: rgb(233, 102, 69);
+  color: rgb(233, 102, 69);
+  background-color: rgb(233, 102, 69);
+}
+.button--confirm {
+  color: white;
+  border-color: rgb(233, 102, 69);
+  background-color: rgb(233, 102, 69) ;
 }
 
 /* Responsive columns - one column layout (vertical) on small screens */
@@ -42,5 +115,6 @@ body {
     width: 100%;
     display: block;
     margin-bottom: 20px;
+    
   }
 }

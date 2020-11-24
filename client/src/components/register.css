@@ -1,7 +1,13 @@
-.jumbotron {
-  background-image: url("Students-in-a-study-group-008.jpg");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@100;200;400&display=swap');
+.jumbotron_register {
+  display: flex;
+    align-items: center;
+  background-image: url("students_register.jpeg");
   background-size: cover;
-  height: 400px;
+  height: 1000px;
+  justify-content: flex-end;
+  font-family: 'Montserrat Alternates', sans-serif;
+  
 }
 * {
   box-sizing: border-box;
@@ -28,12 +34,28 @@ body {
   clear: both;
 }
 
-/* Style the counter cards */
-.card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
-  padding: 16px;
+.register_container{
+  background-color:rgb(235, 123, 95);
+  opacity: 80%;
+  width: 20%;
+  border-radius: 1rem;
   text-align: center;
-  background-color: #f1f1f1;
+  margin-top: 0;
+  margin-right: 80px;
+  margin-left: 800px;
+  padding-bottom: 14px;
+  color: #f2f2f2;
+  box-shadow: 0px 6px 10px 0px rgba(0, 0, 0, 0.5);
+}
+.register_container .form .input[type='text']{
+  padding-top: 0 !important;
+}
+.btn-primary{
+  margin-top: 10px;
+  background-color: rgb(228, 107, 77);
+  border-radius: 1rem;
+  border-color: rgb(228, 107, 77);
+  color:#f2f2f2; 
 }
 
 /* Responsive columns - one column layout (vertical) on small screens */
