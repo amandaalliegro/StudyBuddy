@@ -1,7 +1,7 @@
 import React from "react";
 
 // find the html code i used in https://bootsnipp.com/snippets/5Moza
-export default function Profile(props) {
+export default function UserProfile(props) {
   return (
     <div>
       <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css" />
