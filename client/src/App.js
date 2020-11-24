@@ -1,11 +1,16 @@
 import React, { useEffect, useState } from 'react';
+import {
+  Router,
+  Switch,
+  Route
+} from "react-router";
 import axios from 'axios';
 import useApplicationData from './hooks/useApplicationData';
 import './App.css';
 import { SET_USERS } from './reducers/dataReducer';
 import Navbar from './components/navbar.js'
-import Landing from './components/landing.js'
-import Register from './components/register.js'
+import Home from './containers/Home.js'
+import Register from './containers/register.js'
 
 
 
@@ -28,8 +33,13 @@ function App() {
 
 
   return (<div className="App" >
-    <Navbar/>
-    <Register/>
+    <Router>
+      <Switch>
+        
+        <Route path="/">                         <Home />        </Route>
+      
+      </Switch>
+    </Router>
   </div >
   );
 }
