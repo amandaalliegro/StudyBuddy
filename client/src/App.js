@@ -3,6 +3,9 @@ import axios from 'axios';
 import useApplicationData from './hooks/useApplicationData';
 import './App.css';
 import { SET_USERS } from './reducers/dataReducer';
+import Navbar from './components/navbar.js'
+import Landing from './components/landing.js'
+import Register from './components/register.js'
 
 
 
@@ -25,9 +28,8 @@ function App() {
 
 
   return (<div className="App" >
-    <h1> Users </h1>
-
-    <ul> {userList} </ul>
+    <Navbar/>
+    <Register/>
   </div >
   );
 }
