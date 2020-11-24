@@ -5,6 +5,7 @@ import './App.css';
 import { SET_USERS } from './reducers/dataReducer';
 import Navbar from './components/navbar.js'
 import Landing from './components/landing.js'
+import Register from './components/register.js'
 
 
 
@@ -28,7 +29,7 @@ function App() {
 
   return (<div className="App" >
     <Navbar/>
-    <Landing/>
+    <Register/>
   </div >
   );
 }
