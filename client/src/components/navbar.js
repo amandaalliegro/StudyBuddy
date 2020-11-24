@@ -5,7 +5,7 @@ export default function Navbar(props) {
   return (
     <div className="topnav">
       <a className="active" href="/home">Study<b>Buddy</b></a>
-      <a href="/home">Logged as </a>
+      <a href="/profile">Logged as</a>
       <a href="/dm">DM</a>
       <a href="/">Logout</a>
       <form>

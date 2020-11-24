@@ -12,6 +12,7 @@ import { SET_USERS } from './reducers/dataReducer';
 import Navbar from './components/navbar.js'
 import Landing from './components/landing.js'
 import Register from './components/register.js'
+import Profile from './components/profile';
 
 
 
@@ -40,6 +41,9 @@ function App() {
           <Navbar/>
         </nav>
         <Switch>
+          <Route path="/profile">
+            <Profile />
+          </Route>
           <Route path="/register">
             <Register />
           </Route>
