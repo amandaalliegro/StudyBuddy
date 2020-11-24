@@ -9,10 +9,11 @@ import axios from 'axios';
 import useApplicationData from './hooks/useApplicationData';
 import './App.css';
 import { SET_USERS } from './reducers/dataReducer';
-import Navbar from './components/navbar.js'
-import Landing from './components/landing.js'
+import Navbar from './components/navbar.js';
+import Landing from './components/landing.js';
 import Register from './components/register.js'
-import Profile from './components/profile';
+import Profile from './components/profile.js';
+import EditProfile from './components/editProfile.js';
 
 
 
@@ -41,6 +42,9 @@ function App() {
           <Navbar/>
         </nav>
         <Switch>
+        <Route path="/profile/id">
+            <EditProfile />
+          </Route>
           <Route path="/profile">
             <Profile />
           </Route>

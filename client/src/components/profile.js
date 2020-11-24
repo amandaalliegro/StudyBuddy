@@ -1,5 +1,3 @@
-
-
 import React from "react";
 
 // find the html code i used in https://bootsnipp.com/snippets/5Moza
@@ -23,7 +21,6 @@ export default function Profile(props) {
             <div className="text-center">
               <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" className="avatar img-circle img-thumbnail" alt="avatar" />
               
-              <input type="file" className="text-center center-block file-upload" />
             </div><br />
           </div>{/*/col-3*/}
           <div className="col-sm-9" style={{padding: "50px"}}>
