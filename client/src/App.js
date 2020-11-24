@@ -16,6 +16,7 @@ import Profile from './components/Profile.js';
 import EditProfile from './components/EditProfile.js';
 import UserProfile from './components/UserProfile.js';
 
+import Messages from './components/Messages.js';
 
 
 
@@ -43,6 +44,7 @@ function App() {
           <Navbar/>
         </nav>
         <Switch>
+        
           <Route path="/profile/user_id">
             <UserProfile />
           </Route>
@@ -51,6 +53,9 @@ function App() {
           </Route>
           <Route path="/profile">
             <Profile />
+          </Route>
+          <Route path="/messages">
+            <Messages />
           </Route>
           <Route path="/register">
             <Register />
