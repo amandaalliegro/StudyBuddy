@@ -16,6 +16,8 @@ import Profile from './components/profile.js';
 import EditProfile from './components/editProfile.js';
 import UserProfile from './components/UserProfile.js';
 
+import Messages from './components/Messages.js';
+import CommunityBoard from './components/community board/CommunityBoard.js';
 
 
 
@@ -43,6 +45,7 @@ function App() {
           <Navbar/>
         </nav>
         <Switch>
+        
           <Route path="/profile/user_id">
             <UserProfile />
           </Route>
@@ -51,6 +54,12 @@ function App() {
           </Route>
           <Route path="/profile">
             <Profile />
+          </Route>
+          <Route path="/community">
+            <CommunityBoard />
+          </Route>
+          <Route path="/messages">
+            <Messages />
           </Route>
           <Route path="/register">
             <Register />
