@@ -6,6 +6,7 @@
   background-size: cover;
   height: 1000px;
   justify-content: flex-end;
+  padding-bottom: 15%;
   font-family: 'Montserrat Alternates', sans-serif;
   
 }
@@ -35,15 +36,15 @@ body {
 }
 
 .register_container{
-  background-color:rgb(235, 123, 95);
-  opacity: 80%;
+  background-color:rgb(235, 123, 95, 0.98);
+  
   width: 20%;
   border-radius: 1rem;
   text-align: center;
   margin-top: 0;
   margin-right: 80px;
   margin-left: 800px;
-  padding-bottom: 14px;
+  padding-bottom: 20px;
   color: #f2f2f2;
   box-shadow: 0px 6px 10px 0px rgba(0, 0, 0, 0.5);
 }
@@ -56,6 +57,7 @@ body {
   border-radius: 1rem;
   border-color: rgb(228, 107, 77);
   color:#f2f2f2; 
+  font-family: 'Montserrat Alternates', sans-serif;
 }
 
 /* Responsive columns - one column layout (vertical) on small screens */

@@ -12,12 +12,18 @@ import { SET_USERS } from './reducers/dataReducer';
 import Navbar from './components/Navbar.js';
 import Landing from './components/Landing.js';
 import Register from './components/Register.js'
+<<<<<<< HEAD
 import Profile from './components/Profile.js';
+=======
+import Profile from './components/Profiles.js';
+>>>>>>> master
 import EditProfile from './components/EditProfile.js';
 import UserProfile from './components/UserProfile.js';
+import Logged from './components/Logged.js';
 
 import Messages from './components/Messages.js';
 import CommunityBoard from './components/community board/CommunityBoard.js';
+import MainSearch from './components/searchForUsers/MainSearch';
 
 
 
@@ -47,15 +53,20 @@ function App() {
           <Navbar/>
         </nav>
         <Switch>
-        
           <Route path="/profile/user_id">
             <UserProfile />
           </Route>
           <Route path="/profile/edit">
             <EditProfile />
           </Route>
+          <Route path="/profile/logged">
+            <Logged />
+          </Route>
           <Route path="/profile">
             <Profile />
+          </Route>
+          <Route path="/search">
+            <MainSearch />
           </Route>
           <Route path="/community">
             <CommunityBoard />
