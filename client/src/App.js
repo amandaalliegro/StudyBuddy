@@ -17,6 +17,9 @@ import EditProfile from './components/EditProfile.js';
 import UserProfile from './components/UserProfile.js';
 import Logged from './components/Logged.js';
 
+import Messages from './components/Messages.js';
+import CommunityBoard from './components/community board/CommunityBoard.js';
+import MainSearch from './components/searchForUsers/MainSearch';
 
 
 
@@ -55,6 +58,15 @@ function App() {
           </Route>
           <Route path="/profile">
             <Profile />
+          </Route>
+          <Route path="/search">
+            <MainSearch />
+          </Route>
+          <Route path="/community">
+            <CommunityBoard />
+          </Route>
+          <Route path="/messages">
+            <Messages />
           </Route>
           <Route path="/register">
             <Register />
