@@ -1,31 +1,22 @@
 import React from "react";
-
+import "./editProfile.css"
 // find the html code i used in https://bootsnipp.com/snippets/5Moza
 export default function EditProfile(props) {
   return (
-    <div>
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-      <script src="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.jquery.min.js"></script>
-      <link href="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.min.css" rel="stylesheet" />
-      <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css" />
-      {/*---- Include the above in your HEAD tag --------*/}
-      <title>Bootstrap Example</title>
-      <meta charSet="utf-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-      <hr />
+    <div id="profile_container">
+      
       <div className="container bootstrap snippet">
         <div className="row">
-          <div className="col-sm-10"><h1>Edit Profile</h1></div>
+          <div className="col-sm-10" id="title_profile"><h1>Edit Profile</h1></div>
         </div>
-        <div className="col-sm-3">{/*left col*/}
+        <div className="container" id="profile_element">
           <div className="text-center">
-            <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" className="avatar img-circle img-thumbnail" alt="avatar" />
+            <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" className="avatar img-circle img-thumbnail" id="avatar" alt="avatar" />
             <input type="file" className="text-center center-block file-upload" />
           </div>
           <br />
-        </div>{/*/col-3*/}
-        <div className="col-sm-9" style={{ padding: "50px" }}>
+        
+        <div className="col-sm-9" style={{ padding: "50px" }} id="profile_data">
           <form className="form" action="##" method="post" id="registrationForm">
             <div className="form-group">
               <div className="col-xs-6">
@@ -33,6 +24,7 @@ export default function EditProfile(props) {
                 <input type="text" className="form-control" name="name" id="name" placeholder="Name" />
               </div>
             </div>
+            <div id="profile_location">
             <div className="form-group">
               <div className="col-xs-6">
                 <label htmlFor="email"><h4>Email</h4></label>
@@ -45,6 +37,8 @@ export default function EditProfile(props) {
                 <input type="text" className="form-control" id="location" placeholder="location" title="enter a location" />
               </div>
             </div>
+            </div>
+            <div id="profile_location">
             <h4>you are a:</h4>
             <div>
               <input type="checkbox" id="student" name="student" defaultValue="student" />
@@ -65,7 +59,8 @@ export default function EditProfile(props) {
                 <label htmlFor="not-defined">Prefer not to say</label>
               </div>
             </div>
-
+            </div>
+            <div id="profile_location">
             <div className="form-group">
               <div className="col-xs-6">
                 <label htmlFor="ocupation:"><h4>Location</h4></label>
@@ -89,12 +84,16 @@ export default function EditProfile(props) {
                 <input type="submit" />
               </form>
             </div>
+            </div>
+            <div id="profile_location">
             <div className="form-group">
               <div className="col-xs-6">
                 <label htmlFor="description"><h4>description</h4></label>
                 <input type="text" className="description" name="description" id="description" placeholder="what's in your mind!" title="enter your password." />
               </div>
             </div>
+            </div>
+            <div id="profile_location">
             <div className="form-group">
               <div className="col-xs-6">
                 <label htmlFor="password"><h4>Password</h4></label>
@@ -107,6 +106,7 @@ export default function EditProfile(props) {
                 <input type="password" className="form-control" name="confirm-password" id="confirm-password" placeholder="confirm password" title="enter your password." />
               </div>
             </div>
+            </div>
             <div className="form-group">
               <div className="col-xs-12">
                 <br />
@@ -114,12 +114,14 @@ export default function EditProfile(props) {
                 <button className="btn btn-lg" type="reset"><i className="glyphicon glyphicon-repeat" /> Cancel</button>
               </div>
             </div>
+            
           </form>
 
-
+          </div>{/*/col-3*/}
         </div>
       </div>{/*/col-9*/}
+      </div>
 
-    </div>
+    
   );
 }

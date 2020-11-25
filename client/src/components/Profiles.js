@@ -5,7 +5,6 @@ import "./profile.css"
 export default function Profile(props) {
   return (
     <div id="profile_container">
-     
       <div className="container bootstrap snippet" id="container_profile">
         <div className="container" id="name_profile">
           <div className="col-sm-10"><h1>Affaf Rai</h1></div>
@@ -43,7 +42,7 @@ export default function Profile(props) {
                   </div>
                   <div className="form-group" id="profile_subjects">
                       <label><h4>preferred Subjects:</h4></label>
-                      <label><h4>Web Development - App Development</h4></label>
+                      <label><h4>Web Development, App Development</h4></label>
                   </div>
                   <div className="form-group" id="profile_description">
                       <label><h4>Description:</h4></label>

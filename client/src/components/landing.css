@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@100;200;400&display=swap');
 
 #body_container {
-  background-color: #cecece;
+  background-color: #e0dddb;
   
 }
 
@@ -94,7 +94,7 @@ body {
   font-family: 'Montserrat Alternates', sans-serif;
 }
 
-.button {
+#btn_register {
   border-radius: 1rem;
   border: 0;
   font-size: 1.5rem;
@@ -105,8 +105,9 @@ body {
   border-width: 2px;
   border-style: solid;
   border-color: rgb(233, 102, 69);
-  color: rgb(233, 102, 69);
+  
   background-color: rgb(233, 102, 69);
+  color: white;
 }
 .button--confirm {
   color: white;

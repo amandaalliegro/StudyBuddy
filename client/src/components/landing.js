@@ -14,9 +14,7 @@ export default function Landing(props) {
           <div id="#brand_box">
           <h1 id="font-size-brand"><b>Study Buddy</b></h1>
           <p id="subtitle_brand"><b><i>Study Together!</i></b></p>
-          <button className={buttonClass}>
-          <a href="/register">Create a profile! </a>
-          </button>
+          <button type="button" className="btn btn-primary edit_btn" id="btn_register" href="/register">Register!</button>
           </div>
         </div>
       </div>

@@ -21,7 +21,7 @@ export default function Navbar(props) {
             type="text"
             placeholder="Password"
           />
-          <button class="btn btn-outline-success" type="button"><a href="/login">Sign in!</a></button>
+          <button class="btn btn-outline-success" id="login-btn-nav"type="button">Sign in!</button>
         </form>
       </div>
         </div>
