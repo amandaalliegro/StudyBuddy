@@ -1,6 +1,12 @@
 import React from "react";
 import "./navbar.css"
 import classNames from 'classnames/bind';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 export default function Navbar(props) {
   
@@ -21,7 +27,9 @@ export default function Navbar(props) {
             type="text"
             placeholder="Password"
           />
+          <Link to="/profile/logged">
           <button class="btn btn-outline-success" id="login-btn-nav"type="button">Sign in!</button>
+          </Link>
         </form>
       </div>
         </div>

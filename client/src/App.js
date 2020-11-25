@@ -15,6 +15,7 @@ import Register from './components/Register.js'
 import Profile from './components/Profiles.js';
 import EditProfile from './components/EditProfile.js';
 import UserProfile from './components/UserProfile.js';
+import Logged from './components/Logged.js';
 
 
 
@@ -48,6 +49,9 @@ function App() {
           </Route>
           <Route path="/profile/edit">
             <EditProfile />
+          </Route>
+          <Route path="/profile/logged">
+            <Logged />
           </Route>
           <Route path="/profile">
             <Profile />
