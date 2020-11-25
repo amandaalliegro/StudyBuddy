@@ -9,7 +9,12 @@
 #profile_container {
   display: block;
   padding-top: 50px;
-  background-color: #cecece;
+  background-color: #e7e5e4;
+  
+}
+#title_profile{
+  font-family: 'Montserrat Alternates', sans-serif;
+  color: white;
 }
 #name_profile {
   display: flex;

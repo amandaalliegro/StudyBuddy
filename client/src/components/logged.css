@@ -1,17 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@100;200;400&display=swap');
 
 #body_container {
-  background-color: #e0dddb;
+  background-color: #ffffff;
   padding-top: 15px;
   
 }
 
-.jumbotron {
+#jumbo-logged {
   display: flex;
   align-items: center;
   justify-content: flex-end;
   padding-right: 210px;
-  background-image: url("Students.jpeg");
+  background-image: url("material.jpeg");
   margin-block-start: 0px;
   background-size: cover;
   background-repeat: no-repeat;
@@ -47,7 +47,7 @@
 }
 #brand_box{
   display: block;
-  justify-content: flex-end;
+  justify-content: flex-start;
   margin-right: 100px;
   font-size: 5em;
   font-family: 'Montserrat Alternates', sans-serif;

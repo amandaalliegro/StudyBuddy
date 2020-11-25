@@ -9,15 +9,14 @@ import axios from 'axios';
 import useApplicationData from './hooks/useApplicationData';
 import './App.css';
 import { SET_USERS } from './reducers/dataReducer';
-import Navbar from './components/navbar.js';
-import Landing from './components/landing.js';
-import Register from './components/register.js'
-import Profile from './components/profile.js';
-import EditProfile from './components/editProfile.js';
+import Navbar from './components/Navbar.js';
+import Landing from './components/Landing.js';
+import Register from './components/Register.js'
+import Profile from './components/Profiles.js';
+import EditProfile from './components/EditProfile.js';
 import UserProfile from './components/UserProfile.js';
+import Logged from './components/Logged.js';
 
-import Messages from './components/Messages.js';
-import CommunityBoard from './components/community board/CommunityBoard.js';
 
 
 
@@ -45,21 +44,17 @@ function App() {
           <Navbar/>
         </nav>
         <Switch>
-        
           <Route path="/profile/user_id">
             <UserProfile />
           </Route>
           <Route path="/profile/edit">
             <EditProfile />
           </Route>
+          <Route path="/profile/logged">
+            <Logged />
+          </Route>
           <Route path="/profile">
             <Profile />
-          </Route>
-          <Route path="/community">
-            <CommunityBoard />
-          </Route>
-          <Route path="/messages">
-            <Messages />
           </Route>
           <Route path="/register">
             <Register />

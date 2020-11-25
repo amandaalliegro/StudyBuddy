@@ -9,7 +9,8 @@
 #profile_container {
   display: block;
   padding-top: 50px;
-  background-color: #cecece;
+  background-image: url('concrete.jpeg');
+  background-repeat: repeat;
 }
 #name_profile {
   display: flex;
@@ -98,4 +99,3 @@
   color: rgb(233, 102, 69);
   background-color: rgb(233, 102, 69) !important;
 }
-

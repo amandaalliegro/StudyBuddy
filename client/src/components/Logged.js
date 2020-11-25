@@ -1,5 +1,5 @@
 import React from "react";
-import "./landing.css"
+import "./logged.css"
 import {
   BrowserRouter as Router,
   Switch,
@@ -9,20 +9,17 @@ import {
 
 import classNames from 'classnames/bind';
 
-export default function Landing(props) {
+export default function Logged(props) {
   const buttonClass = classNames("button", {
     "button--confirm": props.confirm
   });
   return (
     <div>
       <div class="container" >
-        <div class="jumbotron" id="#jumbo">
+        <div class="jumbotron" id="jumbo-logged">
           <div id="#brand_box">
           <h1 id="font-size-brand"><b>Study Buddy</b></h1>
-          <p id="subtitle_brand"><b><i>Study Together!</i></b></p>
-          <Link to="/register">
-          <button type="button" className="btn btn-primary edit_btn" id="btn_register" href="/register">Register!</button>
-          </Link>
+          <p id="subtitle_brand"><b><i>Lets Study Together!</i></b></p>
           </div>
         </div>
       </div>
@@ -46,5 +43,5 @@ export default function Landing(props) {
       </div>
     </div>
 
-  ) 
+  )
 }
