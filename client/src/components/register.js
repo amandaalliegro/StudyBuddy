@@ -1,6 +1,12 @@
 import "./register.css"
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 export default function Register(props) {
   return (
@@ -27,7 +33,10 @@ export default function Register(props) {
               type='text'
             />
           </form>
+          <Link to="/profile/edit">
+
           <button type="submit" class="btn btn-primary">Register!</button>
+          </Link>
           </div>
         </div>
 

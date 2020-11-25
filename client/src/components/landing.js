@@ -1,5 +1,11 @@
 import React from "react";
 import "./landing.css"
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 import classNames from 'classnames/bind';
 
@@ -14,7 +20,9 @@ export default function Landing(props) {
           <div id="#brand_box">
           <h1 id="font-size-brand"><b>Study Buddy</b></h1>
           <p id="subtitle_brand"><b><i>Study Together!</i></b></p>
+          <Link to="/register">
           <button type="button" className="btn btn-primary edit_btn" id="btn_register" href="/register">Register!</button>
+          </Link>
           </div>
         </div>
       </div>
