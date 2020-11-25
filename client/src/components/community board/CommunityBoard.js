@@ -4,7 +4,7 @@ export default function CommunityBoard(props) {
   return (
     <div>
       {/* Meta Information */}
-      <title>Tweeter - Home Page</title>
+      <title>Study Buddy - community page</title>
       {/* External CSS */}
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" type="text/css" />
       <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+Pro:ital,wght@1,400;1,700&display=swap" rel="stylesheet" />
@@ -15,24 +15,19 @@ export default function CommunityBoard(props) {
       <link rel="stylesheet" href="/styles/header.css" type="text/css" />
       <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
       <link rel="stylesheet" href="/styles/tweet-section.css" type="text/css" />
-      {/* External JS */}
-      {/* App JS */}
-      {/* icons */}
-      {/* Top nav bar (fixed) */}
-   
-      {/* the main header */}
+      
      
       <main className="container">
         {/* tweet input section */}
         <section className="new-tweet">
-          <h2>Compose Tweet</h2>
+          <h2>Our Happy Community!</h2>
           <div id="error-msg" hidden>
             <i className="fa fa-times-circle" />
           </div>
-          <form method="POST" action="/tweets" id="tweet-submit">
-            <textarea name="text" id="tweet-text" placeholder="What are you humming about?" defaultValue={""} />
+          <form method="POST" action="/community" id="tweet-submit">
+            <textarea name="text" id="tweet-text" placeholder="write here!" defaultValue={""} />
             <div className="char-counter">
-              <button type="submit">Tweet</button>
+              <button type="submit">Post</button>
               <output name="counter" className="counter" htmlFor="tweet-text">140</output>
             </div>
           </form>
