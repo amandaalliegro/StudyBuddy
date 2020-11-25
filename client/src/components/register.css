@@ -36,8 +36,8 @@ body {
 }
 
 .register_container{
-  background-color:rgb(235, 123, 95);
-  opacity: 80%;
+  background-color:rgb(235, 123, 95, 0.98);
+  
   width: 20%;
   border-radius: 1rem;
   text-align: center;
