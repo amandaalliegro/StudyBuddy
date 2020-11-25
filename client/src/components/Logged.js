@@ -16,7 +16,7 @@ export default function Logged(props) {
   return (
     <div>
       <div class="container" >
-        <div class="jumbotron" id="#jumbo">
+        <div class="jumbotron" id="jumbo-logged">
           <div id="#brand_box">
           <h1 id="font-size-brand"><b>Study Buddy</b></h1>
           <p id="subtitle_brand"><b><i>Lets Study Together!</i></b></p>
