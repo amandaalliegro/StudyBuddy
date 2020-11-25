@@ -4,18 +4,21 @@ DROP TABLE IF EXISTS users_interests CASCADE;
 DROP TABLE IF EXISTS groups_of_study CASCADE;
 DROP TABLE IF EXISTS room_chat CASCADE;
 DROP TABLE IF EXISTS chat CASCADE;
-
-
+DROP TABLE IF EXISTS user_groups CASCADE;
+DROP TABLE IF EXISTS public_board CASCADE;
 
 CREATE TABLE users(
     id SERIAL PRIMARY KEY NOT NULL,
     full_name VARCHAR(255) NOT NULL,
-    email VARCHAR(255) NOT NULL,
     password VARCHAR(255) NOT NULL,
     student BOOLEAN DEFAULT TRUE,
     mentor BOOLEAN DEFAULT FALSE,
-    city VARCHAR(255),
-    preferred_language VARCHAR(255)
+    location VARCHAR(255),
+    language VARCHAR,
+    gender VARCHAR,
+    email VARCHAR(255) NOT NULL,
+    silent_buddy boolean DEFAULT FALSE
+
 );
 CREATE TABLE interests(
   id SERIAL PRIMARY KEY,
@@ -27,24 +30,26 @@ CREATE TABLE users_interests(
 );
 CREATE TABLE groups_of_study(
   id SERIAL PRIMARY KEY,
-  user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
   interest_id INTEGER REFERENCES interests(id) ON DELETE CASCADE,
   mentor BOOLEAN DEFAULT FALSE,
-  open BOOLEAN DEFAULT FALSE,
-  n_participants INTEGER NOT NULL MAX 10
+  new BOOLEAN DEFAULT FALSE,
+  -- how to set max participants?
+  n_participants INTEGER NOT NULL 
 );
-
+CREATE TABLE user_groups(
+  user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+  group_of_study_id INTEGER REFERENCES groups_of_study(id)
+);
 CREATE TABLE room_chat(
   id SERIAL PRIMARY KEY,
-  open BOOLEAN DEFAULT FALSE,
+  new BOOLEAN DEFAULT FALSE,
   interest_id INTEGER REFERENCES interests(id) ON DELETE CASCADE,
-  user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
   group_of_study_id INTEGER REFERENCES groups_of_study(id) ON DELETE CASCADE,
   messages VARCHAR(255)
 );
+CREATE TABLE public_board(
+  id SERIAL PRIMARY KEY,
+  user_id INTEGER REFERENCES users(id),
+  message VARCHAR(255)
+);
 
-CREATE TABLE chat(
-  participant_1 INTEGER REFERENCES users(id) ON DELETE CASCADE,
-  participant_2 INTEGER REFERENCES users(id) ON DELETE CASCADE,
-  messages VARCHAR (255)   
-)

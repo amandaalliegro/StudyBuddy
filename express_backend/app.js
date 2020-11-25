@@ -5,8 +5,9 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const db = require('./db');
 const dbHelpers = require('./models')(db);
-
+// imports route files
 const indexRouter = require('./routes/index');
+// this connects the file to the route bellow
 const usersRouter = require('./routes/users');
 
 const app = express();
@@ -22,6 +23,12 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
+// I want to use this route file for this specific name space. 
+// anytime you hit /api/users you will use the user route file instead.
+
+// anytime i create a new route, app.use(new route name followed by the file i want it used for)
+
+// db helpers is a file that is connected to models. 
 app.use('/api/users', usersRouter(dbHelpers));
 
 // catch 404 and forward to error handler

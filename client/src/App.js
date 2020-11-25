@@ -9,11 +9,11 @@ import axios from 'axios';
 import useApplicationData from './hooks/useApplicationData';
 import './App.css';
 import { SET_USERS } from './reducers/dataReducer';
-import Navbar from './components/Navbar.js';
-import Landing from './components/Landing.js';
-import Register from './components/Register.js'
-import Profile from './components/Profile.js';
-import EditProfile from './components/EditProfile.js';
+import Navbar from './components/navbar.js';
+import Landing from './components/landing.js';
+import Register from './components/register.js'
+import Profile from './components/profile.js';
+import EditProfile from './components/editProfile.js';
 import UserProfile from './components/UserProfile.js';
 
 import Messages from './components/Messages.js';

@@ -8,15 +8,17 @@
     "db:reset": "node ./db/reset.js"
   },
   "dependencies": {
+    "chalk": "^4.1.0",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "dotenv": "^8.2.0",
     "ejs": "~2.6.1",
     "express": "~4.16.1",
+    "fs": "0.0.1-security",
     "http-errors": "~1.6.3",
     "morgan": "~1.9.1",
     "pg": "^8.4.1",
-    "pg-native": "^3.0.0"
+    "pg-native": "^2.2.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.6"

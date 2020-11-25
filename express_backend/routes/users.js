@@ -4,13 +4,26 @@ const {getPostsByUsers} = require('../helpers/dataHelpers');
 
 
 module.exports = ({ getUsers, findUserByEmail, addUser,
-  getUsersPosts }) => {
+  getUsersPosts, getSpecificUser }) => {
 
   /* GET users listing. */
+  // name space defined in app.js /api/users
   router.get('/', function (req, res) {
     getUsers()
       .then(users => res.json(users))
       .catch(err => res.json({ msg: err.message }))
+  });
+
+  router.get('/:id', function (req, res) {
+    getSpecificUser(req.params.id).then(response => {
+      console.log("query ran")
+      console.log(response.rows)
+      res.json({user:response.rows})
+
+    })
+    
+    // res.send("ok")
+
   });
 
   router.get('/posts', (req, res) => {
