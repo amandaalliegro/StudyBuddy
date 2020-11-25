@@ -2,6 +2,7 @@
 
 #body_container {
   background-color: #e0dddb;
+  padding-top: 15px;
   
 }
 
@@ -85,7 +86,7 @@ body {
 
 /* Style the counter cards */
 .card {
-  box-shadow: 0px 6px 10px 0px rgba(0, 0, 0, 0.5); /* this adds the "card" effect */
+  box-shadow: 3px 6px 10px 3px rgba(0, 0, 0, 0.5); /* this adds the "card" effect */
   padding: 16px;
   text-align: center;
   background-color: rgb(235, 123, 95) !important;
