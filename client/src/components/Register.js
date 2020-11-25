@@ -33,16 +33,11 @@ export default function Register(props) {
               type='text'
             />
           </form>
-<<<<<<< HEAD
-         </div>/<button type="submit" class="btn btn-primary">Register!</button>
-         
-=======
           <Link to="/profile/edit">
 
           <button type="submit" class="btn btn-primary">Register!</button>
           </Link>
           </div>
->>>>>>> master
         </div>
         </div>
 
