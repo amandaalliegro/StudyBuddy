@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@100;200;400&display=swap');
 
+#body_container {
+  background-color: #cecece;
+  
+}
+
 .jumbotron {
   display: flex;
   align-items: center;
@@ -29,7 +34,7 @@
  
 }
 #subtitle_brand {
-  font-size: 4em;
+  font-size: 2em;
 }
 
 * {

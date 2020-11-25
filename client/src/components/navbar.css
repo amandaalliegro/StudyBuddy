@@ -4,7 +4,7 @@
 /* Add a black background color to the top navigation */
 .topnav {
   display: flex;
-  background-color: rgb(228, 107, 77, 0.2);
+  background-color: rgba(173, 76, 51, 0.3);
   overflow: hidden;
   margin-bottom:0 !important;
   position: absolute;
@@ -17,8 +17,11 @@
 }
 
 #login_nav {
-  float:right;
+  display: flex;
   justify-content: flex-end;
+  align-items: center;
+  flex-grow: 1;
+  
 }
 /* Style the links inside the navigation bar */
 .topnav a {
@@ -67,4 +70,8 @@
   display: flex;
   justify-content: flex-end;
   margin-right: 1rem;
+  padding-bottom: 18px;
+  flex-grow: 1;
+  align-content: center;
+
 }

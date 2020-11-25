@@ -1,3 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Quattrocento+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@100;200;400&display=swap');
+
+.body{
+  background-image: url('concrete.jpeg');
+  background-repeat: repeat;
+}
+
+#profile_container {
+  display: block;
+  padding-top: 50px;
+  background-image: url('concrete.jpeg');
+  background-repeat: repeat;
+}
+#name_profile {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 40px;
+  padding-top: 40px;
+  padding-right: 40px;
+  width: 100%;
+  font-family: 'Montserrat Alternates', sans-serif;
+  color:#f2f2f2;
+  
+}
+#container_profile {
+  display: flex;
+  width: 100%;
+}
+#profile_element {
+  display: flex;
+  justify-content: flex-start;
+  padding-right: 80px;
+  padding-left: 40px;
+  
+  font-family: 'Quattrocento Sans', sans-serif;
+}
+#profile_data {
+  display: flow-root;
+  width: 80%;
+  padding-left: 20px;
+  margin-left: 24px;
+  border-radius: 1rem;
+  background-color: rgb(233, 102, 69, 0.7);
+  color: #f2f2f2;
+
+}
+#avatar {
+  border-radius: 8rem;
+  border-width: 10px;
+  background-color: rgb(233, 102, 69, 0.15);
+}
+#profile_email {
+  display: flex;
+  justify-content: space-between;
+}
+#profile_location {
+  display: flex;
+  justify-content: space-between;
+}
+#profile_gender {
+  display: flex;
+  justify-content: space-between;
+}
+#profile_class {
+  display: flex;
+  justify-content: space-between;
+}
+#profile_occupation {
+  display: flex;
+  justify-content: space-between;
+}
+#profile_subjects {
+  display: flex;
+  justify-content: space-between;
+}
+#profile_description {
+  display: flex;
+  justify-content: space-between;
+}
+.form-group.profile_data {
+  display: inline;
+}
+
 .btn.btn-primary#edit_btn {
   border-radius: 1rem;
   border: 0;
@@ -12,3 +96,4 @@
   color: rgb(233, 102, 69);
   background-color: rgb(233, 102, 69) !important;
 }
+

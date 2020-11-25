@@ -9,18 +9,18 @@ export default function Landing(props) {
   });
   return (
     <div>
-      <div class="container">
+      <div class="container" >
         <div class="jumbotron" id="#jumbo">
           <div id="#brand_box">
           <h1 id="font-size-brand"><b>Study Buddy</b></h1>
-          <p id="subtitle_brand">Study Together!</p>
+          <p id="subtitle_brand"><b><i>Study Together!</i></b></p>
           <button className={buttonClass}>
           <a href="/register">Create a profile! </a>
           </button>
           </div>
         </div>
       </div>
-      <div class="row">
+      <div class="row" id="body_container">
         <div class="column">
           <div class="card"><b>About us</b>
           <p><img src="./about_us.png" class="img-fluid"></img></p>
