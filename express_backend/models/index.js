@@ -10,6 +10,15 @@ module.exports = (db) => {
       .catch((err) => err);
   };
 
+  const getSpecificUser = id => {
+    const query = {
+      text: 'SELECT * FROM users where id = $1',
+      values: [id]
+    };
+    console.log("get specificUser is running")
+    return db.query(query)
+  };
+
   const getUserByEmail = email => {
 
     const query = {
@@ -52,6 +61,9 @@ module.exports = (db) => {
     getUsers,
     getUserByEmail,
     addUser,
-    getUsersPosts
+    getUsersPosts,
+    getSpecificUser
+
+
   };
 };
