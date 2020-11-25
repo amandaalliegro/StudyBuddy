@@ -8,6 +8,7 @@ module.exports = ({ getUsers, findUserByEmail, addUser,
 
   /* GET users listing. */
   // name space defined in app.js /api/users
+  // axios in app.js on client 
   router.get('/', function (req, res) {
     getUsers()
       .then(users => res.json(users))

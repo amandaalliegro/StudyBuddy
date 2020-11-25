@@ -27,14 +27,14 @@ export default function Register(props) {
               type='text'
             />
           </form>
-          <button on Click= {name of function} type="submit" class="btn btn-primary">Register!</button>
+         </div>/<button type="submit" class="btn btn-primary">Register!</button>
          
+        </div>
         </div>
 
       </div>
-    </div>
   );
-    }
+    };
   
   
  

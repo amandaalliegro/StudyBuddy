@@ -9,11 +9,11 @@ import axios from 'axios';
 import useApplicationData from './hooks/useApplicationData';
 import './App.css';
 import { SET_USERS } from './reducers/dataReducer';
-import Navbar from './components/navbar.js';
-import Landing from './components/landing.js';
-import Register from './components/register.js'
-import Profile from './components/profile.js';
-import EditProfile from './components/editProfile.js';
+import Navbar from './components/Navbar.js';
+import Landing from './components/Landing.js';
+import Register from './components/Register.js'
+import Profile from './components/Profile.js';
+import EditProfile from './components/EditProfile.js';
 import UserProfile from './components/UserProfile.js';
 
 import Messages from './components/Messages.js';
@@ -26,11 +26,13 @@ function App() {
   const { state, dispatch } = useApplicationData();
 
   useEffect(() => {
-
+// this is how you talk to the backend
     axios({
       method: 'GET',
       url: '/api/users'
     })
+// then. set state function (result => dispatch)result is what server gives back (res)
+
       .then(result => dispatch({ type: SET_USERS, users: result.data }))
       .catch(err => console.log(err.message))
 
