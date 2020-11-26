@@ -5,12 +5,14 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const db = require('./db');
 const dbHelpers = require('./models')(db);
+
 // imports route files
 const indexRouter = require('./routes/index');
 // this connects the file to the route bellow
 const usersRouter = require('./routes/users');
 // makes app 
 const app = express();
+
 
 // configures app manchinery 
 app.set('views', path.join(__dirname, 'views'));

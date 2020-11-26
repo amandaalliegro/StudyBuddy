@@ -59,6 +59,17 @@ router.post('/', async (req, res, next) => {
     })
     }
 });
+
+router.get('/:id/chats', (req, res) => {
+
+  const { id } = req.params;
+
+  getChatsByUser(id)
+    .then((user) => res.json(user))
+    .catch((err) => res.json({
+      error: err.message
+    }));
+});
   return router;
 }
 

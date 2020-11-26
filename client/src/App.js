@@ -20,10 +20,22 @@ import Login from './components/Login'
 import Messages from './components/Messages.js';
 import CommunityBoard from './components/community board/CommunityBoard.js';
 import MainSearch from './components/searchForUsers/MainSearch';
-
-
+import socketIOClient from 'socket.io-client';
 
 function App() {
+  useEffect(() => {
+    console.log("TEST")
+    const socket = socketIOClient('/');
+    // events here
+
+    socket.on('connect', () => {
+      console.log("we have connected!");
+
+    })
+    // CLEAN UP THE EFFECT
+    return () => socket.disconnect();
+  })
+
 
   const { state, dispatch } = useApplicationData();
   // initialize var 
@@ -40,11 +52,11 @@ function App() {
       .then(result => dispatch({ type: SET_USERS, users: result.data }))
       .catch(err => console.log(err.message))
 
-      let full_name = localStorage.getItem('full_name')
-      full_name ? setFullName(full_name) : setFullName('')
+    let full_name = localStorage.getItem('full_name')
+    full_name ? setFullName(full_name) : setFullName('')
 
-  }, []) 
-          
+  }, [])
+
   const userList = state.users.map((user) => (<li key={user.id}> {user.first_name} {user.last_name} {user.email}</li>));
 
 
@@ -52,7 +64,7 @@ function App() {
     <Router>
       <div>
         <nav className="App">
-          <Navbar fullName={fullName} setFullName={setFullName}/>
+          <Navbar fullName={fullName} setFullName={setFullName} />
         </nav>
         <Switch>
           <Route path="/profile/user_id">
@@ -79,7 +91,7 @@ function App() {
           <Route path="/register">
             <Register />
           </Route>
-         
+
           <Route path="/">
             <Landing />
           </Route>
@@ -88,6 +100,5 @@ function App() {
     </Router>
 
   );
-}
-
+};
 export default App;
