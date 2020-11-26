@@ -18,6 +18,16 @@ export default function Register(props) {
     let full_name = "joe"
     setUserInput(prev => ({...prev, full_name}))
   }
+  
+  const setEmail = function(event) {
+
+  }
+
+  const setPassword = function(event) {
+
+  }
+
+  const set
   const infoSubmit = function() {
     console.log("hello", userInput)
     axios.post('/api/users', userInput)
@@ -43,6 +53,7 @@ export default function Register(props) {
             <input
               type='text'
             />
+           {/* should remove password confirm */}
             <p>Confirm password:</p>
             <input
               type='text'
