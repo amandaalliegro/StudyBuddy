@@ -12,7 +12,7 @@ import { SET_USERS } from './reducers/dataReducer';
 import Navbar from './components/Navbar.js';
 import Landing from './components/Landing.js';
 import Register from './components/Register.js'
-import Profile from './components/Profiles.js';
+import Profile from './components/Profile.js';
 import EditProfile from './components/EditProfile.js';
 import UserProfile from './components/UserProfile.js';
 import Logged from './components/Logged.js';

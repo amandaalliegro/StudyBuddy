@@ -1,76 +1,63 @@
-import "./register.css";
-import React, { useState } from 'react';
+import { Container, Form, Button, Alert } from 'react-bootstrap'
 import axios from 'axios';
-import ReactDOM from 'react-dom';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
-import Axios from "axios";
-// inside component -> helper functions 
+import React, { useState } from 'react'
+import './register.css'
 export default function Register(props) {
-  // let x = Math.random().toString().slice(2)
-  // const [userInput, setUserInput] = useState({full_name: "joe L", email: `j${x}@gmail.com`, password: 1234 })
-  const [userInput, setUserInput] = useState({})
-  const setFullName = function(event) {
-    let full_name = "joe"
-    setUserInput(prev => ({...prev, full_name}))
-  }
-  
-  const setEmail = function(event) {
-
-  }
-
-  const setPassword = function(event) {
-
-  }
-
-  const set
-  const infoSubmit = function() {
-    console.log("hello", userInput)
-    axios.post('/api/users', userInput)
-// decide good or bad. link to page if good. if bad. do something 
-// react router redirect thing 
+  const [error, setError] = useState(null);
+  function handleSubmit(event) {
+    event.preventDefault()
+    const newUser = {
+      full_name: event.target[0].value,
+      email: event.target[1].value,
+      password: event.target[2].value
+    }
+    if (newUser.password.length < 1) {
+      setError('Password cant be empty')
+    } else if (newUser.full_name.length < 2) {
+      setError('Enter at least 2 charachter')
+    } else {
+      setError(null)
+      axios.post('/', newUser).then((res) => {
+        props.handleCookie(res.data)
+        props.setLoggedIn(true)
+      }).catch((err) => {
+        setError('This email is used')
+      })
+    }
   }
   return (
-    <div>
+    <Container>
       <div class="container">
         <div class="jumbotron_register">
           <div class="register_container">
-          <form>
+          {error && <Alert variant="danger">{error}</Alert>}
+          <Form onSubmit={handleSubmit}>
             <h1>Be a <i>Buddy!</i></h1>
-            <p>Full name:</p>
-            <input onChange={setFullName} value={userInput.full_name}
-              type='text'
-            />
-            <p>Email:</p>
-            <input 
-              type='text'
-            />
-            <p>Password:</p>
-            <input
-              type='text'
-            />
-           {/* should remove password confirm */}
-            <p>Confirm password:</p>
-            <input
-              type='text'
-            />
-          </form>
-          <button onClick={infoSubmit} type="submit" class="btn btn-primary">Register!</button>
-          {/* move and change */}
-          <Link to="/profile/edit">
-
-          </Link>
-          </div>
+            <Form.Group controlId="formBasicName">
+              <Form.Label>Full Name:</Form.Label>
+              <Form.Control type="text" placeholder="Username" />
+              <Form.Text className="text-muted">   
+    </Form.Text>
+            </Form.Group>
+            <Form.Group controlId="formBasicEmail">
+              <Form.Label>Email:</Form.Label>
+              <Form.Control type="email" placeholder="Enter email" />
+              <Form.Text className="text-muted">               
+    </Form.Text>
+            </Form.Group>
+            <Form.Group controlId="formBasicPassword">
+              <Form.Label>Password:</Form.Label>
+              <Form.Control type="password" placeholder="Password" />
+            </Form.Group>        
+            <Button variant="primary" type="submit">
+              Register
+  </Button>
+  </Form>       
         </div>
         </div>
-
-      </div>
+        </div>
+    </Container>
   );
     };
-  
-  
- 
+
+    
