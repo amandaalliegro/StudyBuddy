@@ -5,6 +5,7 @@ import "./navbar.css"
 import Login from './Login'
 
 export default function Navbar(props) {
+  //console.log("heres your props", props.full_name)
   const [msg, setMsg] = useState(null)
   function handleSubmit(event) {
     event.preventDefault()
@@ -21,6 +22,10 @@ export default function Navbar(props) {
       setMsg('Email or password incorrect')
     })
   }
+  const logOut = () => {
+    localStorage.removeItem('full_name')
+    props.setFullName('')
+  }
   return (
     
 <div class='topnav'>
@@ -30,7 +35,8 @@ export default function Navbar(props) {
       <a href='/'>Logout</a>
       <div id='login_nav'>
      <div>
-       <Login/>
+       {!props.fullName && <Login fullName={props.fullName} setFullName={props.setFullName}/>}
+       {props.fullName && <p onClick={logOut}>Logged in as: {props.fullName}</p>}
      </div>
     </div>
     </div>

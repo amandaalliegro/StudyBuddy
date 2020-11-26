@@ -22,7 +22,7 @@ router.post('/login', (req, res) => {
       console.log(result)
         if (bcrypt.compareSync(password, result.password)) {
           console.log('passwords match')
-          res.status(200).send(String(result.id))
+          res.status(200).json(result)
         } else {
           console.log('passwords dont match')
           res.status(403).send('nope')

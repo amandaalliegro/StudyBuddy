@@ -26,6 +26,8 @@ import MainSearch from './components/searchForUsers/MainSearch';
 function App() {
 
   const { state, dispatch } = useApplicationData();
+  // initialize var 
+  const [fullName, setFullName] = useState('')
 
   useEffect(() => {
     // this is how you talk to the backend
@@ -38,7 +40,11 @@ function App() {
       .then(result => dispatch({ type: SET_USERS, users: result.data }))
       .catch(err => console.log(err.message))
 
-  }, [])
+      let full_name = localStorage.getItem('full_name')
+      full_name ? setFullName(full_name) : setFullName('')
+
+  }, []) 
+          
   const userList = state.users.map((user) => (<li key={user.id}> {user.first_name} {user.last_name} {user.email}</li>));
 
 
@@ -46,7 +52,7 @@ function App() {
     <Router>
       <div>
         <nav className="App">
-          <Navbar />
+          <Navbar fullName={fullName} setFullName={setFullName}/>
         </nav>
         <Switch>
           <Route path="/profile/user_id">
@@ -73,9 +79,7 @@ function App() {
           <Route path="/register">
             <Register />
           </Route>
-          <Route exact path="/login">
-            <Login />
-          </Route>
+         
           <Route path="/">
             <Landing />
           </Route>

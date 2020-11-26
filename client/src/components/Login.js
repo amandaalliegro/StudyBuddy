@@ -17,12 +17,17 @@ export default function Login(props) {
     }
     axios.post('/login', newUser).then((res) => {
       if (res.status === 200) {
-        console.log(res.data)
-        props.handleCookie(res.data);
+        console.log("Here", res.data)
+        //props.handleCookie(res.data);
+        localStorage.setItem("full_name", res.data.full_name)
+        props.setFullName(res.data.full_name)
+    
+        
 
         // set state and useHistory
       }
-    }).catch(() => {
+    }).catch((err) => {
+      console.log("error on post", err)
       setMsg('Email or password incorrect')
     })
   }
@@ -41,10 +46,6 @@ export default function Login(props) {
               <Form.Label>Password</Form.Label>
               <Form.Control type='password' placeholder='Password' />
             </Form.Group>
-            <Form.Group controlId='formBasicCheckbox'>
-              <Form.Check type='checkbox' label='I agree' />
-            </Form.Group>
-
             <button variant='primary' type='submit' onClick={() => history.push('/home/:id')}>Login</button>;
 
 

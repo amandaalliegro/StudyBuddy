@@ -40,6 +40,7 @@ CREATE TABLE groups_of_study(
   -- how to set max participants?
   n_participants INTEGER NOT NULL 
 );
+-- join table
 CREATE TABLE user_groups(
   user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
   group_of_study_id INTEGER REFERENCES groups_of_study(id)
