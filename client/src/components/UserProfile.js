@@ -1,5 +1,5 @@
 import React from "react";
-
+  //import users from "../../../express_backend/routes/users";
 // find the html code i used in https://bootsnipp.com/snippets/5Moza
 export default function UserProfile(props) {
   return (
@@ -25,7 +25,7 @@ export default function UserProfile(props) {
                   </div>
                   <div className="form-group" id="profile_location">
                       <label><h4>Location:</h4></label>
-                      <label><h4>Toronto</h4></label>
+                      <label><h4>{}</h4></label>
                   </div>
                   <div className="form-group" id="profile_gender">
                     <label><h4>Gender:</h4></label>

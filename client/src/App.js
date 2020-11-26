@@ -33,7 +33,7 @@ function App() {
       method: 'GET',
       url: '/api/users'
     })
-// then. set state function (result => dispatch)result is what server gives back (res)
+   // then. set state function (result => dispatch)result is what server gives back (res)
 
       .then(result => dispatch({ type: SET_USERS, users: result.data }))
       .catch(err => console.log(err.message))

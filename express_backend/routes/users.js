@@ -3,7 +3,7 @@ const router = express.Router();
 const {getPostsByUsers} = require('../helpers/dataHelpers');
 
 
-module.exports = ({ getUsers, findUserByEmail, addUser,
+module.exports = ({ getUsers, getUserByEmail, addUser,
   getUsersPosts, getSpecificUser }) => {
 
   /* GET users listing. */
@@ -39,13 +39,15 @@ module.exports = ({ getUsers, findUserByEmail, addUser,
   });
 
   router.post('/', (req, res) => {
+    console.log("made it to the reg backend", req.body)
 
     const {
-      first_name,
-      last_name,
+      full_name,
       email,
       password
     } = req.body;
+
+    // do validation - err mess
 
     getUserByEmail(email)
       .then(user => {
@@ -55,7 +57,7 @@ module.exports = ({ getUsers, findUserByEmail, addUser,
             msg: 'Sorry, a user account with this email already exists'
           });
         } else {
-          return addUser(first_name, last_name, email, password)
+          return addUser(full_name, email, password)
         }
 
       })
