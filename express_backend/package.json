@@ -2,12 +2,14 @@
   "name": "express-backend",
   "version": "0.0.0",
   "private": true,
+  "proxy": "http://localhost:3005",
   "scripts": {
     "start": "node ./bin/www",
     "dev": "nodemon ./bin/www",
     "db:reset": "node ./db/reset.js"
   },
   "dependencies": {
+    "bcrypt": "^5.0.0",
     "chalk": "^4.1.0",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",

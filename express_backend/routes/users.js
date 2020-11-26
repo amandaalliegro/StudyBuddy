@@ -37,37 +37,28 @@ module.exports = ({ getUsers, getUserByEmail, addUser,
         error: err.message
       }));
   });
-
-  router.post('/', (req, res) => {
-    console.log("made it to the reg backend", req.body)
-
-    const {
-      full_name,
-      email,
-      password
-    } = req.body;
-
-    // do validation - err mess
-
-    getUserByEmail(email)
-      .then(user => {
-
-        if (user) {
-          res.json({
-            msg: 'Sorry, a user account with this email already exists'
-          });
-        } else {
-          return addUser(full_name, email, password)
+router.post('/', async (req, res, next) => {
+    const user = req.body;
+    user.password = bcrypt.hashSync(user.password, salt);
+    const alreadyExists = await findAccount(db, user.email).then((users) => {
+      return users
+    })
+    if (alreadyExists.length > 0) {
+      res.status(403).send('noppeeee')
+    } else {
+      addUser(db, user)
+      .then((user) => {
+        console.log('user added...')
+        if (!user) {
+          res.send({error: 'error'});
+          return;
         }
-
-      })
-      .then(newUser => res.json(newUser))
-      .catch(err => res.json({
-        error: err.message
-      }));
-
-  })
-
-
+        res.send(String(user[0].id))
+    }).catch((err) => {
+      console.log(err)
+    })
+    }
+});
   return router;
 }
+
