@@ -55,9 +55,6 @@ function App() {
           <Route path="/profile/edit">
             <EditProfile />
           </Route>
-          <Route path="/profile/logged">
-            <Logged />
-          </Route>
           <Route path="/profile">
             <Profile />
           </Route>
@@ -72,6 +69,9 @@ function App() {
           </Route>
           <Route path="/register">
             <Register />
+          </Route>
+          <Route path="/:id">
+            <Logged />
           </Route>
           <Route path="/">
             <Landing />
