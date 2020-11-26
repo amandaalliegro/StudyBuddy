@@ -18,22 +18,35 @@ export default function Navbar(props) {
       <a href="/dm">DM</a>
       <a href="/">Logout</a>
       <div id="login_nav">
-        <form class="login_form">
-          <input
-            type="text"
-            placeholder="Email"
-          />
-          <input
-            type="text"
-            placeholder="Password"
-          />
-          <Link to="/profile/logged">
-          <button class="btn btn-outline-success" id="login-btn-nav"type="button">Sign in!</button>
-          </Link>
-        </form>
-      </div>
-        </div>
-    
+      <Container>
+      <div className="login_form">
+        {msg && <Alert variant="danger">{msg}</Alert>}
+        <div className="container login-form-container">
+          <Form onSubmit={handleSubmit}>
+            <Form.Group controlId="formBasicEmail">
+              <Form.Label>Email address</Form.Label>
+              <Form.Control type="email" placeholder="Enter email" />
+            </Form.Group>
 
+            <Form.Group controlId="formBasicPassword">
+              <Form.Label>Password</Form.Label>
+              <Form.Control type="password" placeholder="Password" />
+            </Form.Group>
+            <Form.Group controlId="formBasicCheckbox">
+              <Form.Check type="checkbox" label="I agree" />
+            </Form.Group>
+            <Button variant="primary" type="submit">
+              Submit
+  </Button>
+          </Form>
+        </div>
+      </div>
+    </Container>
+    </div>
+    </div>
   )
+      
+        
+
+  
 }

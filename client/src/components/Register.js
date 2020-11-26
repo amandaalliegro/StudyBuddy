@@ -3,26 +3,26 @@ import ReactDOM from 'react-dom';
 import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
+import { useHistory } from "react-router-dom";
 
 export default function Register(props) {
+
+  const history = useHistory();
+  const { register, handleSubmit, watch, errors } = useForm();
+  const onSubmit = async(user) => {
+    
+    }
   
-  const { register, handleSubmit, errors } = useForm();
-  const onSubmit= (event) => {
-    console.log("heyheyhey");
-    event.preventDefault();
   }
-  
-  axios({
-    method: 'POST',
-    url: '/api/users'
-  })
+
+
   
   return (
     <div>
       <div class="container">
         <div class="jumbotron_register">
           <div class="register_container">
-          <form onSubmit={handleSubmit}>
+          <form  onSubmit={handleSubmit(onSubmit)}>
             <h1>Be a <i>Buddy!</i></h1>
             <p>Full name:</p>
             <input
@@ -30,7 +30,6 @@ export default function Register(props) {
               name="fullName"
               ref={register({required: true})}
             />
-            
             
             <p>Email:</p>
             <input
@@ -64,7 +63,7 @@ export default function Register(props) {
 
       </div>
   );
-    };
+  }
   
   
  
