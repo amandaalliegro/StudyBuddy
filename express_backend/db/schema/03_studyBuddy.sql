@@ -7,6 +7,10 @@ DROP TABLE IF EXISTS chat CASCADE;
 DROP TABLE IF EXISTS user_groups CASCADE;
 DROP TABLE IF EXISTS public_board CASCADE;
 
+
+-- add community table 
+
+
 CREATE TABLE users(
     id SERIAL PRIMARY KEY NOT NULL,
     full_name VARCHAR(255) NOT NULL,

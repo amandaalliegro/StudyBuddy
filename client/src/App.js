@@ -16,7 +16,7 @@ import Profile from './components/Profile.js';
 import EditProfile from './components/EditProfile.js';
 import UserProfile from './components/UserProfile.js';
 import Logged from './components/Logged.js';
-
+import Login from './components/Login'
 import Messages from './components/Messages.js';
 import CommunityBoard from './components/community board/CommunityBoard.js';
 import MainSearch from './components/searchForUsers/MainSearch';
@@ -28,12 +28,12 @@ function App() {
   const { state, dispatch } = useApplicationData();
 
   useEffect(() => {
-// this is how you talk to the backend
+    // this is how you talk to the backend
     axios({
       method: 'GET',
       url: '/api/users'
     })
-   // then. set state function (result => dispatch)result is what server gives back (res)
+      // then. set state function (result => dispatch)result is what server gives back (res)
 
       .then(result => dispatch({ type: SET_USERS, users: result.data }))
       .catch(err => console.log(err.message))
@@ -46,7 +46,7 @@ function App() {
     <Router>
       <div>
         <nav className="App">
-          <Navbar/>
+          <Navbar />
         </nav>
         <Switch>
           <Route path="/profile/user_id">
@@ -54,6 +54,9 @@ function App() {
           </Route>
           <Route path="/profile/edit">
             <EditProfile />
+          </Route>
+          <Route path="/home/:id">
+            <Logged />
           </Route>
           <Route path="/profile">
             <Profile />
@@ -70,8 +73,8 @@ function App() {
           <Route path="/register">
             <Register />
           </Route>
-          <Route path="/:id">
-            <Logged />
+          <Route exact path="/login">
+            <Login />
           </Route>
           <Route path="/">
             <Landing />
@@ -79,7 +82,7 @@ function App() {
         </Switch>
       </div>
     </Router>
-    
+
   );
 }
 
