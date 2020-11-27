@@ -1,5 +1,7 @@
 const express = require('express');
 const router = express.Router();
+const bcrypt = require('bcrypt');
+let salt = bcrypt.genSaltSync(10);
 const { getPostsByUsers, findAccount, addUser } = require('../helpers/dataHelpers');
 
 
@@ -38,23 +40,24 @@ module.exports = ({ getUsers, getUserByEmail, addUser,
       }));
   });
 router.post('/', async (req, res, next) => {
-  console.log("hsdvfjkhgdkgfvuaegkafvgrevfivigwybvwgurbvurgv")
+  console.log("HEEEEE--E-EEEE-EEEE-EYYYYY")
     const user = req.body;
+    console.log(req.body);
     user.password = bcrypt.hashSync(user.password, salt);
-    const alreadyExists = await findAccount(db, user.email).then((users) => {
-      return users
-    })
-    if (alreadyExists.length > 0) {
+    console.log(await getUserByEmail(user.email));
+    const alreadyExists = await getUserByEmail(user.email);
+    console.log(typeof alreadyExists, "alreaDYYYY")
+    if (typeof alreadyExists !== 'undefined') {
       res.status(403).send('noppeeee')
     } else {
-      addUser(db, user)
+      addUser(user)
       .then((user) => {
         console.log('user added...')
         if (!user) {
           res.send({error: 'error'});
           return;
         }
-        res.send(String(user[0].id))
+        res.send(user)
     }).catch((err) => {
       console.log(err)
     })

@@ -33,6 +33,7 @@ app.use('/', indexRouter);
 // anytime you hit /api/users you will use the user route file instead.
 app.use('/api/users', usersRouter(dbHelpers));
 
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));

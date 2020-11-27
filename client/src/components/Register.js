@@ -20,7 +20,7 @@ export default function Register(props) {
       setError('Enter at least 2 charachter')
     } else {
       setError(null)
-      axios.post('/', newUser).then((res) => {
+      axios.post('/api/users', newUser).then((res) => {
         props.handleCookie(res.data)
         props.setLoggedIn(true)
       }).catch((err) => {
@@ -52,13 +52,7 @@ export default function Register(props) {
               <Form.Label>Password:</Form.Label>
               <Form.Control type='password' placeholder='Password' />
             </Form.Group>
-            <button variant='primary' type='submit' onClick={(e) => 
-              { 
-                handleSubmit(e)
-
-                history.push('/profile/edit')
-                
-              }}>Register</button>;
+            <button variant='primary' type='submit'>Register</button>;
   </Form>
         </div>
         </div>
