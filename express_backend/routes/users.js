@@ -38,6 +38,7 @@ module.exports = ({ getUsers, getUserByEmail, addUser,
       }));
   });
 router.post('/', async (req, res, next) => {
+  console.log("hsdvfjkhgdkgfvuaegkafvgrevfivigwybvwgurbvurgv")
     const user = req.body;
     user.password = bcrypt.hashSync(user.password, salt);
     const alreadyExists = await findAccount(db, user.email).then((users) => {
@@ -58,6 +59,17 @@ router.post('/', async (req, res, next) => {
       console.log(err)
     })
     }
+});
+
+router.get('/:id/chats', (req, res) => {
+
+  const { id } = req.params;
+
+  getChatsByUser(id)
+    .then((user) => res.json(user))
+    .catch((err) => res.json({
+      error: err.message
+    }));
 });
   return router;
 }

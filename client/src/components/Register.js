@@ -2,7 +2,9 @@ import { Container, Form, Button, Alert } from 'react-bootstrap'
 import axios from 'axios';
 import React, { useState } from 'react'
 import './register.css'
+import { Redirect, useHistory } from 'react-router-dom';
 export default function Register(props) {
+  let history = useHistory();
   const [error, setError] = useState(null);
   function handleSubmit(event) {
     event.preventDefault()
@@ -27,32 +29,36 @@ export default function Register(props) {
   }
   return (
     <Container>
-      <div class="container">
-        <div class="jumbotron_register">
-          <div class="register_container">
-          {error && <Alert variant="danger">{error}</Alert>}
+      <div class='container'>
+        <div class='jumbotron_register'>
+          <div class='register_container'>
+          {error && <Alert variant='danger'>{error}</Alert>}
           <Form onSubmit={handleSubmit}>
             <h1>Be a <i>Buddy!</i></h1>
-            <Form.Group controlId="formBasicName">
+            <Form.Group controlId='formBasicName'>
               <Form.Label>Full Name:</Form.Label>
-              <Form.Control type="text" placeholder="Username" />
-              <Form.Text className="text-muted">   
+              <Form.Control type='text' placeholder='Username' />
+              <Form.Text className='text-muted'>
     </Form.Text>
             </Form.Group>
-            <Form.Group controlId="formBasicEmail">
+            <Form.Group controlId='formBasicEmail'>
               <Form.Label>Email:</Form.Label>
-              <Form.Control type="email" placeholder="Enter email" />
-              <Form.Text className="text-muted">               
+              <Form.Control type='email' placeholder='Enter email' />
+              <Form.Text className='text-muted'>
     </Form.Text>
             </Form.Group>
-            <Form.Group controlId="formBasicPassword">
+            <Form.Group controlId='formBasicPassword'>
               <Form.Label>Password:</Form.Label>
-              <Form.Control type="password" placeholder="Password" />
-            </Form.Group>        
-            <Button variant="primary" type="submit">
-              Register
-  </Button>
-  </Form>       
+              <Form.Control type='password' placeholder='Password' />
+            </Form.Group>
+            <button variant='primary' type='submit' onClick={(e) => 
+              { 
+                handleSubmit(e)
+
+                // history.push('/profile/edit')
+                
+              }}>Register</button>;
+  </Form>
         </div>
         </div>
         </div>
@@ -60,4 +66,12 @@ export default function Register(props) {
   );
     };
 
-    
+
+
+
+
+
+
+
+
+

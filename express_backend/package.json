@@ -20,7 +20,8 @@
     "http-errors": "~1.6.3",
     "morgan": "~1.9.1",
     "pg": "^8.4.1",
-    "pg-native": "^2.2.0"
+    "pg-native": "^2.2.0",
+    "socket.io": "^3.0.3"
   },
   "devDependencies": {
     "nodemon": "^2.0.6"
