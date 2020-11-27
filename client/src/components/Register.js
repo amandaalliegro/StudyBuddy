@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import './register.css'
 import { Redirect, useHistory } from 'react-router-dom';
 export default function Register(props) {
+
   let history = useHistory();
   const [error, setError] = useState(null);
   function handleSubmit(event) {
@@ -55,7 +56,7 @@ export default function Register(props) {
               { 
                 handleSubmit(e)
 
-                // history.push('/profile/edit')
+                history.push('/profile/edit')
                 
               }}>Register</button>;
   </Form>

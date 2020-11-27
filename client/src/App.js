@@ -6,6 +6,7 @@ import {
   Link
 } from "react-router-dom";
 import axios from 'axios';
+import { useCookies } from 'react-cookie';
 import useApplicationData from './hooks/useApplicationData';
 import './App.css';
 import { SET_USERS } from './reducers/dataReducer';
@@ -23,6 +24,15 @@ import MainSearch from './components/searchForUsers/MainSearch';
 import socketIOClient from 'socket.io-client';
 
 function App() {
+  const [cookies, setCookie, removeCookie] = useCookies(null);
+
+
+  function handleCookie(key) {
+    setCookie("user", key, {
+      path: "/"
+    });
+  }
+
   useEffect(() => {
     console.log("TEST")
     const socket = socketIOClient('/');
