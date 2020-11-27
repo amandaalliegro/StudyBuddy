@@ -52,7 +52,7 @@ export default function Register(props) {
               <Form.Label>Password:</Form.Label>
               <Form.Control type='password' placeholder='Password' />
             </Form.Group>
-            <button variant='primary' type='submit'>Register</button>;
+            <button variant='primary' type='submit' onSubmit={() => history.push('/profile/edit')}>Register</button>;
   </Form>
         </div>
         </div>
