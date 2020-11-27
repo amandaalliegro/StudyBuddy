@@ -1,6 +1,5 @@
 import React from "react";
 import "./editProfile.css"
-
 export default function EditProfile(props) {
   return (
     <div id="profile_container">
