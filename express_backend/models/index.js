@@ -25,6 +25,7 @@ module.exports = (db) => {
       text: `SELECT * FROM users WHERE email = $1`,
       values: [email]
     }
+    console.log(email)
     console.log("fucking yolo")
     return db
       .query(query)
@@ -56,8 +57,16 @@ module.exports = (db) => {
       .catch(err => err);
 
   }
+  function findAccount(db, email) {
+    return db.query('SELECT * FROM users WHERE email=$1', [email]).then((res) => {
+      return res.rows
+    }).catch((err) => {
+      console.log(err)
+    })
+  }
 
   return {
+    findAccount,
     getUsers,
     getUserByEmail,
     addUser,
