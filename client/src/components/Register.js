@@ -2,7 +2,11 @@ import { Container, Form, Button, Alert } from 'react-bootstrap'
 import axios from 'axios';
 import React, { useState } from 'react'
 import './register.css'
+import { Redirect, useHistory } from 'react-router-dom';
+
 export default function Register(props) {
+  let history = useHistory();
+
   const [error, setError] = useState(null);
   function handleSubmit(event) {
     event.preventDefault()
@@ -49,9 +53,7 @@ export default function Register(props) {
               <Form.Label>Password:</Form.Label>
               <Form.Control type="password" placeholder="Password" />
             </Form.Group>        
-            <Button variant="primary" type="submit">
-              Register
-  </Button>
+            <button variant='primary' type='submit' onClick={() => history.push('/profile/edit')}>Register</button>;
   </Form>       
         </div>
         </div>
