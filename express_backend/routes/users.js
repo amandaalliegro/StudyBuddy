@@ -50,14 +50,16 @@ router.post('/', async (req, res, next) => {
     if (typeof alreadyExists !== 'undefined') {
       res.status(403).send('noppeeee')
     } else {
-      addUser(user)
+      addUser(user.full_name, user.email, user.password)
       .then((user) => {
-        console.log('user added...')
+        
+        console.log(user, 'user added...')
         if (!user) {
           res.send({error: 'error'});
           return;
         }
-        res.send(user)
+        res.json(user);
+        // res.send(String(user[0].full_name))
     }).catch((err) => {
       console.log(err)
     })
