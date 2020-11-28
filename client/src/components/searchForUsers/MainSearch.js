@@ -2,6 +2,8 @@ import React, { Fragment, useState } from "react";
 import "./mainSearch.css";
 import axios from "axios";
 import Results from "./Results.js"
+
+
 export default function MainSearch(props) {
   console.log("i am main search")
   const [name, setName] = useState("");
