@@ -21,7 +21,7 @@ import Login from './components/Login'
 import Messages from './components/Messages.js';
 import CommunityBoard from './components/community board/CommunityBoard.js';
 import MainSearch from './components/searchForUsers/MainSearch';
-import socketIOClient from 'socket.io-client';
+
 
 function App() {
   const [cookies, setCookie, removeCookie] = useCookies(null);
@@ -34,17 +34,22 @@ function App() {
   }
 
   useEffect(() => {
-    console.log("TEST")
-    const socket = socketIOClient('/');
-    // events here
+    // socket server '/'
+    const socket = new WebSocket('ws://localhost:3005');
+    socket.onopen = () => console.log("Connected to server")
 
-    socket.on('connect', () => {
-      console.log("we have connected!");
+    socket.onmessage = event => {
+      const message = JSON.parse(event.data);
+    }
+    socket.onclose = () => console.log('disconected from server')
+    socket.onerror = (err) => console.log(err)
+    return () => {
+      socket.onclose();
+    };
+    
+  }, [])
 
-    })
-    // CLEAN UP THE EFFECT
-    return () => socket.disconnect();
-  })
+
 
 
   const { state, dispatch } = useApplicationData();
