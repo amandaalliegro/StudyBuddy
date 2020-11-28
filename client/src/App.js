@@ -25,31 +25,37 @@ import socketIOClient from 'socket.io-client';
 
 function App() {
   const [cookies, setCookie, removeCookie] = useCookies(null);
+  const [socket, setSocket] = useState(null)
+  const { state, dispatch } = useApplicationData();
+// initializes variables to use state
+  const [fullName, setFullName] = useState('')
 
-
-  function handleCookie(key) {
-    setCookie("user", key, {
-      path: "/"
-    });
-  }
+function handleCookie(key) {
+  setCookie("user", key, {
+    path: "/"
+  });
+}
 
   useEffect(() => {
-    console.log("TEST")
+   // socket server '/'
     const socket = socketIOClient('/');
-    // events here
+  //   // events here
 
-    socket.on('connect', () => {
-      console.log("we have connected!");
-
+  //   // socket.on('connect', () => {
+  //   //   // passed to message component as prop
+  //   //   // setSocket(socket)
+  //   //   console.log("we have connected!", socket);
+    
+      
+  //   // })
+    socket.on('message', () => {
+      console.log('hi')
+      // dispatch the message to set state 
     })
     // CLEAN UP THE EFFECT
     return () => socket.disconnect();
-  })
+  }, []) 
 
-
-  const { state, dispatch } = useApplicationData();
-  // initialize var 
-  const [fullName, setFullName] = useState('')
 
   useEffect(() => {
     // this is how you talk to the backend
@@ -69,7 +75,7 @@ function App() {
 
   const userList = state.users.map((user) => (<li key={user.id}> {user.first_name} {user.last_name} {user.email}</li>));
 
-
+// this is where you pass to the components
   return (
     <Router>
       <div>
@@ -96,7 +102,7 @@ function App() {
             <CommunityBoard />
           </Route>
           <Route path="/messages">
-            <Messages />
+            <Messages socket= {socket}/>
           </Route>
           <Route path="/register">
             <Register />
