@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import "./editProfile.css"
 import axios from 'axios';
-import { Container, Form, Button, Alert } from 'react-bootstrap'
-import { Redirect, useHistory } from 'react-router-dom';
+import { Container, Form, Button } from 'react-bootstrap'
+import { useHistory } from 'react-router-dom';
 
 
 

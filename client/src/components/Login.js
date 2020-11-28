@@ -1,9 +1,9 @@
-import { Container, Form, Button, Alert } from 'react-bootstrap'
+import { Container, Form, Alert } from 'react-bootstrap'
 import axios from 'axios';
 import React, { useState } from 'react'
 
 import "./navbar.css"
-import { Redirect, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 
 export default function Login(props) {

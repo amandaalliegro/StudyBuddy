@@ -3,7 +3,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  Redirect
 } from "react-router-dom";
 import axios from 'axios';
 import { useCookies } from 'react-cookie';
@@ -17,7 +17,6 @@ import Profile from './components/Profile.js';
 import EditProfile from './components/EditProfile.js';
 import UserProfile from './components/UserProfile.js';
 import Logged from './components/Logged.js';
-import Login from './components/Login'
 import Messages from './components/Messages.js';
 import CommunityBoard from './components/community board/CommunityBoard.js';
 import MainSearch from './components/searchForUsers/MainSearch';
@@ -25,7 +24,13 @@ import socketIOClient from 'socket.io-client';
 
 function App() {
   const [cookies, setCookie, removeCookie] = useCookies(null);
-
+  const [loggedIn, setLoggedIn] = useState(false)
+  useEffect(() => {
+    
+    if (cookies.user) {
+      setLoggedIn(true)
+    }
+  })
 
   function handleCookie(key) {
     setCookie("user", key, {
@@ -99,7 +104,8 @@ function App() {
             <Messages />
           </Route>
           <Route path="/register">
-            <Register />
+          {!loggedIn && <Register handleCookie={handleCookie} setLoggedIn={setLoggedIn}/>}
+          {loggedIn && <Redirect to="/user/:d"/>}
           </Route>
 
           <Route path="/">

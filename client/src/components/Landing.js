@@ -1,11 +1,6 @@
 import React from "react";
 import "./landing.css"
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import classNames from 'classnames/bind';
 
