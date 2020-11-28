@@ -50,7 +50,7 @@ function App() {
   const { state, dispatch } = useApplicationData();
   // initialize var 
   const [fullName, setFullName] = useState('')
-
+  const [id, setId] = useState('')
   useEffect(() => {
     // this is how you talk to the backend
     axios({
@@ -64,8 +64,24 @@ function App() {
 
     let full_name = localStorage.getItem('full_name')
     full_name ? setFullName(full_name) : setFullName('')
+    
 
   }, [])
+  // useEffect(() => {
+  //   // this is how you talk to the backend
+  //   axios({
+  //     method: 'GET',
+  //     url: '/api/users'
+  //   })
+  //     // then. set state function (result => dispatch)result is what server gives back (res)
+
+  //     .then(result => dispatch({ type: SET_USERS, users: result.data }))
+  //     .catch(err => console.log(err.message))
+
+  //   let nameSearch = localStorage.getItem('full_name')
+  //   full_name ? setFullName(full_name) : setFullName('')
+
+  // }, [])
 
   const userList = state.users.map((user) => (<li key={user.id}> {user.first_name} {user.last_name} {user.email}</li>));
 
