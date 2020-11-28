@@ -1,10 +1,44 @@
-import React from "react";
+import React, { useState } from 'react'
 import "./editProfile.css"
+import axios from 'axios';
+import { Container, Form, Button, Alert } from 'react-bootstrap'
+import { Redirect, useHistory } from 'react-router-dom';
+
+
+
 
 export default function EditProfile(props) {
+  let history = useHistory();
+  const [error, setError] = useState(null);
+  function handleSubmit(event) {
+    event.preventDefault()
+    const user = {
+      full_name: event.target[0].value,
+      email: event.target[1].value,
+      student: event.target[2].value,
+      mentor: event.target[3].value,
+      silent_buddy: event.target[4].value,
+      description: event.target[5].value,
+      password: event.target[6].value
+    }
+    if (user.password.length < 1) {
+      setError('Password cant be empty')
+    } else if (user.full_name.length < 2) {
+      setError('Enter at least 2 charachter')
+    } else {
+      setError(null)
+      axios.put(`/api/users/`, user).then((res) => {
+        props.handleCookie(res.data)
+        props.setLoggedIn(true)
+      }).catch((err) => {
+        setError('You must have a valid email signed')
+      })
+    }
+  }
+
   return (
+    <Container>
     <div id="profile_container">
-      
       <div className="container bootstrap snippet">
         <div className="row">
           <div className="col-sm-10" id="title_profile"><h1>Edit Profile</h1></div>
@@ -15,111 +49,74 @@ export default function EditProfile(props) {
             <input type="file" className="text-center center-block file-upload" />
           </div>
           <br />
-        
-        <div className="col-sm-9" style={{ padding: "50px" }} id="profile_data">
-          <form className="form" action="##" method="post" id="registrationForm">
-            <div className="form-group">
-              <div className="col-xs-6">
-                <label htmlFor="Name"><h4>Name:</h4></label>
-                <input type="text" className="form-control" name="name" id="name" placeholder="Name" />
-              </div>
-            </div>
-            <div id="profile_location">
-            <div className="form-group">
-              <div className="col-xs-6">
-                <label htmlFor="email"><h4>Email</h4></label>
-                <input type="email" className="form-control" name="email" id="email" placeholder="your email here" title="enter your email." />
-              </div>
-            </div>
-            <div className="form-group">
-              <div className="col-xs-6">
-                <label htmlFor="location"><h4>Location</h4></label>
-                <input type="text" className="form-control" id="location" placeholder="location" title="enter a location" />
-              </div>
-            </div>
-            </div>
-            <div id="profile_location">
-            <h4>you are a:</h4>
-            <div>
-              <input type="checkbox" id="student" name="student" defaultValue="student" />
-              <label htmlFor="student"> student</label><br />
-              <input type="checkbox" id="mentor" name="mentor" defaultValue="mentor" />
-              <label htmlFor="mentor"> Mentor</label><br />
-              <input type="checkbox" id="silent-student" name="silent-student" defaultValue="silent-student" />
-              <label htmlFor="silent-student">silent-student</label>
-            </div>
-            <div className="form-group">
-              <h4>Gender</h4>
-              <div className="col-xs-6">
-                <input type="radio" id="male" name="gender" defaultValue="male" />
-                <input type="radio" id="female" name="gender" defaultValue="female" />
-                <input type="radio" id="other" name="gender" defaultValue="other" />
-                <label htmlFor="other">Other</label>
-                <input type="radio" id="not-defined" name="gender" defaultValue="other" />
-                <label htmlFor="not-defined">Prefer not to say</label>
-              </div>
-            </div>
-            </div>
-            <div id="profile_location">
-            <div className="form-group">
-              <div className="col-xs-6">
-                <label htmlFor="ocupation:"><h4>Location</h4></label>
-                <input type="text" className="form-control" id="ocupation" placeholder="ocupation" title="enter an ocupation" />
-              </div>
-            </div>
-            <div>
-              <form action="http://httpbin.org/post" method="post">
 
-                <select data-placeholder="Begin typing a name to filter..." multiple className="chosen-select" name="test">
-                  <option value />
-                  <option>American Black Bear</option>
-                  <option>Asiatic Black Bear</option>
-                  <option>Brown Bear</option>
-                  <option>Giant Panda</option>
-                  <option>Sloth Bear</option>
-                  <option>Sun Bear</option>
-                  <option>Polar Bear</option>
-                  <option>Spectacled Bear</option>
-                </select>
-                <input type="submit" />
-              </form>
-            </div>
-            </div>
+          <div className="col-sm-9" style={{ padding: "50px" }} id="profile_data">
+          <Form className="form" action="##" method="post" id="registrationForm" onSubmit={handleSubmit}>
+            <Form.Group className="form-group">
+                <div className="col-xs-6">
+                <Form.Label><h4>Full Name:</h4></Form.Label>
+                <Form.Control type="text" className="form-control" name="name" id="name" placeholder="Name" />
+                <Form.Text className='text-muted'>
+                </Form.Text>
+                </div>
+                </Form.Group>
+                <Form.Group  className="form-group">
+                  <div className="col-xs-6">
+                  <Form.Label><h4>Email</h4></Form.Label>
+                  <Form.Control type="email" className="form-control" name="email" id="email" placeholder="your email here" title="enter your email." />
+                  <Form.Text className='text-muted'>
+                  </Form.Text>
+                  </div>
+                  </Form.Group> 
+              <div id="profile_location">
+                <h4>you are a:</h4>
+                <div>
+                <Form.Control type="checkbox" id="student" name="student" defaultValue="student" />
+                  <Form.Label> Student</Form.Label><br />
+                  <Form.Control type="checkbox" id="mentor" name="mentor" defaultValue="mentor" />
+                  <Form.Label> Mentor</Form.Label><br />
+                  <Form.Control type="checkbox" id="silent-student" name="silent-student" defaultValue="silent-student" />
+                  <Form.Label> Silent-Student</Form.Label><br />
+                </div>
+              </div>
+              <Form.Group className="form-group">
+                <div className="col-xs-6">
+                <Form.Label><h4>description</h4></Form.Label>
+                  <Form.Control type="text" className="description" name="description" id="description" placeholder="what's in your mind!" title="enter your password." />
+                  <Form.Text className='text-muted'>
+                  </Form.Text>
+                </div>
+                </Form.Group>
             <div id="profile_location">
-            <div className="form-group">
-              <div className="col-xs-6">
-                <label htmlFor="description"><h4>description</h4></label>
-                <input type="text" className="description" name="description" id="description" placeholder="what's in your mind!" title="enter your password." />
-              </div>
-            </div>
-            </div>
-            <div id="profile_location">
-            <div className="form-group">
-              <div className="col-xs-6">
-                <label htmlFor="password"><h4>Password</h4></label>
-                <input type="password" className="form-control" name="password" id="password" placeholder="new password" title="enter your password." />
-              </div>
-            </div>
-            <div className="form-group">
-              <div className="col-xs-6">
-                <label htmlFor="confirm-password"><h4>Confirm your password</h4></label>
-                <input type="password" className="form-control" name="confirm-password" id="confirm-password" placeholder="confirm password" title="enter your password." />
-              </div>
-            </div>
+            <Form.Group className="form-group">
+                <div className="col-xs-6">
+                <Form.Label><h4>Password</h4></Form.Label>
+                  <Form.Control type="password" className="form-control" name="password" id="password" placeholder="new password" title="enter your password." />
+                </div>
+            </Form.Group>
+            <Form.Group className="form-group">
+                <div className="col-xs-6">
+                <Form.Label><h4>Confirm your password</h4></Form.Label>
+                  <Form.Control type="password" className="form-control" name="confirm-password" id="confirm-password" placeholder="confirm password" title="enter your password." />
+                  <Form.Text className='text-muted'>
+                  </Form.Text>
+                </div>
+            </Form.Group>
             </div>
             <div className="form-group">
               <div className="col-xs-12">
                 <br />
-                <button className="btn btn-lg btn-success" type="submit"><i className="glyphicon glyphicon-ok-sign" /> Save </button>
-                <button className="btn btn-lg" type="reset"><i className="glyphicon glyphicon-repeat" /> Cancel</button>
+                <button variant='primary' type='submit' onClick={() => history.push('/home/:id')}>Save</button>;
+                <Button className="btn btn-lg" type="reset"><i className="glyphicon glyphicon-repeat" /> Cancel</Button>
               </div>
             </div>
-            
-          </form>
-
+    
+            </Form>
+          
           </div>{/*/col-3*/}
         </div>
-      </div>{/*/col-9*/}
-      </div>
+    </div>
+    </div>
+    </Container>
   );
 }

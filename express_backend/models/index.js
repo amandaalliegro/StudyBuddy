@@ -13,10 +13,14 @@ module.exports = (db) => {
   const getSpecificUser = id => {
     const query = {
       text: 'SELECT * FROM users where id = $1',
+
       values: [id]
     };
     console.log("get specificUser is running")
-    return db.query(query)
+    return db
+      .query(query)
+      .then(result =>result.rows[0])
+      .catch((err) => console.log(err));
   };
 
   const getUserByEmail = email => {
@@ -43,6 +47,37 @@ module.exports = (db) => {
       .then(result => result.rows[0])
       .catch(err => err);
   }
+  const editUser = userObject => {
+    // a query will only be build and run if an user id was provided and the passed object has more than the id key
+    if (userObject.id && Object.keys(userObject).length > 1) {
+
+      // all the accepted fields in our database
+      const userFields = ['full_name', 'email', 'password', 'student', 'mentor', 'description', 'silent_buddy'];
+
+      // the sql query and the values array should be build dynamically
+      let text = `UPDATE users \nSET `;
+      const values = [userObject.id];
+
+      for (const field of userFields) {
+        if (userObject[field]) {
+          values.push(userObject[field]);
+          text += `${field} = $${values.length},\n`;
+        }
+      }
+      text = text.slice(0, -2) + "\nWHERE users.id = $1 \nRETURNING *;";
+
+      return db.query(text, values)
+        .then(result => {
+          if (result.rows[0]) {
+            return result.rows[0];
+          }
+          throw 'The user id does not exist';
+        })
+        .catch(err => err);
+    }
+
+    throw 'It seems that the user id is missing or there are no fields to update';
+  };
 
   const getUsersPosts = () => {
     const query = {
@@ -71,8 +106,7 @@ module.exports = (db) => {
     getUserByEmail,
     addUser,
     getUsersPosts,
-    getSpecificUser
-
-
+    getSpecificUser,
+    editUser
   };
 };

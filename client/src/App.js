@@ -80,7 +80,7 @@ function App() {
           <Route path="/profile/user_id">
             <UserProfile />
           </Route>
-          <Route path="/profile/edit">
+          <Route path="/user/:d">
             <EditProfile />
           </Route>
           <Route path="/home/:id">

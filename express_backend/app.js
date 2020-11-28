@@ -10,6 +10,7 @@ const dbHelpers = require('./models')(db);
 const indexRouter = require('./routes/index');
 // this connects the file to the route bellow
 const usersRouter = require('./routes/users');
+
 // makes app 
 const app = express();
 
@@ -32,6 +33,7 @@ app.use('/', indexRouter);
 // db helpers is a file that is connected to models. 
 // anytime you hit /api/users you will use the user route file instead.
 app.use('/api/users', usersRouter(dbHelpers));
+
 
 
 // catch 404 and forward to error handler
