@@ -68,15 +68,15 @@ export default function MainSearch(props) {
         </form>
           </header>
           
-          <section className="tweets-section" id="tweets-container">
-            <ul id="forth">
-            <table className="table my-5">
+          <section>
+            <ul>
+            <table >
           <thead>
             <tr>
              
             </tr>
           </thead>
-          <tbody>
+          <tbody className="table my-5">
             {users.map(user => (
               <tr key={user.user_id}>
                 <td>{user.email}</td>
