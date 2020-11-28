@@ -64,6 +64,19 @@ module.exports = (db) => {
       console.log(err)
     })
   }
+// for search bar
+  function findUser(name){
+    console.log(name)
+    console.log('this is  the find user function')
+    return db.query('SELECT * FROM users WHERE full_name LIKE $1', [`%${name.trim()}%`])
+    .then((res) => {
+      return res.rows;
+    })
+    .catch((err) => {
+       console.error(err.message);
+       return err.message;
+    })
+  }
 
   return {
     findAccount,
@@ -71,7 +84,8 @@ module.exports = (db) => {
     getUserByEmail,
     addUser,
     getUsersPosts,
-    getSpecificUser
+    getSpecificUser,
+    findUser
 
 
   };
