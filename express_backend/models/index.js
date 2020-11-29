@@ -50,18 +50,18 @@ module.exports = (db) => {
   const editUser = userObject => {
     console.log("IM EDIT USER FUNCTION");
     // a query will only be build and run if an user id was provided and the passed object has more than the id key
-    //if (userObject && Object.keys(userObject).length > 1) {
+    if (userObject && Object.keys(userObject).length > 1) {
       console.log("IM USER OBJECT FROM THE HELPER FUNCTION", userObject)
 
       // all the accepted fields in our database
-      const userFields = ['id','full_name', 'email', 'password', 'student', 'mentor', 'description', 'silent_buddy'];
+      const userFields = ['full_name', 'email', 'password', 'student', 'mentor', 'silent_buddy'];
       console.log("THIS IS USER FIELDS", userFields)
       // the sql query and the values array should be build dynamically
       let text = `UPDATE users \nSET `;
-      const values = [userObject];
+      const values = [userObject.id];
       console.log("this is userObject line 62", userObject["full_name"])
       for (const field of userFields) {
-        if (userObject[field]) {
+        if (userObject[field] !== '') {
           values.push(userObject[field]);
 
           text += `${field} = $${values.length},\n`;
@@ -84,7 +84,7 @@ module.exports = (db) => {
         })
         .catch(err => err);
     
-
+      }
     throw 'It seems that the user id is missing or there are no fields to update';
   };
 

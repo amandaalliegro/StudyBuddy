@@ -74,8 +74,7 @@ router.put('/:id', async(req, res, next) => {
     password, 
     student, 
     mentor, 
-    silent_buddy, 
-    description
+    silent_buddy
   } = req.body;
   
 
@@ -100,8 +99,7 @@ router.put('/:id', async(req, res, next) => {
           password, 
           student, 
           mentor, 
-          silent_buddy, 
-          description
+          silent_buddy
         })
         
       })
