@@ -99,6 +99,19 @@ module.exports = (db) => {
       console.log(err)
     })
   }
+// for search bar
+  function findUser(name){
+    console.log(name)
+    console.log('this is  the find user function')
+    return db.query('SELECT * FROM users WHERE full_name LIKE $1', [`%${name.trim()}%`])
+    .then((res) => {
+      return res.rows;
+    })
+    .catch((err) => {
+       console.error(err.message);
+       return err.message;
+    })
+  }
 
   return {
     findAccount,
@@ -107,6 +120,12 @@ module.exports = (db) => {
     addUser,
     getUsersPosts,
     getSpecificUser,
+<<<<<<< HEAD
     editUser
+=======
+    findUser
+
+
+>>>>>>> 3902d26b3fef7df1a8de0440d3cd50bb360602b0
   };
 };

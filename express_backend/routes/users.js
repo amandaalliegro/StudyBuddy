@@ -2,8 +2,7 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcrypt');
 let salt = bcrypt.genSaltSync(10);
-const { getPostsByUsers, findAccount, addUser } = require('../helpers/dataHelpers');
-
+// const { getPostsByUsers, findAccount, addUser } = require('../helpers/dataHelpers');
 
 module.exports = ({ editUser, getUsers, getUserByEmail, addUser,
   getUsersPosts, getSpecificUser }) => {
@@ -12,22 +11,23 @@ module.exports = ({ editUser, getUsers, getUserByEmail, addUser,
   // name space defined in app.js /api/users
   // axios in app.js on client 
   router.get('/', function (req, res) {
+   
     getUsers()
       .then(users => res.json(users))
       .catch(err => res.json({ msg: err.message }))
   });
 
-  router.get('/:id', function (req, res) {
-    getSpecificUser(req.params.id).then(response => {
-      console.log("query ran")
-      console.log(response.rows)
-      res.json({user:response.rows})
+  // router.get('/:id', function (req, res) {
+  //   getSpecificUser(req.params.id).then(response => {
+  //     console.log("query ran")
+  //     console.log(response.rows)
+  //     res.json({user:response.rows})
 
-    })
+  //   })
     
-    // res.send("ok")
+  //   // res.send("ok")
 
-  });
+  // });
 
   router.get('/posts', (req, res) => {
     getUsersPosts()
