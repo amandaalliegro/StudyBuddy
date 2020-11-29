@@ -20,8 +20,15 @@ export default function Register(props) {
     } else {
       setError(null)
       axios.post('/api/users', newUser).then((res) => {
-        props.handleCookie(res.data)
-        props.setUserName(true) 
+        if (res.status === 200) {
+          //props.handleCookie(res.data);
+          localStorage.setItem("full_name", res.data.full_name)
+          props.setFullName(res.data.full_name)
+      
+          
+  
+          // set state and useHistory
+        }
       }).catch((err) => {
         setError('This email is used')
       })

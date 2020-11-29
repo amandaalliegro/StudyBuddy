@@ -1,6 +1,11 @@
 import React from "react";
 
 export default function Post(props) {
+
+// function to post to community board
+
+
+
   return (
 
     <article>
@@ -16,14 +21,14 @@ export default function Post(props) {
 
           <img src="./avatar5.png" alt="Avatar" id="avatar" />
           <div className="row">
-            <div className="col-sm-10"><h5>User Profile</h5></div>
-            <h5>Rating 8.6</h5>
+            <div className="col-sm-10"><h5>Boaty McBoatFace</h5></div>
+            <h5>Rating -8.6</h5>
           </div>          </div>
         <div className="account-name">
         </div>
       </header>
       <h5>
-        this is where you see what you've posted
+        React is voodoo that i need to learn... HELP! 
       </h5>
       <footer>
         <div>
