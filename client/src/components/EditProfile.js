@@ -9,7 +9,7 @@ import { useHistory } from 'react-router-dom';
 
 export default function EditProfile(props) {
   let history = useHistory();
-  const [error, setError] = useState(null);
+
   function handleSubmit(event) {
     event.preventDefault()
     const user = {

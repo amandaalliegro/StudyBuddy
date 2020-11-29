@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcrypt');
 let salt = bcrypt.genSaltSync(10);
-const { getPostsByUsers, findAccount, addUser } = require('../helpers/dataHelpers');
+
 
 
 module.exports = ({ editUser, getUsers, getUserByEmail, addUser,
@@ -94,6 +94,7 @@ router.put('/:id', async(req, res, next) => {
         } 
 
         return editUser({
+          id,
           full_name, 
           email, 
           password, 
@@ -105,7 +106,7 @@ router.put('/:id', async(req, res, next) => {
         
       })
       .then(updatedUser => {
-        console.log(updatedUser)
+        console.log("UPDATED", updatedUser)
         res.json(updatedUser);
     
       

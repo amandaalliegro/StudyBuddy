@@ -48,33 +48,42 @@ module.exports = (db) => {
       .catch(err => err);
   }
   const editUser = userObject => {
+    console.log("IM EDIT USER FUNCTION");
     // a query will only be build and run if an user id was provided and the passed object has more than the id key
-    if (userObject.id && Object.keys(userObject).length > 1) {
+    //if (userObject && Object.keys(userObject).length > 1) {
+      console.log("IM USER OBJECT FROM THE HELPER FUNCTION", userObject)
 
       // all the accepted fields in our database
-      const userFields = ['full_name', 'email', 'password', 'student', 'mentor', 'description', 'silent_buddy'];
-
+      const userFields = ['id','full_name', 'email', 'password', 'student', 'mentor', 'description', 'silent_buddy'];
+      console.log("THIS IS USER FIELDS", userFields)
       // the sql query and the values array should be build dynamically
       let text = `UPDATE users \nSET `;
-      const values = [userObject.id];
-
+      const values = [userObject];
+      console.log("this is userObject line 62", userObject["full_name"])
       for (const field of userFields) {
         if (userObject[field]) {
           values.push(userObject[field]);
+
           text += `${field} = $${values.length},\n`;
+          console.log("THIS IS TEXT LINE 68", text)
         }
+
       }
+      console.log("THIS IS THE NEW USER OBJECT", userObject)
       text = text.slice(0, -2) + "\nWHERE users.id = $1 \nRETURNING *;";
 
       return db.query(text, values)
         .then(result => {
-          if (result.rows[0]) {
-            return result.rows[0];
-          }
-          throw 'The user id does not exist';
+          console.log("THIS IS RESULT", result)
+          // if (result.rows[0]) {
+          //   console.log("THIS IS RESULT LINE 79", result.rows[0])
+              return result.rows[0];
+            
+          // }
+          // throw 'The user id does not exist';
         })
         .catch(err => err);
-    }
+    
 
     throw 'It seems that the user id is missing or there are no fields to update';
   };
