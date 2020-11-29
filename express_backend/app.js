@@ -29,6 +29,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // attaches routers 
 app.use('/', indexRouter);
 app.use('/search', indexRouter)
+app.use('/user/:id', usersRouter)
 // I want to use this route file for this specific name space. 
 // anytime i create a new route, app.use(new route name followed by the file i want it used for)
 
