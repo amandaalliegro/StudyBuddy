@@ -4,7 +4,6 @@ import React, { useState } from 'react'
 import './register.css'
 import { Redirect, useHistory } from 'react-router-dom';
 export default function Register(props) {
-
   let history = useHistory();
   const [error, setError] = useState(null);
   function handleSubmit(event) {
@@ -22,7 +21,7 @@ export default function Register(props) {
       setError(null)
       axios.post('/api/users', newUser).then((res) => {
         props.handleCookie(res.data)
-        props.setLoggedIn(true)
+        props.setUserName(true) 
       }).catch((err) => {
         setError('This email is used')
       })
@@ -52,21 +51,11 @@ export default function Register(props) {
               <Form.Label>Password:</Form.Label>
               <Form.Control type='password' placeholder='Password' />
             </Form.Group>
-            <button variant='primary' type='submit' onSubmit={() => history.push('/profile/edit')}>Register</button>;
-  </Form>
+            <button variant='primary' type='submit' > Register!</button>  </Form>
         </div>
         </div>
         </div>
     </Container>
   );
     };
-
-
-
-
-
-
-
-
-
-
+    
