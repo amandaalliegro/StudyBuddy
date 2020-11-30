@@ -65,9 +65,9 @@ export default function MainSearch(props) {
           <tbody className="table my-5">
             {users.map(user => (
               <tr key={user.user_id}>
-                <td>{user.full_name}</td>
-                <td>{user.subject}</td>
-                <td>{user.Description}</td>
+                <td>Name: {user.full_name}</td>
+                <td>Subject: {user.subject}</td>
+                <td>Description: {user.Description}</td>
               </tr>
             ))}
           </tbody>
