@@ -7,15 +7,18 @@
   display: flex;
   justify-content: center;
   background-color: violet;
+  height: 800px;
 }
 
 #chat_box {
   display: flex;
-  margin-top: 50px;
+  margin-top: 63px;
   margin-left: 10cm;
   margin-right: 2cm;
   height: 500px;
-  padding-top: 180px;
+  padding-top: 10px;
+  padding-right: 10px;
+  padding-right: 10px;
   justify-content: flex-end;
   
   background-color: teal;
@@ -24,23 +27,22 @@
 
 #messages { 
   display: flex;
-  
-  
-  margin-right: 2cm;
+  width: 800px;
   height: 500px;
-  margin-bottom: 10cm;
   
-  justify-content: center;
+  
+  justify-content: flex-end;
   background-color: tomato;
-  
+}
 
+#m.container{
+  display: flex;
 }
 #m {
-  display: flexbox;
-  margin-top: 500px;
-  margin-left: 10cm;
-  margin-right: 2cm;
+  display: flex;
+  width: 500px;
   background-color: turquoise;
+  padding-right: 1.5cm;
   
 
 }

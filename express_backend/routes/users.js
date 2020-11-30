@@ -33,11 +33,10 @@ module.exports = ({
   });
   // register route 
 router.post('/', async (req, res, next) => {
-  console.log("HEEEEE--E-EEEE-EEEE-EYYYYY")
     const user = req.body;
     console.log(req.body);
     user.password = bcrypt.hashSync(user.password, salt);
-    console.log(await getUserByEmail(user.email));
+    
     const alreadyExists = await getUserByEmail(user.email);
     console.log(typeof alreadyExists, "alreaDYYYY")
     if (typeof alreadyExists !== 'undefined') {
