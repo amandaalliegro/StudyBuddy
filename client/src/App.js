@@ -38,6 +38,7 @@ function App(props) {
   const [silent_buddy, setSilentBuddy] = useState(false)
   const [description, setDescription] = useState('')
   const [interests, setInterests] = useState('')
+  const [user, setUser] = useState({})
 
 
   function handleCookie(key) {
@@ -77,6 +78,7 @@ function App(props) {
       .then(result => dispatch({ type: SET_USERS, users: result.data }))
       .catch(err => console.log(err.message))
 
+
     let full_name = localStorage.getItem('full_name')
     full_name ? setFullName(full_name) : setFullName('')
 
@@ -113,38 +115,50 @@ function App(props) {
 
   }, [])
 
-const userList = state.users.map((user) => (
-<li key={user.id}>
-   {user.full_name} 
-   {user.password} 
-   {user.email} 
-   {user.gender} 
-   {user.student} 
-   {user.silent_body} 
-   {user.description} 
-  </li>));
-console.log("userList =" , userList)
+  useEffect(() => {
+    axios({
+      method: 'GET',
+      url: '/api/users/' + localStorage.getItem('id')
+    }).then(result => {
+      console.log("AQUI")
+      
+      console.log(result)
+      setUser(result.data.user)
+    })
+  },[])
+
+// const userList = state.users.map((user) => (
+// <li key={user.id} id={user.id}>
+//    {user.full_name} 
+//    {user.password} 
+//    {user.email} 
+//    {user.gender} 
+//    {user.student} 
+//    {user.silent_body} 
+//    {user.description} 
+//   </li>));
+// console.log("userList =" , userList)
 
   return (
     <Router>
       <div>
         <nav className="App">
-          <Navbar fullName={fullName} setFullName={setFullName} />
+          <Navbar user={user} setUser={setUser} />
         </nav>
         <Switch>
           <Route path="/profile/user_id">
-            {<UserProfile fullName={fullName} id={id} email ={email} setFullName = { setFullName } setId={setId} setEmail={email} />}
+            {<UserProfile user={user} setUser={setUser}/>}
           </Route>
           <Route path="/user/:id">
-            <EditProfile id={id} />
+          {Object.keys(user).length && <EditProfile setUser={setUser} />}
+          {!Object.keys(user).length && <Redirect to="/profile"/>}
           </Route>
           <Route path="/home/:id">
             <Logged />
           </Route>
           <Route path="/profile">
-            <Profile fullName={fullName} id={id} email ={email} language={language} location={location}
-            setFullName = { setFullName } setId={setId} setEmail={setEmail} 
-            setLanguage={setLanguage} setLocation={setLocation} />
+            <Profile user={user}
+            setUser={setUser} />
           </Route>
           <Route path="/search">
             <MainSearch />
@@ -156,8 +170,8 @@ console.log("userList =" , userList)
             <Messages socket = {socket} fullName = {fullName} messages = {state.messages}/>
           </Route>
           <Route path="/register">
-          {!fullName && <Register setFullName = {setFullName} />}
-          {fullName && <Redirect to="/user/:id"/>}
+          {!Object.keys(user).length && <Register setUser = {setUser}/>}
+          {Object.keys(user).length &&<Redirect to="/user/:id"/>}
           </Route>
 
           <Route path="/">

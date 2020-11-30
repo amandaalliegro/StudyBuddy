@@ -25,10 +25,7 @@ export default function EditProfile(props) {
       description: event.target[5].value,
       password: event.target[6].value
     }
-    
-    if (user.password.length < 1) {
-      setError('Password cant be empty')
-    } else if (user.full_name.length < 2) {
+    if (user.full_name.length < 2) {
       setError('Enter at least 2 charachter')
     } else {
       setError(null)
@@ -137,7 +134,7 @@ export default function EditProfile(props) {
             <div className="form-group">
               <div className="col-xs-12">
                 <br />
-                <button variant='primary' type='submit' onClick={() => history.push('/home/:id')}>Save</button>;
+                <button variant='primary' type='submit' >Save</button>;
                 <Button className="btn btn-lg" type="reset"><i className="glyphicon glyphicon-repeat" /> Cancel</Button>
               </div>
             </div>

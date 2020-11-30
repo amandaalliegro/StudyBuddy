@@ -10,6 +10,10 @@ module.exports = ({
   /* GET users listing. */
   // name space defined in app.js /api/users
   // axios in app.js on client 
+  router.get('/:id', function(req, res){
+    getSpecificUser(req.params.id)
+      .then(data => res.json({user: data.rows[0]}))
+  })
 
   router.get('/', function (req, res) {
     getUsers()
