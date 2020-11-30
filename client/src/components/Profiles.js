@@ -51,7 +51,7 @@ export default function Profile(props) {
                   </div>
                   <div className="form-group">
                       <br />
-                      <button type="submit" className="btn btn-primary edit_btn" id="btn_profile" onClick={() => history.push('/user/:id')}>Edit Profile</button>
+                      <button type="submit" className="btn btn-primary edit_btn" id="btn_profile" onClick={() => history.push(`/user/{user.id}/edit`)}>Edit Profile</button>
                   </div>
                 <hr />
            </div>   

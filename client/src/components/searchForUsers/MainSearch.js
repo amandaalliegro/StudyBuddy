@@ -2,25 +2,27 @@ import React, { Fragment, useState } from "react";
 import "./mainSearch.css";
 import axios from "axios";
 import Results from "./Results.js"
+import { useHistory } from 'react-router-dom';
 
 
 export default function MainSearch(props) {
   const [name, setName] = useState("");
   const [users, setUsers] = useState([]);
+  let history = useHistory();
+console.log("mainSearch props", props)
   // const {user} = props;
 
   function onSubmitForm(event) {
     event.preventDefault();
       const newSearch = {
-        name: event.target[0].value,
-
+        name: event.target[0].value
       }
       axios.post("/search", newSearch)
       .then(res => {
         setUsers(res.data)
       })
       .catch ((err) => {
-      {console.log(err.message);}
+        {console.log(err.message);}
       })
   };
   return (
@@ -65,8 +67,19 @@ export default function MainSearch(props) {
           </thead>
           <tbody className="table my-5">
             {users.map(user => (
-              <tr key={user.user_id}>
-                <td>Name: {user.full_name}</td>
+              <tr key={user.user_id} >
+                <td>Name:
+                  <button onClick ={
+                    event => { 
+                      console.log("main search button clicked",user)
+                      props.setBuddyUser(user)
+                      history.push(`/user/buddy`)
+                      // window.location.pathname = "/user/buddy"
+                    }  
+                  } 
+                  >
+                    {user.full_name}</button>
+                </td>
                 <td>Subject: {user.subject}</td>
                 <td>Description: {user.description}</td>
               </tr>

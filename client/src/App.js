@@ -23,7 +23,6 @@ import CommunityBoard from './components/community board/CommunityBoard.js';
 import MainSearch from './components/searchForUsers/MainSearch';
 
 function App(props) {
-  console.log("props.users",props.users)
   const [cookies, setCookie, removeCookie] = useCookies(null);
   const [socket, setSocket] = useState(null);
   const { state, dispatch } = useApplicationData();
@@ -39,8 +38,13 @@ function App(props) {
   const [description, setDescription] = useState('')
   const [interests, setInterests] = useState('')
   const [user, setUser] = useState({})
+  const [buddyUser, setBuddyUser] = useState({})
 
+// console.log("id",id)
+// console.log("user",user.id)
+// console.log("props.users",props.users)
 
+  console.log("body user from app .js", buddyUser)
   function handleCookie(key) {
     setCookie("user", key, {
       path: "/"
@@ -52,32 +56,21 @@ function App(props) {
     const socket = new WebSocket('ws://localhost:3005');
     setSocket(socket);
     socket.onopen = () => console.log("Connected to server")
-
     socket.onmessage = event => {
       const message = JSON.parse(event.data);
-      console.log(message)
       dispatch({type: SET_MESSAGE, message})
     }
     socket.onclose = () => console.log('disconected from server')
     socket.onerror = (err) => console.log(err)
-    // return () => {
-    //   socket.onclose();
-    
-    // };
-    
   }, [])
 
   useEffect(() => {
-    // this is how you talk to the backend
     axios({
       method: 'GET',
       url: '/api/users'
     })
-      // then. set state function (result => dispatch)result is what server gives back (res)
-
       .then(result => dispatch({ type: SET_USERS, users: result.data }))
       .catch(err => console.log(err.message))
-
 
     let full_name = localStorage.getItem('full_name')
     full_name ? setFullName(full_name) : setFullName('')
@@ -120,12 +113,22 @@ function App(props) {
       method: 'GET',
       url: '/api/users/' + localStorage.getItem('id')
     }).then(result => {
-      console.log("AQUI")
       
-      console.log(result)
       setUser(result.data.user)
     })
   },[])
+
+  // useEffect(() => {
+  //   axios({
+  //     method: 'GET',
+  //     url: '/api/users/'
+  //   }).then(result => {
+      
+      
+      
+  //     setBuddyUser(result.data)
+  //   })
+  // },[])
 
 // const userList = state.users.map((user) => (
 // <li key={user.id} id={user.id}>
@@ -138,7 +141,6 @@ function App(props) {
 //    {user.description} 
 //   </li>));
 // console.log("userList =" , userList)
-
   return (
     <Router>
       <div>
@@ -146,13 +148,14 @@ function App(props) {
           <Navbar user={user} setUser={setUser} />
         </nav>
         <Switch>
-          <Route path="/profile/user_id">
-            {<UserProfile user={user} setUser={setUser}/>}
-          </Route>
-          <Route path="/user/:id">
+        <Route path="/user/:id/edit">
           {Object.keys(user).length && <EditProfile setUser={setUser} />}
           {!Object.keys(user).length && <Redirect to="/profile"/>}
           </Route>
+          <Route path="/user/buddy">
+            <UserProfile buddyUser = {buddyUser} setBuddyUser = {setBuddyUser}/>
+          </Route>
+         
           <Route path="/home/:id">
             <Logged />
           </Route>
@@ -161,8 +164,8 @@ function App(props) {
             setUser={setUser} />
           </Route>
           <Route path="/search">
-            <MainSearch user={user}
-            setUser={setUser}/>
+            <MainSearch buddyUser={buddyUser}
+            setBuddyUser={setBuddyUser}/>
           </Route>
           <Route path="/community">
             <CommunityBoard />

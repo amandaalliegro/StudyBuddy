@@ -2,11 +2,12 @@ import React from "react";
   //import users from "../../../express_backend/routes/users";
 // find the html code i used in https://bootsnipp.com/snippets/5Moza
 export default function UserProfile(props) {
+  const user = props.buddyUser;
   return (
     <div id="profile_container">
       <div className="container bootstrap snippet" id="container_profile">
         <div className="container" id="name_profile">
-          <div className="col-sm-10"><h1>Amanda Arnaut Alliegro</h1></div>
+          <div className="col-sm-10"><h1>{user.full_name}</h1></div>
           <h3>Rating 8.6</h3>
         </div>
         </div>
