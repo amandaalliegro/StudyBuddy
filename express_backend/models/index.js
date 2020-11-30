@@ -1,3 +1,7 @@
+// Can these files be cleaned and joined into something more structured?
+
+
+
 module.exports = (db) => {
 
   const getUsers = () => {
@@ -65,15 +69,15 @@ module.exports = (db) => {
       console.log(err)
     })
   }
-// for search bar
-  function findUser(name){
+  // for search bar
+  function findUser(name) {
     return db.query('SELECT * FROM users WHERE full_name LIKE $1', [`%${name.trim()}%`])
-    .then((res) => {
-      return res.rows;
-    })
-    .catch((err) => {
-       return err.message;
-    })
+      .then((res) => {
+        return res.rows;
+      })
+      .catch((err) => {
+        return err.message;
+      })
   }
 
   const editUser = userObject => {
@@ -81,10 +85,10 @@ module.exports = (db) => {
     if (userObject && Object.keys(userObject).length > 1) {
       // all the accepted fields in our database
       const userFields = ['full_name', 'email', 'password', 'student', 'mentor', 'silent_buddy'];
-      
+
       // the sql query and the values array should be build dynamically
       let text = `UPDATE users \nSET `;
-      const values = [userObject.id]; 
+      const values = [userObject.id];
       for (const field of userFields) {
         if (userObject[field] !== '') {
           values.push(userObject[field]);
@@ -97,13 +101,12 @@ module.exports = (db) => {
         .then(result => {
           // if (result.rows[0]) {
           //   console.log("THIS IS RESULT LINE 79", result.rows[0])
-              return result.rows[0];
+          return result.rows[0];
         })
         .catch(err => err);
-      }
+    }
     throw 'It seems that the user id is missing or there are no fields to update';
   };
-
 
   return {
     findAccount,

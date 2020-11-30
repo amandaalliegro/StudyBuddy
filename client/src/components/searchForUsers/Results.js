@@ -1,7 +1,9 @@
 import React from "react";
 
 export default function Results(props) {
+
   return (
+
     <article>
       <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css" />
       {/*---- Include the above in your HEAD tag --------*/}

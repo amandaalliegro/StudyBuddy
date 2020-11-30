@@ -1,6 +1,5 @@
 const getPostsByUsers = (usersPosts) => {
   const postsByUsers = {};
-  
 
   for (let post of usersPosts) {
     if (!postsByUsers[post.user_id]) {
@@ -21,30 +20,26 @@ const getPostsByUsers = (usersPosts) => {
   }
 
   return Object.values(postsByUsers);
-
-
-
 };
+
 function findAccount(db, email) {
   return db.query('SELECT * FROM users WHERE email=$1', [email])
-  .then((res) => {
-    return res.rows
-  })
-  .catch((err) => {
-    console.log(err)
-  })
+    .then((res) => {
+      return res.rows
+    })
+    .catch((err) => {
+      console.log(err)
+    })
 }
 
-function findUser(db, name){
+function findUser(db, name) {
   return db.query('SELECT * FROM users WHERE full_name LIKE $1;', [`%${name}$%`])
-  .catch((err) => {
-    console.error(err.message);
-  })
+    .catch((err) => {
+      console.error(err.message);
+    })
 }
 
-
-
-function addUser (db, user) {
+function addUser(db, user) {
   console.log('adding..')
   const dataArray = [user.name, user.email, user.password];
   return db.query(`
@@ -57,6 +52,7 @@ function addUser (db, user) {
     console.log(err)
   })
 }
+
 module.exports = {
   getPostsByUsers,
   addUser,

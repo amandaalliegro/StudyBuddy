@@ -7,8 +7,9 @@ module.exports = (wss) => {
   wss.broadcast = data => {
     console.log('SENDING MESSAGE TO ALL CLIENTS')
     console.log(wss.clients.size);
+
     wss.clients.forEach(function each(client) {
-console.log("HERE")
+
       client.send(data);
     });
   };
@@ -18,6 +19,7 @@ console.log("HERE")
     socket.on("message", (data) => {
       console.log('recieving a message from client')
       const message = JSON.parse(data)
+
       // sets random message id
       message.id = Math.random().toString(36).substring(2, 8)
       console.log(message)
@@ -30,5 +32,4 @@ console.log("HERE")
       console.log("client disconnected")
     });
   });
-
 };

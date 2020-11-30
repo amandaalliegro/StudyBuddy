@@ -23,8 +23,9 @@ import Messages from './components/Messages.js';
 import CommunityBoard from './components/community board/CommunityBoard.js';
 import MainSearch from './components/searchForUsers/MainSearch';
 
+
 function App(props) {
-  console.log("props.users",props.users)
+  // set states 
   const [cookies, setCookie, removeCookie] = useCookies(null);
   const [socket, setSocket] = useState(null);
   const { state, dispatch } = useApplicationData();
@@ -37,34 +38,33 @@ function App(props) {
     });
   }
 
+  // for messages.js
   useEffect(() => {
-    // socket server '/'
+
     const socket = new WebSocket('ws://localhost:3005');
     setSocket(socket);
     socket.onopen = () => console.log("Connected to server")
 
     socket.onmessage = event => {
       const message = JSON.parse(event.data);
-      console.log(message)
-      dispatch({type: SET_MESSAGE, message})
+      dispatch({ type: SET_MESSAGE, message })
+
     }
+    
     socket.onclose = () => console.log('disconected from server')
     socket.onerror = (err) => console.log(err)
-    // return () => {
-    //   socket.onclose();
-    
-    // };
-    
+
   }, [])
 
+
+
   useEffect(() => {
-    // this is how you talk to the backend
+  
     axios({
       method: 'GET',
       url: '/api/users'
     })
       // then. set state function (result => dispatch)result is what server gives back (res)
-
       .then(result => dispatch({ type: SET_USERS, users: result.data }))
       .catch(err => console.log(err.message))
 
@@ -76,17 +76,18 @@ function App(props) {
 
   }, [])
 
-const userList = state.users.map((user) => (
-<li key={user.id}>
-   {user.full_name} 
-   {user.password} 
-   {user.email} 
-   {user.gender} 
-   {user.student} 
-   {user.silent_body} 
-   {user.description} 
-  </li>));
-console.log("userList =" , userList)
+
+// meant to pull the current logged in user infromation from the db
+  const userList = state.users.map((user) =>
+    <li key={user.id}>
+      {user.full_name}
+      {user.password}
+      {user.email}
+      {user.gender}
+      {user.student}
+      {user.silent_body}
+      {user.description}
+    </li>);
 
   return (
     <Router>
@@ -114,13 +115,12 @@ console.log("userList =" , userList)
             <CommunityBoard />
           </Route>
           <Route path="/messages">
-            <Messages socket = {socket} fullName = {fullName} messages = {state.messages}/>
+            <Messages socket={socket} fullName={fullName} messages={state.messages} />
           </Route>
           <Route path="/register">
-          {!fullName && <Register setFullName = {setFullName} />}
-          {fullName && <Redirect to="/user/:id"/>}
+            {!fullName && <Register setFullName={setFullName} />}
+            {fullName && <Redirect to="/user/:id" />}
           </Route>
-
           <Route path="/">
             <Landing />
           </Route>

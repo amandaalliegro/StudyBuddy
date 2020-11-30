@@ -1,34 +1,36 @@
 import { Container, Form, Button, Alert } from 'react-bootstrap'
 import axios from 'axios';
 import React, { useState } from 'react'
-
 import "./navbar.css"
 import { Redirect, useHistory } from 'react-router-dom';
 
 
 export default function Login(props) {
-  let history = useHistory();
   const [msg, setMsg] = useState(null)
+
+  let history = useHistory();
+
   function handleSubmit(event) {
     event.preventDefault()
+
     const newUser = {
       email: event.target[0].value,
       password: event.target[1].value
     }
+
     axios.post('/login', newUser).then((res) => {
+
       if (res.status === 200) {
-        //props.handleCookie(res.data);
+        // This is for setteng whos logged in on the nav bar without user Auth 
         localStorage.setItem("full_name", res.data.full_name)
         props.setFullName(res.data.full_name)
-    
-        
 
-        // set state and useHistory
       }
-    }).catch((err) => {
-      console.log("error on post", err)
-      setMsg('Email or password incorrect')
     })
+      .catch((err) => {
+        console.log("error on post", err)
+        setMsg('Email or password incorrect')
+      })
   }
   return (
 
@@ -46,8 +48,6 @@ export default function Login(props) {
               <Form.Control type='password' placeholder='Password' />
             </Form.Group>
             <button variant='primary' type='submit' onClick={() => history.push('/home/:id')}>Login</button>;
-
-
           </Form>
         </div>
       </div>
