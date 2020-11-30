@@ -32,6 +32,12 @@ function App(props) {
   const [email, setEmail] = useState('')
   const [language, setLanguage] = useState('')
   const [location, setLocation] = useState('')
+  const [gender, setGender] = useState('')
+  const [mentor, setMentor] = useState(false)
+  const [student, setStudent] = useState(true)
+  const [silent_buddy, setSilentBuddy] = useState(false)
+  const [description, setDescription] = useState('')
+  const [interests, setInterests] = useState('')
 
 
   function handleCookie(key) {
@@ -82,8 +88,27 @@ function App(props) {
     
     let language = localStorage.getItem('language')
     language ? setLanguage(language) : setLanguage('')
+    
     let location = localStorage.getItem('location')
     location ? setLocation(location) : setLocation('')
+
+    let gender = localStorage.getItem('gender')
+    gender ? setGender(location) : setGender('')
+
+    let mentor = localStorage.getItem('mentor')
+    mentor ? setMentor(mentor) : setMentor('')
+
+    let student = localStorage.getItem('student')
+    student ? setStudent(student) : setStudent('')
+
+    let silent_buddy = localStorage.getItem('silent_buddy')
+    silent_buddy ? setSilentBuddy(silent_buddy) : setSilentBuddy('')
+
+    let description = localStorage.getItem('description')
+    description ? setDescription(description) : setDescription('')
+
+    let interests = localStorage.getItem('interests')
+    interests ? setInterests(interests) : setInterests('')
 
 
   }, [])
