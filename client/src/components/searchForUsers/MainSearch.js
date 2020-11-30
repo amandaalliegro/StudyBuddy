@@ -5,31 +5,19 @@ import Results from "./Results.js"
 
 
 export default function MainSearch(props) {
-  console.log("i am main search")
   const [name, setName] = useState("");
-  console.log("name in main search",name)
   const [users, setUsers] = useState([]);
-  console.log("name in main search",users)
+  // const {user} = props;
 
   function onSubmitForm(event) {
-    console.log("on sumbit")
-    console.log("event =", event)
-
     event.preventDefault();
-      console.log ("i am try")
       const newSearch = {
         name: event.target[0].value,
       }
       axios.post("/search", newSearch)
       .then(res => {
         setUsers(res.data)
-        console.log("res.data",res.data)
-        console.log("here is the get axios consolelog")
-        
       })
-      // const parseResponse = await response.json();
-      // console.log(parseResponse, "PARSE RESPONSE")
-      // setUsers(parseResponse);
       .catch ((err) => {
       {console.log(err.message);}
       })
@@ -54,32 +42,32 @@ export default function MainSearch(props) {
      
         <body className="container text-center">
           <header>
-  <h1 className="my-5">Party List{props.fullName}</h1>
-          <form className="d-flex" onSubmit={onSubmitForm}>
-          <input
-            type="text"
-            name="name"
-            placeholder="Enter any name/subject name ..."
-            className="form-control"
-            value={name}
-            onChange={event => setName(event.target.value)}
-          />
-          <button className="btn btn-success">Submit</button>
-        </form>
+            <h1 className="my-5">Party List{props.fullName}</h1>
+            <form className="d-flex" onSubmit={onSubmitForm}>
+             <input
+              type="text"
+              name="name"
+              placeholder="Enter any name/subject name ..."
+              className="form-control"
+              value={name}
+              onChange={event => setName(event.target.value)}
+             />
+              <button className="btn btn-success">Submit</button>
+            </form>
           </header>
-          
           <section>
             <ul>
-            <table >
-          <thead>
+            <table>
+            <thead>
             <tr>
-             
             </tr>
           </thead>
           <tbody className="table my-5">
             {users.map(user => (
               <tr key={user.user_id}>
-                <td>{user.email}</td>
+                <td>Name: {user.full_name}</td>
+                <td>Subject: {user.subject}</td>
+                <td>Description: {user.Description}</td>
               </tr>
             ))}
           </tbody>

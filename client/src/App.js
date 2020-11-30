@@ -161,7 +161,8 @@ function App(props) {
             setUser={setUser} />
           </Route>
           <Route path="/search">
-            <MainSearch />
+            <MainSearch user={user}
+            setUser={setUser}/>
           </Route>
           <Route path="/community">
             <CommunityBoard />
