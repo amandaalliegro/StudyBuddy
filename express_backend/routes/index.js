@@ -18,7 +18,8 @@ router.post( '/search' , function (req, res) {
        })
    
  })
-
+ // get chats that a user is connected to 
+const getChatsByUser
  
 router.post('/login', (req, res) => {
   const { email, password } = req.body;

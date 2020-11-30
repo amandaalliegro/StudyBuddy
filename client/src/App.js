@@ -38,6 +38,7 @@ function App(props) {
   const [silent_buddy, setSilentBuddy] = useState(false)
   const [description, setDescription] = useState('')
   const [interests, setInterests] = useState('')
+  // sets state and gets setUser data from login.js
   const [user, setUser] = useState({})
 
 
@@ -149,7 +150,7 @@ function App(props) {
           <Route path="/profile/user_id">
             {<UserProfile user={user} setUser={setUser}/>}
           </Route>
-          <Route path="/user/:id">
+          <Route path="/users/:id">
           {Object.keys(user).length && <EditProfile setUser={setUser} />}
           {!Object.keys(user).length && <Redirect to="/profile"/>}
           </Route>

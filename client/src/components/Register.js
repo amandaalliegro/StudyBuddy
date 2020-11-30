@@ -8,6 +8,7 @@ export default function Register(props) {
   const [error, setError] = useState(null);
   function handleSubmit(event) {
     event.preventDefault()
+
     const newUser = {
       full_name: event.target[0].value,
       email: event.target[1].value,
@@ -19,6 +20,7 @@ export default function Register(props) {
       setError('Enter at least 2 charachter')
     } else {
       setError(null)
+      // passing to the db to see if user exists 
       axios.post('/api/users', newUser).then((res) => {
         if (res.status === 200) {
           localStorage.setItem("id", res.data.id)

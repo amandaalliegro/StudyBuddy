@@ -7,19 +7,22 @@ import { useHistory } from 'react-router-dom';
 
 
 export default function Login(props) {
+  // 
   let history = useHistory();
   const [msg, setMsg] = useState(null)
   function handleSubmit(event) {
     event.preventDefault()
+    // login credentials 
     const newUser = {
       email: event.target[0].value,
       password: event.target[1].value
     }
+    // sets the local storage to the users id stored in db. 
     axios.post('/login', newUser).then((res) => {
       if (res.status === 200) {
         
           localStorage.setItem("id", res.data.id)
-          
+          // gets info from the axios and can pass it to app.js
           props.setUser(res.data) 
         
         // set state and useHistory

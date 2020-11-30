@@ -58,7 +58,7 @@ router.post('/', async (req, res, next) => {
     })
     }
 });
-
+// this is the database route 
   router.put('/:id', async(req, res, next) => {
     let {
       full_name, 
@@ -97,7 +97,7 @@ router.post('/', async (req, res, next) => {
           error: err.message
         }));
     });
-
+// here is messaging route... need to create db query. build on index.js
   router.get('/:id/chats', (req, res) => {
     const { id } = req.params;
     getChatsByUser(id)
