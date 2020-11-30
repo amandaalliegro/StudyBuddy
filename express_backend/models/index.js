@@ -67,8 +67,9 @@ module.exports = (db) => {
   }
 // for search bar
   function findUser(name){
-    return db.query('SELECT * FROM users WHERE full_name LIKE $1', [`%${name.trim()}%`])
+    return db.query('SELECT * FROM users WHERE full_name  LIKE $1 OR subject LIKE $1 or description LIKE $1', [`%${name.trim()}%`] )
     .then((res) => {
+      console.log(res.rows)
       return res.rows;
     })
     .catch((err) => {

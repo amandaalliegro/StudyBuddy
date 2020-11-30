@@ -13,6 +13,7 @@ export default function MainSearch(props) {
     event.preventDefault();
       const newSearch = {
         name: event.target[0].value,
+
       }
       axios.post("/search", newSearch)
       .then(res => {
@@ -67,7 +68,7 @@ export default function MainSearch(props) {
               <tr key={user.user_id}>
                 <td>Name: {user.full_name}</td>
                 <td>Subject: {user.subject}</td>
-                <td>Description: {user.Description}</td>
+                <td>Description: {user.description}</td>
               </tr>
             ))}
           </tbody>

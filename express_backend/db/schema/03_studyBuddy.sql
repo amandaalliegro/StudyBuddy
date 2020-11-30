@@ -21,7 +21,10 @@ CREATE TABLE users(
     language VARCHAR,
     gender VARCHAR,
     email VARCHAR(255) NOT NULL,
-    silent_buddy boolean DEFAULT FALSE
+    silent_buddy boolean DEFAULT FALSE,
+    description VARCHAR(255),
+    subject VARCHAR(255)
+
 
 );
 CREATE TABLE interests(
