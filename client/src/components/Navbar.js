@@ -1,8 +1,6 @@
-
 import React from 'react'
 import "./navbar.css"
 import Login from './Login'
-
 export default function Navbar(props) {
   //console.log("heres your props", props.full_name)
   const logOut = () => {
@@ -23,6 +21,5 @@ export default function Navbar(props) {
      </div>
     </div>
     </div>
-
   )
 }

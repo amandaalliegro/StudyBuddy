@@ -1,10 +1,9 @@
-import { Container, Form, Alert } from 'react-bootstrap'
+import { Container, Form, Button, Alert } from 'react-bootstrap'
 import axios from 'axios';
 import React, { useState } from 'react'
 import './register.css'
-import { useHistory } from 'react-router-dom';
+import { Redirect, useHistory } from 'react-router-dom';
 export default function Register(props) {
-
   let history = useHistory();
   const [error, setError] = useState(null);
   function handleSubmit(event) {
@@ -21,10 +20,16 @@ export default function Register(props) {
     } else {
       setError(null)
       axios.post('/api/users', newUser).then((res) => {
-        
-        props.handleCookie(res.data)
-        props.setLoggedIn(true)
-        
+        if (res.status === 200) {
+          //props.handleCookie(res.data);
+          
+          
+          localStorage.setItem("email", res.data.email)
+          
+          
+          props.setEmail(res.data.email) 
+
+        }
       }).catch((err) => {
         setError('This email is used')
       })
@@ -54,21 +59,11 @@ export default function Register(props) {
               <Form.Label>Password:</Form.Label>
               <Form.Control type='password' placeholder='Password' />
             </Form.Group>
-            <button variant='primary' type='submit' > Register!</button>;
-  </Form>
+            <button variant='primary' type='submit' > Register!</button>  </Form>
         </div>
         </div>
         </div>
     </Container>
   );
     };
-
-
-
-
-
-
-
-
-
-
+    

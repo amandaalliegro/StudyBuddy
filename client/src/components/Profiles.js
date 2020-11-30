@@ -7,7 +7,7 @@ export default function Profile(props) {
     <div id="profile_container">
       <div className="container bootstrap snippet" id="container_profile">
         <div className="container" id="name_profile">
-          <div className="col-sm-10"><h1>Affaf Rai</h1></div>
+          {props.fullName && <div className="col-sm-10"><h1>{props.fullName}</h1></div>}
           <h3>Rating 8.6</h3>
         </div>
         </div>
@@ -22,11 +22,11 @@ export default function Profile(props) {
                 <hr />
                   <div className="form-group profile_data" id="profile_email" >
                       <label><h4>Email:</h4></label>
-                      <label><h4>Affaf-rai@hotmail.com</h4></label>
+                      {props.email && <label><h4>{props.email}</h4></label>}
                   </div>
                   <div className="form-group" id="profile_location">
                       <label><h4>Location:</h4></label>
-                      <label><h4>Toronto</h4></label>
+                      {props.location && <label><h4>{props.location}</h4></label>}
                   </div>
                   <div className="form-group" id="profile_gender">
                     <label><h4>Gender:</h4></label>

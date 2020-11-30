@@ -17,10 +17,13 @@ export default function Login(props) {
     }
     axios.post('/login', newUser).then((res) => {
       if (res.status === 200) {
-        console.log("Here", res.data)
         //props.handleCookie(res.data);
         localStorage.setItem("full_name", res.data.full_name)
+        localStorage.setItem("email", res.data.email)
+        localStorage.setItem("location", res.data.location)
         props.setFullName(res.data.full_name)
+        props.setEmail(res.data.email)
+        props.setLocation(res.data.location)
     
         
 

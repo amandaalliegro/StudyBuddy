@@ -8,9 +8,13 @@ import { useHistory } from 'react-router-dom';
 
 
 export default function EditProfile(props) {
+  console.log("i am id", props.id)
+  // console.log("i am props",props.userList[0])
   let history = useHistory();
   const [error, setError] = useState(null);
   function handleSubmit(event) {
+    console.log("i am event",event)
+
     event.preventDefault()
     const user = {
       full_name: event.target[0].value,
@@ -21,15 +25,17 @@ export default function EditProfile(props) {
       description: event.target[5].value,
       password: event.target[6].value
     }
+    
     if (user.password.length < 1) {
       setError('Password cant be empty')
     } else if (user.full_name.length < 2) {
       setError('Enter at least 2 charachter')
     } else {
       setError(null)
-      axios.put(`/api/users/`, user).then((res) => {
-        props.handleCookie(res.data)
-        props.setLoggedIn(true)
+      axios.put(`/api/users/id`, user).then((res) => {
+        console.log("i am axios put in edit profile", res)
+
+        
       }).catch((err) => {
         setError('You must have a valid email signed')
       })

@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../db');
-const { getUserByEmail , findUser} = require('../models/index.js')(db);
+const { getUserByEmail , findUser, editUser} = require('../models/index.js')(db);
 
 const bcrypt = require('bcrypt');
 /* GET home page. */
@@ -18,9 +18,8 @@ router.post( '/search' , function (req, res) {
        })
    
  })
-router.get('/register', function (req, res, next) {
-  res.render('index', { title: 'Express' });
-});
+
+ 
 router.post('/login', (req, res) => {
   const { email, password } = req.body;
   // console.log(email, password)
