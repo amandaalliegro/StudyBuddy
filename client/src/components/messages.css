@@ -1,5 +1,19 @@
-#chat_box{
+#chat_box {
   display: block;
-  padding-top: 7cm;
+  
   margin-left: 10cm;
+  height: 500px;
+  
+  background-color: teal;
+
+}
+
+#messages { 
+  display: block;
+  
+
+}
+#m {
+  
+
 }

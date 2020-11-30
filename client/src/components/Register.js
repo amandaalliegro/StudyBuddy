@@ -21,32 +21,8 @@ export default function Register(props) {
       setError(null)
       axios.post('/api/users', newUser).then((res) => {
         if (res.status === 200) {
-          //props.handleCookie(res.data);
-          localStorage.setItem("full_name", res.data.full_name)
           localStorage.setItem("id", res.data.id)
-          localStorage.setItem("email", res.data.email)
-          localStorage.setItem("language", res.data.language)
-          localStorage.setItem("location", res.data.location)
-          localStorage.setItem("gender", res.data.gender)
-          localStorage.setItem("mentor", res.data.mentor)
-          localStorage.setItem("student", res.data.student)
-          localStorage.setItem("silent_buddy", res.data.silent_buddy)
-          localStorage.setItem("interests", res.data.interests)
-          localStorage.setItem("description", res.data.description)
-
-          props.setFullName(res.data.full_name) 
-          props.setId(res.data.id) 
-          props.setEmail(res.data.email)
-          props.setLanguage(res.data.language)
-          props.setLocation(res.data.location)    
-          props.setGender(res.data.gender)
-          props.setMentor(res.data.mentor)
-          props.setStudent(res.data.student)
-          props.setSilentBuddy(res.data.silent_buddy)    
-          props.setInterests(res.data.interests)
-          props.setDescription(res.data.description) 
-
-
+          props.setUser(res.data) 
         }
       }).catch((err) => {
         setError('This email is used')
