@@ -1,8 +1,10 @@
 import React from "react";
 import "./profile.css"
+import { useHistory } from 'react-router-dom';
 
 // find the html code i used in https://bootsnipp.com/snippets/5Moza
 export default function Profile(props) {
+  let history = useHistory(); 
   return (
     <div id="profile_container">
       <div className="container bootstrap snippet" id="container_profile">
@@ -50,7 +52,7 @@ export default function Profile(props) {
                   </div>
                   <div className="form-group">
                       <br />
-                      <button type="submit" className="btn btn-primary edit_btn" id="btn_profile">Edit Profile</button>
+                      <button type="submit" className="btn btn-primary edit_btn" id="btn_profile" onClick={() => history.push('/user/:id')}>Edit Profile</button>
                   </div>
                 <hr />
            </div>   
