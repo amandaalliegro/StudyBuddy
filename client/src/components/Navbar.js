@@ -13,7 +13,7 @@ export default function Navbar(props) {
 
     <div class='topnav'>
       <a class='active brand_text' id='#font_jumbo' href='/home'>Study<b>Buddy</b></a>
-      {props.fullName && <a href='/profile'>Logged as</a>}
+      {props.fullName && <a href='/profile'>Profile</a>}
       {props.fullName && <a href='/dm'>DM</a>}
       {props.fullName && <a href='/' onClick={logOut} >Logout</a>}
       <div id='login_nav'>

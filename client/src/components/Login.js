@@ -22,6 +22,7 @@ export default function Login(props) {
 
       if (res.status === 200) {
         // This is for setteng whos logged in on the nav bar without user Auth 
+        console.log("Data for local Storage", res.data)
         localStorage.setItem("full_name", res.data.full_name)
         props.setFullName(res.data.full_name)
 

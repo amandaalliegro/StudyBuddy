@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-// import './messages.css'
+import './messages.css'
 
 export default function Messages(props) {
   const [text, setText] = useState('')

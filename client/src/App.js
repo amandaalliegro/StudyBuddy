@@ -50,7 +50,7 @@ function App(props) {
       dispatch({ type: SET_MESSAGE, message })
 
     }
-    
+
     socket.onclose = () => console.log('disconected from server')
     socket.onerror = (err) => console.log(err)
 
@@ -59,7 +59,7 @@ function App(props) {
 
 
   useEffect(() => {
-  
+
     axios({
       method: 'GET',
       url: '/api/users'
@@ -71,23 +71,19 @@ function App(props) {
     let full_name = localStorage.getItem('full_name')
     full_name ? setFullName(full_name) : setFullName('')
 
-    let id = localStorage.getItem('id')
-    id ? setFullName(id) : setId('')
-
   }, [])
+// // for profile inormation 
+//   useEffect(() => {
 
-
-// meant to pull the current logged in user infromation from the db
-  const userList = state.users.map((user) =>
-    <li key={user.id}>
-      {user.full_name}
-      {user.password}
-      {user.email}
-      {user.gender}
-      {user.student}
-      {user.silent_body}
-      {user.description}
-    </li>);
+//     axios({
+//       method: 'GET',
+//       url: '/api/users'
+//     })
+//       .then((getUserByEmail(localStorage.getItem('full_name'))) => {
+//         console.log('test response', response.data)
+//       })
+//       .catch(err => console.log(err))
+//   }, [])
 
   return (
     <Router>

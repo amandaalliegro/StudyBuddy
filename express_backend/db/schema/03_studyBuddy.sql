@@ -46,7 +46,8 @@ CREATE TABLE user_groups(
   group_of_study_id INTEGER REFERENCES groups_of_study(id)
 );
 -- same as direct message table. then expand to multi user messaging 
-
+-- romm id. null or not 
+-- 
 CREATE TABLE room_chat(
   id SERIAL PRIMARY KEY,
   new BOOLEAN DEFAULT FALSE,

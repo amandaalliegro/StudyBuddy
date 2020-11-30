@@ -7,14 +7,14 @@ import { Redirect, useHistory } from 'react-router-dom';
 
 
 export default function Register(props) {
-  let history = useHistory();
   const [error, setError] = useState(null);
 
-  
-  function handleSubmit(event) {
+  let history = useHistory();
 
+  function handleSubmit(event) {
     event.preventDefault()
-    const newUser = {
+
+    let newUser = {
       full_name: event.target[0].value,
       email: event.target[1].value,
       password: event.target[2].value
