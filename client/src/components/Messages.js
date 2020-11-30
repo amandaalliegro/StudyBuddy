@@ -17,7 +17,7 @@ export default function Messages(props) {
   const messageList = props.messages.map((message) => <li key= {message.id} >name: {message.user} message: {message.message}</li>)
   
   return (
-    <div>
+    <div id='chat_container'>
     <div id="chat_box">
         <title>chat</title>
   <ul id="messages">{messageList}</ul>

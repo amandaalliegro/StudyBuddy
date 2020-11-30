@@ -3,23 +3,44 @@
   padding-top: 15px;
   
 }
+#chat_container {
+  display: flex;
+  justify-content: center;
+  background-color: violet;
+}
 
 #chat_box {
-  display: block;
-  
+  display: flex;
+  margin-top: 50px;
   margin-left: 10cm;
+  margin-right: 2cm;
   height: 500px;
+  padding-top: 180px;
+  justify-content: flex-end;
   
   background-color: teal;
 
 }
 
 #messages { 
-  display: block;
+  display: flex;
+  
+  
+  margin-right: 2cm;
+  height: 500px;
+  margin-bottom: 10cm;
+  
+  justify-content: center;
+  background-color: tomato;
   
 
 }
 #m {
+  display: flexbox;
+  margin-top: 500px;
+  margin-left: 10cm;
+  margin-right: 2cm;
+  background-color: turquoise;
   
 
 }
