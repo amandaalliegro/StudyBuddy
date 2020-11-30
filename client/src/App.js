@@ -171,7 +171,7 @@ function App(props) {
           </Route>
           <Route path="/register">
           {!Object.keys(user).length && <Register setUser = {setUser}/>}
-          {Object.keys(user).length &&<Redirect to="/user/:id"/>}
+          {Object.keys(user).length && <Redirect to="/user/:id"/>}
           </Route>
 
           <Route path="/">

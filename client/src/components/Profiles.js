@@ -4,13 +4,13 @@ import { useHistory } from 'react-router-dom';
 
 // find the html code i used in https://bootsnipp.com/snippets/5Moza
 export default function Profile(props) {
+  const {user} = props;
   let history = useHistory(); 
   return (
     <div id="profile_container">
       <div className="container bootstrap snippet" id="container_profile">
         <div className="container" id="name_profile">
-          {props.fullName && <div className="col-sm-10"><h1>{props.fullName}</h1></div>}
-          <h3>Rating 8.6</h3>
+          {user.full_name && <div className="col-sm-10"><h1>{user.full_name}</h1></div>}
         </div>
         </div>
         <div className="container" id="profile_element">
@@ -24,31 +24,30 @@ export default function Profile(props) {
                 <hr />
                   <div className="form-group profile_data" id="profile_email" >
                       <label><h4>Email:</h4></label>
-                      {props.email && <label><h4>{props.email}</h4></label>}
+                      {user.email && <label><h4>{user.email}</h4></label>}
                   </div>
                   <div className="form-group" id="profile_location">
                       <label><h4>Location:</h4></label>
-                      {props.location && <label><h4>{props.location}</h4></label>}
+                      {user.location && <label><h4>{user.location}</h4></label>}
                   </div>
                   <div className="form-group" id="profile_gender">
                     <label><h4>Gender:</h4></label>
-                    <label><h4>female</h4></label>
+                    <label><h4>{user.gender}</h4></label>
                   </div>
                   <div className="form-group" id="profile_class">
                       <label><h4>You are a:</h4></label>
-                      <label><h4>Student - Mentor</h4></label>
-                  </div>
-                  <div className="form-group" id="profile_occupation">
-                      <label><h4>Ocupation:</h4></label>
-                      <label><h4>Web Developer</h4></label>
+                      {user.student === true && <label><h4>Student</h4></label>}
+                      {user.mentor === true && <label><h4>mentor</h4></label>}
+                      {user.silent_buddy === true && <label><h4>silent buddy</h4></label>}
+                      
                   </div>
                   <div className="form-group" id="profile_subjects">
                       <label><h4>preferred Subjects:</h4></label>
-                      <label><h4>Web Development, App Development</h4></label>
+                      <label><h4>{user.subject}</h4></label>
                   </div>
                   <div className="form-group" id="profile_description">
                       <label><h4>Description:</h4></label>
-                      <label><h4>jfhgfhg cgfhmg , ,g,jg, gufdtrdjytf uf ,g</h4></label>
+                      <label><h4>{user.description}</h4></label>
                   </div>
                   <div className="form-group">
                       <br />
