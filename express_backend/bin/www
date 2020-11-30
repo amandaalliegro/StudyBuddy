@@ -1,14 +1,14 @@
 #!/usr/bin/env node
-
+// This file is the top level where everything is pulled together
 /**
  * Module dependencies.
  */
-const socketio = require('socket.io');
+
 const chat = require('../chat');
 const app = require('../app');
 const debug = require('debug')('express-backend:server');
 const http = require('http');
-
+const WebSocket = require("ws");
 /**
  * Get port from environment and store in Express.
  */
@@ -21,8 +21,8 @@ app.set('port', port);
  */
 
 const server = http.createServer(app);
-const io = socketio(server);
-chat(io);
+const wss = new WebSocket.Server({ server });
+chat(wss);
 
 /**
  * Listen on provided port, on all network interfaces.

@@ -9,7 +9,7 @@ import axios from 'axios';
 import { useCookies } from 'react-cookie';
 import useApplicationData from './hooks/useApplicationData';
 import './App.css';
-import { SET_USERS } from './reducers/dataReducer';
+import { SET_USERS, SET_MESSAGE } from './reducers/dataReducer';
 import Navbar from './components/Navbar.js';
 import Landing from './components/Landing.js';
 import Register from './components/Register.js'
@@ -20,17 +20,12 @@ import Logged from './components/Logged.js';
 import Messages from './components/Messages.js';
 import CommunityBoard from './components/community board/CommunityBoard.js';
 import MainSearch from './components/searchForUsers/MainSearch';
-import socketIOClient from 'socket.io-client';
 
 function App() {
   const [cookies, setCookie, removeCookie] = useCookies(null);
-  const [loggedIn, setLoggedIn] = useState(false)
-  useEffect(() => {
-    
-    if (cookies.user) {
-      setLoggedIn(true)
-    }
-  })
+  const [socket, setSocket] = useState(null);
+  const { state, dispatch } = useApplicationData();
+  const [fullName, setFullName] = useState('')
 
   function handleCookie(key) {
     setCookie("user", key, {
@@ -39,22 +34,28 @@ function App() {
   }
 
   useEffect(() => {
-    console.log("TEST")
-    const socket = socketIOClient('/');
-    // events here
+    // socket server '/'
+    const socket = new WebSocket('ws://localhost:3005');
+    setSocket(socket);
+    socket.onopen = () => console.log("Connected to server")
 
-    socket.on('connect', () => {
-      console.log("we have connected!");
+    socket.onmessage = event => {
+      const message = JSON.parse(event.data);
+      console.log(message)
+      dispatch({type: SET_MESSAGE, message})
+    }
+    socket.onclose = () => console.log('disconected from server')
+    socket.onerror = (err) => console.log(err)
+    // return () => {
+    //   socket.onclose();
+    
+    // };
+    
+  }, [])
 
-    })
-    // CLEAN UP THE EFFECT
-    return () => socket.disconnect();
-  })
 
 
-  const { state, dispatch } = useApplicationData();
-  // initialize var 
-  const [fullName, setFullName] = useState('')
+
 
   useEffect(() => {
     // this is how you talk to the backend
@@ -101,7 +102,7 @@ function App() {
             <CommunityBoard />
           </Route>
           <Route path="/messages">
-            <Messages />
+            <Messages socket = {socket} fullName = {fullName} messages = {state.messages}/>
           </Route>
           <Route path="/register">
           {!loggedIn && <Register handleCookie={handleCookie} setLoggedIn={setLoggedIn}/>}
