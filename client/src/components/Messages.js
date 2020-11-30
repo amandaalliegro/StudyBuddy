@@ -14,16 +14,22 @@ export default function Messages(props) {
     setText('')
 
   }
-  const messageList = props.messages.map((message) => <li key= {message.id} >name: {message.user} message: {message.message}</li>)
+  const messageList = props.messages.map((message) => <li key= {message.id} >{message.user} {message.message}</li>)
   
   return (
     <div id='chat_container'>
     <div id="chat_box">
         <title>chat</title>
-  <ul id="messages">{messageList}</ul>
+        <div>
+        <ul id="messages">{messageList}</ul>
         <form action>
-          <input id="m" autoComplete="off" onChange= {(event) => setText(event.target.value)} /> <button onClick= {sendMessage}>Send</button>
+          <div id="m.container">
+            <input id="m" autoComplete="off" onChange= {(event) => setText(event.target.value)}/>
+            <button onClick= {sendMessage}>Send</button>
+            
+          </div>
         </form>
+        </div>
       </div>
       </div>
   );
