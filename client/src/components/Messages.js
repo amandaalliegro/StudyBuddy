@@ -10,6 +10,7 @@ export default function Messages(props) {
       user: props.fullName,
       message: text
     }
+    
     props.socket.send(JSON.stringify(newMessage))
     setText('')
 

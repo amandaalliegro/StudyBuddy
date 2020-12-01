@@ -24,7 +24,7 @@ console.log("HERE")
       // will send message to all client connected to socket
       wss.broadcast(JSON.stringify(message))
 
-    })
+    })   
 
     socket.on('close', data => {
       console.log("client disconnected")

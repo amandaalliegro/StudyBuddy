@@ -118,7 +118,7 @@ module.exports = (db) => {
       }
     throw 'It seems that the user id is missing or there are no fields to update';
   };
-
+// for message message log queries 
    const postMessage = (roomchat, user, message) => {
 
     return db.query(`INSERT INTO messages(${roomchat}, ${user}, ${message})
