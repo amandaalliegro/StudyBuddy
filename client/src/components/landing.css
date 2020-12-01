@@ -126,3 +126,8 @@ body {
     
   }
 }
+
+#about-bd{
+  width: 90%;
+  align-content: center;
+}
