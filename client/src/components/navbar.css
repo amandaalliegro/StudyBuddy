@@ -7,10 +7,11 @@
   display: flex;
   background-color: rgba(224, 107, 77, 0.3);
   overflow: hidden;
-  margin-bottom:0 !important;
+ 
   position: absolute;
   width: 100%;
   font-family: 'Quattrocento Sans', sans-serif;
+  padding: 5px;
 
 }
 #font_jumbo{
@@ -22,6 +23,9 @@
   justify-content: flex-end;
   align-items: center;
   flex-grow: 1;
+  color: white;
+  padding: 5px;
+
   
 }
 

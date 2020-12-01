@@ -9,7 +9,7 @@ export default function Landing(props) {
     "button--confirm": props.confirm
   });
   return (
-    <div>
+    <div id='landing_body'>
       <div class="container" >
         <div class="jumbotron" id="#jumbo">
           <div id="#brand_box">

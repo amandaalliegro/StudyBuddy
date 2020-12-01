@@ -1,0 +1,52 @@
+#login_form {
+  display: flex;
+  flex-direction: row;
+justify-content: center;
+  align-content: flex-start;
+  align-items: stretch;
+  width: 600px;
+  height: 40px;
+  outline: transparent;
+  
+}
+#login_email {
+margin: 10px;
+
+}
+#login_password {
+  margin: 10px;
+  
+  }
+
+  #login_input{
+    border-radius: 20px;
+    height: 25px;
+    border-width: 2px; 
+    border-color:  rgb(233, 102, 69);
+    outline: transparent;
+    }
+
+#login_email1 {
+margin: 1px;
+
+}
+
+#login_password1 {
+  margin: 1px;
+  
+  }
+
+#login_button{
+  outline: transparent;
+  border-radius: 1rem;
+  border: 0;
+  font-size: 1rem;
+  height: 2rem;
+  line-height: 1.2rem;
+  margin: 5px;
+  width: 5rem;
+  border-width: 2px;
+  border-color: rgb(233, 102, 69);
+  color:white;
+  background-color: rgb(233, 102, 69) !important;
+}

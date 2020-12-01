@@ -3,9 +3,13 @@
 #body_container {
   background-color: #e0dddb;
   padding-top: 15px;
+  height: 100%;
   
 }
+#landing_body{
 
+  height: 100%;
+}
 .jumbotron {
   display: flex;
   align-items: center;

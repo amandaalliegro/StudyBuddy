@@ -143,7 +143,7 @@ function App(props) {
 // console.log("userList =" , userList)
   return (
     <Router>
-      <div>
+      <div id='app_body'>
         <nav className="App">
           <Navbar user={user} setUser={setUser} />
         </nav>
