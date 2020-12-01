@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 
 import classNames from 'classnames/bind';
 import FindAMentor from "./FindAMentor";
+import StudyTogether from "./StudyTogether";
 
 export default function Landing(props) {
   const {user} = props;
@@ -78,6 +79,7 @@ export default function Landing(props) {
         <p>You can be the difference!</p>
       </div>
       </div>
+      <StudyTogether/>
     </div>
 
   ) 
