@@ -47,7 +47,27 @@ export default function Landing(props) {
           
         </div>
       </div>
+      <div id='topics-box'>
+      <div id='img-icon'>
+        <p><img src='you-learn.png'></img></p>
+        </div>
+      <div id='topics'>
+        <h1>You learn</h1>
+        <p>Two (or more) heads are always better than one!</p>
+      </div>
+      
+      
+      </div>
       <AboutUs/>
+      <div id='topics-box'>
+      <div id='img-icon-own'>
+        <p><img src='own-it.png'></img></p>
+        </div>
+      <div id='topics'>
+        <h1>You Own it</h1>
+        <p>Improve your confidence!</p>
+      </div>
+      </div>
       <FindAMentor/>
     </div>
 
