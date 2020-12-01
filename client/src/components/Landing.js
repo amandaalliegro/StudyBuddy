@@ -69,6 +69,15 @@ export default function Landing(props) {
       </div>
       </div>
       <FindAMentor/>
+      <div id='topics-box'>
+      <div id='img-icon-own'>
+        <p><img src='std-tgt.png'></img></p>
+        </div>
+      <div id='topics'>
+        <h1>You Share it</h1>
+        <p>You can be the difference!</p>
+      </div>
+      </div>
     </div>
 
   ) 
