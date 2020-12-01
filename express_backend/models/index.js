@@ -10,7 +10,21 @@ module.exports = (db) => {
       .then((result) => result.rows)
       .catch((err) => err);
   };
-
+  const getChatsByUser = id => {
+    const query = {
+      text: `
+      SELECT id AS contact_id, photo_url AS contact_photo, CONCAT(first_name, ' ', last_name) AS contact_name, messages
+      FROM chat_messages
+      JOIN users ON id = participant_1 OR  id = participant_2
+      WHERE (participant_1 = $1 OR participant_2 = $1) AND id <> $1
+      `,
+      values: [id]
+    };
+    return db
+      .query(query)
+      .then(result => result.rows)
+      .catch((err) => err);
+  }
   const getSpecificUser = id => {
     const query = {
       text: 'SELECT * FROM users where id = $1',

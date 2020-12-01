@@ -19,14 +19,32 @@
 }
 
 #login_nav {
-  display: flex;
+  float: left;
   justify-content: flex-end;
-  align-items: center;
+  align-items: initial;
   flex-grow: 1;
   color: white;
   padding: 5px;
 
   
+}
+#container-lgn{
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+}
+#login-frm{
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: flex-end;
+}
+#formEmail{
+  float: right;
+}
+
+#formPassword{
+  float: right;
 }
 
 #login-btn-nav{
@@ -44,6 +62,15 @@
   background-color: rgb(233, 102, 69);
   color: white;
   font-family: 'Montserrat Alternates', sans-serif;
+}
+#login-name{
+  float: left;
+  margin-right: 25px;
+  width: 570px;
+  color:white;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: 'Quattrocento Sans', sans-serif;
 }
 
 /* Style the links inside the navigation bar */
@@ -93,7 +120,7 @@
   display: flex;
   justify-content: flex-end;
   margin-right: 1rem;
-  padding-bottom: 18px;
+  
   flex-grow: 1;
   align-content: center;
 

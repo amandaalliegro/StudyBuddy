@@ -1,10 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@100;200;400&display=swap');
 
-#body_container {
-  background-color: #e0dddb;
+#body_landing-container {
   padding-top: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 -5px;
+}
+#landing-bd {
+  background-color: #daa1a1;
   height: 100%;
-  
 }
 #landing_body{
 
@@ -25,7 +30,7 @@
   margin-bottom:0 !important;
   margin-top: 0 !important;
   padding-top: 0px;
-  background-color: #eeeeee;
+ 
   font-family: 'Montserrat Alternates', sans-serif;
 }
 
@@ -74,12 +79,7 @@ body {
 }
 
 /* Remove extra left and right margins, due to padding in columns */
-.row {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 -5px;
-}
+
 
 /* Clear floats after the columns */
 .row:after {
