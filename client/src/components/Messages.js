@@ -36,7 +36,8 @@ export default function Messages(props) {
       </div>
         <title>chat</title>
         <div id='message_side'>
-        <ul id="messages">{messageList}</ul>
+        <ul id="messages">
+          {messageList}</ul>
         <form action>
           <div id="m.container">
             <input id="m" autoComplete="off" onChange= {(event) => setText(event.target.value)}/><button id='send-btn' onClick= {sendMessage}>Send</button>

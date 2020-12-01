@@ -31,17 +31,17 @@ export default function Login(props) {
     <Container>
       <div className='login_form'>
         {msg && <Alert variant='danger'>{msg}</Alert>}
-        <div className='container login-form-container'>
-          <Form onSubmit={handleSubmit}>
-            <Form.Group controlId='formBasicEmail'>
+        <div className='container-login' id='container-lgn'>
+          <Form id='login-frm' onSubmit={handleSubmit}>
+            <Form.Group controlId='formEmail'>
               <Form.Label>Email address</Form.Label>
               <Form.Control type='email' placeholder='Enter email' />
             </Form.Group>
-            <Form.Group controlId='formBasicPassword'>
+            <Form.Group controlId='formPassword'>
               <Form.Label>Password</Form.Label>
               <Form.Control type='password' placeholder='Password' />
             </Form.Group>
-            <button variant='primary' type='submit' onClick={() => history.push('/home/:id')}>Login</button>;
+            <button variant='primary' type='submit' onClick={() => history.push('/home/:id')}>Login</button>
           </Form>
         </div>
       </div>

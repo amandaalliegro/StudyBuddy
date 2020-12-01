@@ -5,6 +5,7 @@ import './register.css'
 import { Redirect, useHistory } from 'react-router-dom';
 export default function Register(props) {
   let history = useHistory();
+  const {user} = props;
   const [error, setError] = useState(null);
   function handleSubmit(event) {
     event.preventDefault()

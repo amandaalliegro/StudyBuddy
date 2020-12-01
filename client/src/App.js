@@ -44,6 +44,9 @@ function App(props) {
       path: "/"
     });
   }
+const [isLoading, setIsLoading] = useState('')
+
+  
   useEffect(() => {
     // socket server '/'
     const socket = new WebSocket('ws://localhost:3005');
@@ -69,28 +72,7 @@ function App(props) {
       // then. set state function (result => dispatch)result is what server gives back (res)
       .then(result => dispatch({ type: SET_USERS, users: result.data }))
       .catch(err => console.log(err.message))
-    let full_name = localStorage.getItem('full_name')
-    full_name ? setFullName(full_name) : setFullName('')
-    let id = localStorage.getItem('id')
-    id ? setId(id) : setId('')
-    let email = localStorage.getItem('email')
-    email ? setEmail(email) : setEmail('')
-    let language = localStorage.getItem('language')
-    language ? setLanguage(language) : setLanguage('')
-    let location = localStorage.getItem('location')
-    location ? setLocation(location) : setLocation('')
-    let gender = localStorage.getItem('gender')
-    gender ? setGender(location) : setGender('')
-    let mentor = localStorage.getItem('mentor')
-    mentor ? setMentor(mentor) : setMentor('')
-    let student = localStorage.getItem('student')
-    student ? setStudent(student) : setStudent('')
-    let silent_buddy = localStorage.getItem('silent_buddy')
-    silent_buddy ? setSilentBuddy(silent_buddy) : setSilentBuddy('')
-    let description = localStorage.getItem('description')
-    description ? setDescription(description) : setDescription('')
-    let interests = localStorage.getItem('interests')
-    interests ? setInterests(interests) : setInterests('')
+    
   }, [])
   useEffect(() => {
     axios({
@@ -102,17 +84,7 @@ function App(props) {
       setUser(result.data.user)
     })
   },[])
-// const userList = state.users.map((user) => (
-// <li key={user.id} id={user.id}>
-//    {user.full_name} 
-//    {user.password} 
-//    {user.email} 
-//    {user.gender} 
-//    {user.student} 
-//    {user.silent_body} 
-//    {user.description} 
-//   </li>));
-// console.log("userList =" , userList)
+
   return (
     <Router>
       <div>
@@ -149,7 +121,7 @@ function App(props) {
           {Object.keys(user).length && <Redirect to="/user/:id"/>}
           </Route>
           <Route path="/">
-            <Landing />
+            <Landing user={user} setUser={setUser} />
           </Route>
         </Switch>
       </div>

@@ -18,11 +18,30 @@
 }
 
 #login_nav {
-  display: flex;
+  float: left;
   justify-content: flex-end;
-  align-items: center;
+  align-items: initial;
   flex-grow: 1;
+  width: 500px;
   
+}
+#container-lgn{
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+}
+#login-frm{
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: flex-end;
+}
+#formEmail{
+  float: right;
+}
+
+#formPassword{
+  float: right;
 }
 
 #login-btn-nav{
@@ -44,6 +63,7 @@
 #login-name{
   float: left;
   margin-right: 25px;
+  width: 570px;
   color:white;
   font-size: 20px;
   font-weight: bold;
@@ -97,7 +117,7 @@
   display: flex;
   justify-content: flex-end;
   margin-right: 1rem;
-  padding-bottom: 18px;
+  
   flex-grow: 1;
   align-content: center;
 

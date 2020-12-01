@@ -65,6 +65,18 @@
   background-color: rgba(231, 240, 240, 0.9);
   box-shadow: 3px 6px 10px 3px rgba(0, 0, 0, 0.5);
 }
+#ind-msg{
+  display: flex;
+  box-shadow: 3px 6px 10px 3px rgba(0, 0, 0, 0.5); /* this adds the "card" effect */
+  padding: 16px;
+  border-radius: 1rem;
+  text-align: center;
+  background-color: rgb(235, 123, 95) !important;
+  height: 100%;
+  color: #ffffff;
+  font-family: 'Montserrat Alternates', sans-serif;
+  margin: 0.1cm
+}
 
 #m.container {
   float: right;
