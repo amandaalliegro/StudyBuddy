@@ -25,6 +25,7 @@ module.exports = (db) => {
       .then(result => result.rows)
       .catch((err) => err);
   }
+
   const getSpecificUser = id => {
     const query = {
       text: 'SELECT * FROM users where id = $1',
@@ -32,6 +33,8 @@ module.exports = (db) => {
     };
     console.log("get specificUser is running")
     return db.query(query)
+    // .then(result => result.rows[0])
+    // .catch((err) => console.log(err));
   };
 
   const getUserByEmail = email => {
@@ -41,7 +44,7 @@ module.exports = (db) => {
       values: [email]
     }
     console.log(email)
-    console.log("fucking yolo")
+    console.log(" yolo")
     return db
       .query(query)
       .then(result => result.rows[0])
@@ -107,14 +110,17 @@ module.exports = (db) => {
         }
       }
       text = text.slice(0, -2) + "\nWHERE users.id = $1 \nRETURNING *;";
-
+      console.log(`query: ${text}`)
       return db.query(text, values)
         .then(result => {
           // if (result.rows[0]) {
-          //   console.log("THIS IS RESULT LINE 79", result.rows[0])
+            console.log("THIS IS RESULT LINE 79", result.rows[0])
               return result.rows[0];
         })
-        .catch(err => err);
+        .catch(err => {
+          console.log(`err on edit: ${err}`)
+          return err
+        });
       }
     throw 'It seems that the user id is missing or there are no fields to update';
   };

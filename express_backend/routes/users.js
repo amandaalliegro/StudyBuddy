@@ -64,10 +64,11 @@ router.post('/', async (req, res, next) => {
       silent_buddy
     } = req.body;
     const { id } = req.params;
+    console.log(`req body: ${JSON.stringify(req.body)}`)
     password = bcrypt.hashSync(password, salt);
     getSpecificUser(id)
         .then(user => {
-          console.log(user);
+          console.log("user from get specific user in put request",user);
           if (!user) {
             res.json({
               msg: 'Sorry,user does not exists'
