@@ -18,19 +18,31 @@ export default function Messages(props) {
   
   return (
     <div id='chat_container'>
-    <div id="chat_box">
+    <div class="row" id="chat_box">
+      <div id='history_messages'>
+        <div id='chat_card'>
+          <p>old message</p>
+        </div>
+        <div id='chat_card'>
+          <p>old message</p>
+        </div>
+        <div id='chat_card'>
+          <p>old message</p>
+        </div>
+
+      </div>
         <title>chat</title>
-        <div>
+        <div id='message_side'>
         <ul id="messages">{messageList}</ul>
         <form action>
           <div id="m.container">
-            <input id="m" autoComplete="off" onChange= {(event) => setText(event.target.value)}/>
-            <button onClick= {sendMessage}>Send</button>
+            <input id="m" autoComplete="off" onChange= {(event) => setText(event.target.value)}/><button id='send-btn' onClick= {sendMessage}>Send</button>
             
           </div>
         </form>
         </div>
-      </div>
+        </div>
+      
       </div>
   );
 };

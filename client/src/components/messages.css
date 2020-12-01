@@ -1,48 +1,85 @@
-#body_container {
-  background-color: #d6a584;
-  padding-top: 15px;
-  
-}
+
 #chat_container {
-  display: flex;
+  float: left;
   justify-content: center;
-  background-color: violet;
+  background-color: rgb(255, 255, 255);
+  background-image: url("01.jpg");
   height: 800px;
+  width: 100%;
 }
 
 #chat_box {
   display: flex;
-  margin-top: 63px;
-  margin-left: 10cm;
-  margin-right: 2cm;
-  height: 500px;
-  padding-top: 10px;
-  padding-right: 10px;
-  padding-right: 10px;
-  justify-content: flex-end;
-  
-  background-color: teal;
+  margin-top: 50px;
+  width: 100%;
+  height: 100%;
+  padding-right: 15px;
+  align-items: center;
+  justify-content: space-between;
 
+
+}
+#history_messages {
+  width: 30%;
+  height: 100%;
+  margin-top: 25px;
+  margin-right: 0.4cm;
+  margin-left: 0.4cm;
+  
+  justify-self: start;
+}
+
+#chat_card{
+  box-shadow: 3px 6px 10px 3px rgba(0, 0, 0, 0.5); /* this adds the "card" effect */
+  padding: 16px;
+  border-radius: 1rem;
+  text-align: center;
+  background-color: rgb(235, 123, 95) !important;
+  height: 100px;
+  color: #ffffff;
+  font-family: 'Montserrat Alternates', sans-serif;
+  margin: 0.1cm
+}
+#message_side {
+  height: 100%;
+  width: 830px;
 }
 
 #messages { 
-  display: flex;
-  width: 800px;
-  height: 500px;
-  
-  
+  width: 100%;
+  height: 570px;
+  padding: 1cm;
+  border-radius: 0.6rem;
   justify-content: flex-end;
-  background-color: tomato;
+  background-color: rgba(231, 240, 240, 0.9);
+  box-shadow: 3px 6px 10px 3px rgba(0, 0, 0, 0.5);
 }
 
-#m.container{
-  display: flex;
+#m.container {
+  float: right;
+  position: fixed;
+  align-items: center;
+  height: 100%;
 }
 #m {
-  display: flex;
-  width: 500px;
-  background-color: turquoise;
+  float: left;
+  width: 770px;
+  box-shadow: 3px 6px 10px 3px rgba(0, 0, 0, 0.5);
+  background-color: rgb(201, 233, 230);
   padding-right: 1.5cm;
-  
+  height: 100px;
+  margin-bottom: 0.4cm;
+  border-radius: 0.6rem;
+  border:0;
+  font-size: 18px;
+  padding: 0.5cm;
 
+}
+#send-btn{
+  height: 60px;
+  border-radius: 0.6rem;
+  box-shadow: 3px 6px 10px 3px rgba(0, 0, 0, 0.5);
+  border:0;
+  margin-left: 0.15cm;
+  width: 52px;
 }

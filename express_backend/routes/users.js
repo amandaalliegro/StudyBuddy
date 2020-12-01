@@ -3,10 +3,8 @@ const router = express.Router();
 const bcrypt = require('bcrypt');
 let salt = bcrypt.genSaltSync(10);
 // const { getPostsByUsers, findAccount, addUser } = require('../helpers/dataHelpers');
-
 module.exports = ({ 
   getUsers, getUserByEmail, addUser, getUsersPosts, getSpecificUser, editUser}) => {
-
   /* GET users listing. */
   // name space defined in app.js /api/users
   // axios in app.js on client 
@@ -14,13 +12,11 @@ module.exports = ({
     getSpecificUser(req.params.id)
       .then(data => res.json({user: data.rows[0]}))
   })
-
   router.get('/', function (req, res) {
     getUsers()
       .then(users => res.json(users))
       .catch(err => res.json({ msg: err.message }))
   });
-
   router.get('/posts', (req, res) => {
     getUsersPosts()
       .then((usersPosts) => {
@@ -33,10 +29,11 @@ module.exports = ({
   });
   // register route 
 router.post('/', async (req, res, next) => {
+  console.log("HEEEEE--E-EEEE-EEEE-EYYYYY")
     const user = req.body;
     console.log(req.body);
     user.password = bcrypt.hashSync(user.password, salt);
-    
+    console.log(await getUserByEmail(user.email));
     const alreadyExists = await getUserByEmail(user.email);
     console.log(typeof alreadyExists, "alreaDYYYY")
     if (typeof alreadyExists !== 'undefined') {
@@ -44,7 +41,6 @@ router.post('/', async (req, res, next) => {
     } else {
       addUser(user.full_name, user.email, user.password)
       .then((user) => {
-        
         console.log(user, 'user added...')
         if (!user) {
           res.send({error: 'error'});
@@ -57,7 +53,7 @@ router.post('/', async (req, res, next) => {
     })
     }
 });
-
+// this is the database route 
   router.put('/:id', async(req, res, next) => {
     let {
       full_name, 
@@ -96,7 +92,7 @@ router.post('/', async (req, res, next) => {
           error: err.message
         }));
     });
-
+// here is messaging route... need to create db query. build on index.js
   router.get('/:id/chats', (req, res) => {
     const { id } = req.params;
     getChatsByUser(id)
