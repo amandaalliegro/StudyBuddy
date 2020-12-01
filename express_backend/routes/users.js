@@ -3,10 +3,8 @@ const router = express.Router();
 const bcrypt = require('bcrypt');
 let salt = bcrypt.genSaltSync(10);
 // const { getPostsByUsers, findAccount, addUser } = require('../helpers/dataHelpers');
-
 module.exports = ({ 
   getUsers, getUserByEmail, addUser, getUsersPosts, getSpecificUser, editUser}) => {
-
   /* GET users listing. */
   // name space defined in app.js /api/users
   // axios in app.js on client 
@@ -14,13 +12,11 @@ module.exports = ({
     getSpecificUser(req.params.id)
       .then(data => res.json({user: data.rows[0]}))
   })
-
   router.get('/', function (req, res) {
     getUsers()
       .then(users => res.json(users))
       .catch(err => res.json({ msg: err.message }))
   });
-
   router.get('/posts', (req, res) => {
     getUsersPosts()
       .then((usersPosts) => {
@@ -45,7 +41,6 @@ router.post('/', async (req, res, next) => {
     } else {
       addUser(user.full_name, user.email, user.password)
       .then((user) => {
-        
         console.log(user, 'user added...')
         if (!user) {
           res.send({error: 'error'});

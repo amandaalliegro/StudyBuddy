@@ -1,11 +1,8 @@
 import { Container, Form, Alert } from 'react-bootstrap'
 import axios from 'axios';
 import React, { useState } from 'react'
-
 import "./navbar.css"
 import { useHistory } from 'react-router-dom';
-
-
 export default function Login(props) {
   // 
   let history = useHistory();
@@ -20,11 +17,9 @@ export default function Login(props) {
     // sets the local storage to the users id stored in db. 
     axios.post('/login', newUser).then((res) => {
       if (res.status === 200) {
-        
           localStorage.setItem("id", res.data.id)
           // gets info from the axios and can pass it to app.js
           props.setUser(res.data) 
-        
         // set state and useHistory
       }
     }).catch((err) => {
@@ -33,7 +28,6 @@ export default function Login(props) {
     })
   }
   return (
-
     <Container>
       <div className='login_form'>
         {msg && <Alert variant='danger'>{msg}</Alert>}
@@ -48,8 +42,6 @@ export default function Login(props) {
               <Form.Control type='password' placeholder='Password' />
             </Form.Group>
             <button variant='primary' type='submit' onClick={() => history.push('/home/:id')}>Login</button>;
-
-
           </Form>
         </div>
       </div>

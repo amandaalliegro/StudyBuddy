@@ -41,6 +41,14 @@
   color: white;
   font-family: 'Montserrat Alternates', sans-serif;
 }
+#login-name{
+  float: left;
+  margin-right: 25px;
+  color:white;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: 'Quattrocento Sans', sans-serif;
+}
 
 /* Style the links inside the navigation bar */
 .topnav a {

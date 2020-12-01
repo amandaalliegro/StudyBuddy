@@ -10,7 +10,7 @@ router.get('/', function (req, res, next) {
 });
 
 router.post( '/search' , function (req, res) {
-  console.log("i am search router get")
+  console.log("i am search router get",req.body)
        const {name} = req.body;
        findUser(name)
        .then(result => {

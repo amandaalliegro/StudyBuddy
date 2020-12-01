@@ -21,7 +21,6 @@ import Logged from './components/Logged.js';
 import Messages from './components/Messages.js';
 import CommunityBoard from './components/community board/CommunityBoard.js';
 import MainSearch from './components/searchForUsers/MainSearch';
-
 function App(props) {
   console.log("props.users",props.users)
   const [cookies, setCookie, removeCookie] = useCookies(null);
@@ -40,20 +39,16 @@ function App(props) {
   const [interests, setInterests] = useState('')
   // sets state and gets setUser data from login.js
   const [user, setUser] = useState({})
-
-
   function handleCookie(key) {
     setCookie("user", key, {
       path: "/"
     });
   }
-
   useEffect(() => {
     // socket server '/'
     const socket = new WebSocket('ws://localhost:3005');
     setSocket(socket);
     socket.onopen = () => console.log("Connected to server")
-
     socket.onmessage = event => {
       const message = JSON.parse(event.data);
       console.log(message)
@@ -63,11 +58,8 @@ function App(props) {
     socket.onerror = (err) => console.log(err)
     // return () => {
     //   socket.onclose();
-    
     // };
-    
   }, [])
-
   useEffect(() => {
     // this is how you talk to the backend
     axios({
@@ -75,59 +67,41 @@ function App(props) {
       url: '/api/users'
     })
       // then. set state function (result => dispatch)result is what server gives back (res)
-
       .then(result => dispatch({ type: SET_USERS, users: result.data }))
       .catch(err => console.log(err.message))
-
-
     let full_name = localStorage.getItem('full_name')
     full_name ? setFullName(full_name) : setFullName('')
-
     let id = localStorage.getItem('id')
     id ? setId(id) : setId('')
-
     let email = localStorage.getItem('email')
     email ? setEmail(email) : setEmail('')
-    
     let language = localStorage.getItem('language')
     language ? setLanguage(language) : setLanguage('')
-    
     let location = localStorage.getItem('location')
     location ? setLocation(location) : setLocation('')
-
     let gender = localStorage.getItem('gender')
     gender ? setGender(location) : setGender('')
-
     let mentor = localStorage.getItem('mentor')
     mentor ? setMentor(mentor) : setMentor('')
-
     let student = localStorage.getItem('student')
     student ? setStudent(student) : setStudent('')
-
     let silent_buddy = localStorage.getItem('silent_buddy')
     silent_buddy ? setSilentBuddy(silent_buddy) : setSilentBuddy('')
-
     let description = localStorage.getItem('description')
     description ? setDescription(description) : setDescription('')
-
     let interests = localStorage.getItem('interests')
     interests ? setInterests(interests) : setInterests('')
-
-
   }, [])
-
   useEffect(() => {
     axios({
       method: 'GET',
       url: '/api/users/' + localStorage.getItem('id')
     }).then(result => {
       console.log("AQUI")
-      
       console.log(result)
       setUser(result.data.user)
     })
   },[])
-
 // const userList = state.users.map((user) => (
 // <li key={user.id} id={user.id}>
 //    {user.full_name} 
@@ -139,7 +113,6 @@ function App(props) {
 //    {user.description} 
 //   </li>));
 // console.log("userList =" , userList)
-
   return (
     <Router>
       <div>
@@ -175,14 +148,12 @@ function App(props) {
           {!Object.keys(user).length && <Register setUser = {setUser}/>}
           {Object.keys(user).length && <Redirect to="/user/:id"/>}
           </Route>
-
           <Route path="/">
             <Landing />
           </Route>
         </Switch>
       </div>
     </Router>
-
   );
 };
 export default App;
