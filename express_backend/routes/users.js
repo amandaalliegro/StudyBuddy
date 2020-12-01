@@ -61,7 +61,12 @@ router.post('/', async (req, res, next) => {
       password, 
       student, 
       mentor, 
-      silent_buddy
+      silent_buddy,
+      // ,
+      // location,
+      description,
+      // img,
+      subject
     } = req.body;
     const { id } = req.params;
     console.log(`req body: ${JSON.stringify(req.body)}`)
@@ -82,7 +87,12 @@ router.post('/', async (req, res, next) => {
             password, 
             student, 
             mentor, 
-            silent_buddy
+            silent_buddy,
+            // ,
+            // location,
+            description,
+            // img,
+            subject
           })
         })
         .then(updatedUser => {

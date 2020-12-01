@@ -98,7 +98,7 @@ module.exports = (db) => {
     // a query will only be build and run if an user id was provided and the passed object has more than the id key
     if (userObject && Object.keys(userObject).length > 1) {
       // all the accepted fields in our database
-      const userFields = ['full_name', 'email', 'password', 'student', 'mentor', 'silent_buddy'];
+      const userFields = ['full_name', 'email', 'password', 'student', 'mentor', 'silent_buddy','description','subject'];
       
       // the sql query and the values array should be build dynamically
       let text = `UPDATE users \nSET `;
