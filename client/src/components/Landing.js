@@ -4,6 +4,7 @@ import AboutUs from './AboutUs';
 import { Link } from "react-router-dom";
 
 import classNames from 'classnames/bind';
+import FindAMentor from "./FindAMentor";
 
 export default function Landing(props) {
   const {user} = props;
@@ -47,6 +48,7 @@ export default function Landing(props) {
         </div>
       </div>
       <AboutUs/>
+      <FindAMentor/>
     </div>
 
   ) 

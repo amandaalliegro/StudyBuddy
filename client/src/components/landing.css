@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@100;200;400&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Quattrocento+Sans&display=swap');
 #body_landing-container {
   padding-top: 15px;
   display: flex;
@@ -8,7 +8,8 @@
   margin: 0 -5px;
 }
 #landing-bd {
-  background-color: #daa1a1;
+  background-color: #faebe2;
+  
   height: 100%;
 }
 #landing_body{
@@ -131,6 +132,65 @@ body {
 }
 
 #about-bd{
+  display: block;
   width: 90%;
   align-content: center;
+  justify-content: center;
+  text-align: justify;
+  margin-left: 4.5cm;
+  padding-right: 5.6cm;
+  height: 100%;
+  font-family: 'Montserrat Alternates', sans-serif;
+  border-radius: 0.4rem;
+  
+}
+
+#title-abt{
+  font-size: 73px;
+  
+  color:rgb(236, 97, 62);
+}
+#together-img{
+  height: 400px;
+  width: auto;
+  margin-left: 30px;
+  border-radius: 0.4rem;
+  box-shadow: 3px 6px 10px 3px rgba(0, 0, 0, 0.5);
+}
+#mentor-img{
+  height:345px;
+  width:auto;
+  margin-right: 30px;
+  border-radius: 0.4rem;
+  box-shadow: 3px 6px 10px 3px rgba(0, 0, 0, 0.5);
+}
+#text-img{
+  display:flex;
+  font-size: 20px;
+  color:rgb(109, 82, 75);
+}
+
+#about-txt{
+  display: flex;
+  font-size: 20px;
+
+  font-family: 'Quattrocento Sans', sans-serif;
+  
+  color:rgb(109, 82, 75);
+  padding: 29px;
+  
+  
+}
+#about-txtf{
+  display: block;
+  justify-content: center;
+  align-content: center;
+  
+  font-size: 37px;
+  font-family: 'Quattrocento Sans', sans-serif;
+  
+  color:rgb(236, 97, 62);
+  padding: 29px;
+  
+  
 }
