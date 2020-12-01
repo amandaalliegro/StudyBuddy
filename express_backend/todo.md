@@ -1,6 +1,8 @@
 
+this is done! 
 - Need to connect the db to the chat room(s).
     - create a table to include: room_id, creater_id, users in room, message_id or whole chat_id, 
+
 
 - Need to give the ability for clients to join the same room. 
 

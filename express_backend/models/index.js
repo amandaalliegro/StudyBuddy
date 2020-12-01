@@ -119,7 +119,19 @@ module.exports = (db) => {
     throw 'It seems that the user id is missing or there are no fields to update';
   };
 
+   const postMessage = (roomchat, user, message) => {
 
+    return db.query(`INSERT INTO messages(${roomchat}, ${user}, ${message})
+    VALUES (${roomchat}, ${user}, ${message})`)
+      .catch(error => console.log(error))    
+
+   }
+
+   const retrieveMessages = (roomchat) => {
+     return db.query(`SELECT * FROM messages WHERE roomchat_id =${roomchat}`)
+     .then(result => result)
+
+   }
   return {
     findAccount,
     getUsers,
@@ -128,6 +140,7 @@ module.exports = (db) => {
     getUsersPosts,
     getSpecificUser,
     findUser,
-    editUser
+    editUser,
+    postMessage
   };
 };

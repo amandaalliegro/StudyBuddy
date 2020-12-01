@@ -95,11 +95,11 @@ END;
 $$;
 
 -- U S E R S
-INSERT INTO users(id, full_name, password, student, mentor, location, language, gender, email, silent_buddy, description, subject)
+INSERT INTO users(full_name, password, student, mentor, location, language, gender, email, silent_buddy, description, subject)
 VALUES 
-(1, 'Joe Levesque', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.', TRUE, FALSE, 'edmonton', 'english', 'male', 'socialconsequences@gmail.com', TRUE, 'i love to study webDevelpment', 'web Development'),
-(2, 'Affaf Rai', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.', TRUE, TRUE, 'Toronto', 'english', 'female', 'affaf-rai@hotmail.com', FALSE, 'optimistic about getting my chimistry project done', 'Chemistry'),
-(3, 'Amanda Arnaut', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.', TRUE, TRUE, 'Toronto', 'english', 'female', 'amanda.m.arnaut@gmail.com', FALSE, 'looking for people to study with me 3 hours a week', 'science');
+('Joe Levesque', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.', TRUE, FALSE, 'edmonton', 'english', 'male', 'socialconsequences@gmail.com', TRUE, 'i love to study webDevelpment', 'web Development'),
+('Affaf Rai', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.', TRUE, TRUE, 'Toronto', 'english', 'female', 'affaf-rai@hotmail.com', FALSE, 'optimistic about getting my chimistry project done', 'Chemistry'),
+('Amanda Arnaut', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.', TRUE, TRUE, 'Toronto', 'english', 'female', 'amanda.m.arnaut@gmail.com', FALSE, 'looking for people to study with me 3 hours a week', 'science');
 
 -- I N T E R E S T S  
 INSERT INTO interests(id, name) VALUES (1, 'Programming');
