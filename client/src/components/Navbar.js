@@ -17,7 +17,7 @@ export default function Navbar(props) {
       {user.full_name && <a href='/search'>Find Buddies</a>}
       {user.full_name &&<a href='/' onClick={logOut} >Logout</a>}
       <div id='login_nav'>
-     <div>
+     <div id='login-name'>
        {!user.full_name && <Login user={user} setUser={props.setUser}/>}
        {user.full_name && <p> Welcome {user.full_name}</p>}
      </div>

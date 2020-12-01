@@ -21,12 +21,15 @@ export default function Messages(props) {
     <div class="row" id="chat_box">
       <div id='history_messages'>
         <div id='chat_card'>
+        <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" className="avatar img-circle img-thumbnail" id="avatar-msg"alt="avatar" />
           <p>old message</p>
         </div>
         <div id='chat_card'>
+        <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" className="avatar img-circle img-thumbnail" id="avatar-msg"alt="avatar" />
           <p>old message</p>
         </div>
         <div id='chat_card'>
+        <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" className="avatar img-circle img-thumbnail" id="avatar-msg"alt="avatar" />
           <p>old message</p>
         </div>
 
