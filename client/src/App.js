@@ -149,13 +149,12 @@ function App(props) {
         </nav>
         <Switch>
         <Route path="/user/:id/edit">
-          {Object.keys(user).length && <EditProfile setUser={setUser} />}
+          {Object.keys(user).length && <EditProfile user={user} setUser={setUser} />}
           {!Object.keys(user).length && <Redirect to="/profile"/>}
           </Route>
           <Route path="/user/buddy">
             <UserProfile buddyUser = {buddyUser} setBuddyUser = {setBuddyUser}/>
           </Route>
-         
           <Route path="/home/:id">
             <Logged />
           </Route>
