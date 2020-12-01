@@ -16,8 +16,9 @@ export default function Profile(props) {
         <div className="container" id="profile_element">
           <div className="col-sm-3">{/*left col*/}
             <div className="text-center">
-              <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" className="avatar img-circle img-thumbnail" id="avatar"alt="avatar" />
-              
+            {user.img && <img src= {user.img} className="avatar img-circle img-thumbnail" id="avatar"alt="avatar" />}
+              {!user.img && <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" className="avatar img-circle img-thumbnail" id="avatar"alt="avatar" />}
+                            
             </div><br />
           </div>{/*/col-3*/}
           <div className="col-sm-9" style={{padding: "50px"}} id="profile_data">
@@ -51,7 +52,7 @@ export default function Profile(props) {
                   </div>
                   <div className="form-group">
                       <br />
-                      <button type="submit" className="btn btn-primary edit_btn" id="btn_profile" onClick={() => history.push('/user/:id')}>Edit Profile</button>
+                      <button type="submit" className="btn btn-primary edit_btn" id="btn_profile" onClick={() => history.push(`/user/{user.id}/edit`)}>Edit Profile</button>
                   </div>
                 <hr />
            </div>   

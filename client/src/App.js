@@ -22,7 +22,6 @@ import Messages from './components/Messages.js';
 import CommunityBoard from './components/community board/CommunityBoard.js';
 import MainSearch from './components/searchForUsers/MainSearch';
 function App(props) {
-  console.log("props.users",props.users)
   const [cookies, setCookie, removeCookie] = useCookies(null);
   const [socket, setSocket] = useState(null);
   const { state, dispatch } = useApplicationData();
@@ -39,6 +38,13 @@ function App(props) {
   const [interests, setInterests] = useState('')
   // sets state and gets setUser data from login.js
   const [user, setUser] = useState({})
+  const [buddyUser, setBuddyUser] = useState({})
+
+// console.log("id",id)
+// console.log("user",user.id)
+// console.log("props.users",props.users)
+
+  console.log("body user from app .js", buddyUser)
   function handleCookie(key) {
     setCookie("user", key, {
       path: "/"
@@ -54,17 +60,12 @@ const [isLoading, setIsLoading] = useState('')
     socket.onopen = () => console.log("Connected to server")
     socket.onmessage = event => {
       const message = JSON.parse(event.data);
-      console.log(message)
       dispatch({type: SET_MESSAGE, message})
     }
     socket.onclose = () => console.log('disconected from server')
     socket.onerror = (err) => console.log(err)
-    // return () => {
-    //   socket.onclose();
-    // };
   }, [])
   useEffect(() => {
-    // this is how you talk to the backend
     axios({
       method: 'GET',
       url: '/api/users'
@@ -79,25 +80,24 @@ const [isLoading, setIsLoading] = useState('')
       method: 'GET',
       url: '/api/users/' + localStorage.getItem('id')
     }).then(result => {
-      console.log("AQUI")
-      console.log(result)
+      
       setUser(result.data.user)
     })
   },[])
 
   return (
     <Router>
-      <div>
+      <div id='app_body'>
         <nav className="App">
           <Navbar user={user} setUser={setUser} />
         </nav>
         <Switch>
-          <Route path="/profile/user_id">
-            {<UserProfile user={user} setUser={setUser}/>}
-          </Route>
-          <Route path="/users/:id">
-          {Object.keys(user).length && <EditProfile setUser={setUser} />}
+        <Route path="/user/:id/edit">
+          {Object.keys(user).length && <EditProfile user={user} setUser={setUser} />}
           {!Object.keys(user).length && <Redirect to="/profile"/>}
+          </Route>
+          <Route path="/user/buddy">
+            <UserProfile buddyUser = {buddyUser} setBuddyUser = {setBuddyUser}/>
           </Route>
           <Route path="/home/:id">
             <Logged />
@@ -107,8 +107,8 @@ const [isLoading, setIsLoading] = useState('')
             setUser={setUser} />
           </Route>
           <Route path="/search">
-            <MainSearch user={user}
-            setUser={setUser}/>
+            <MainSearch buddyUser={buddyUser}
+            setBuddyUser={setBuddyUser}/>
           </Route>
           <Route path="/community">
             <CommunityBoard />

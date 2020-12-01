@@ -1,38 +1,75 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+#body_search {
+  display: block;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  height: 100%;
+  width: 100%;
+  padding: 50px;
+  background-color: white;
 }
 
-.App-link {
-  color: #61dafb;
+#search_form {
+  height: 100%;
+  width: 100%;
+margin: 0.3rem;
+padding:0.3rem;
+display: flex;
+  justify-content: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#search_container {
+  display: block;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  height: 100%;
+  padding-top: 50px;
+  background-color:white;
 }
+
+
+#search_input {
+  border-radius: 25px;
+  border: 2px solid  rgb(233, 102, 69);
+
+  outline: transparent;
+
+ padding: 6px; 
+  margin: 8px;
+  font-size: 17px;
+  line-height: 1.2rem;
+  width: 50rem;
+  border-width: 2px; 
+
+}
+#search_output {
+  display: block;
+  justify-content: center;
+  margin: 50px;
+  font-size:1em;
+  font-family: 'Montserrat Alternates', sans-serif;
+   border: 2rem;
+   border-color: tomato;
+   outline: rgb(233, 102, 69);
+   outline-color: rgb(233, 102, 69);
+   border-radius: 25px;
+   background-color: white;
+   height: 7rem;
+   width:50rem;
+
+}
+
+  #search_button{
+    outline: transparent;
+    border-radius: 1rem;
+    border: 0;
+    font-size: 1.5rem;
+    height: 2rem;
+    line-height: 1.2rem;
+    margin: 5px;
+    width: 10rem;
+    border-width: 2px;
+    border-color: rgb(233, 102, 69);
+    color:white;
+    background-color: rgb(233, 102, 69) !important;
+  }

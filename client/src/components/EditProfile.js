@@ -18,12 +18,13 @@ export default function EditProfile(props) {
     event.preventDefault()
     const user = {
       full_name: event.target[0].value,
-      email: event.target[1].value,
-      student: event.target[2].value,
-      mentor: event.target[3].value,
-      silent_buddy: event.target[4].value,
-      description: event.target[5].value,
-      password: event.target[6].value
+      img: event.target[1].value,
+      email: event.target[2].value,
+      student: event.target[3].value,
+      mentor: event.target[4].value,
+      silent_buddy: event.target[5].value,
+      description: event.target[6].value,
+      password: event.target[7].value
     }
     if (user.full_name.length < 2) {
       setError('Enter at least 2 charachter')
@@ -33,10 +34,7 @@ export default function EditProfile(props) {
         console.log("i am axios put in edit profile", res)
         if (res.status === 200) {
           localStorage.setItem("id", res.data.id)
-          
           props.setUser(res.data) 
-        
-
         }
       }).catch((err) => {
         setError('You must have a valid email signed')
@@ -53,10 +51,10 @@ export default function EditProfile(props) {
         </div>
         <div className="container" id="profile_element">
           <div className="text-center">
-            <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" className="avatar img-circle img-thumbnail" id="avatar" alt="avatar" />
-            <input type="file" className="text-center center-block file-upload" />
+            {props.user.img && <img src= {props.user.img} className="avatar img-circle img-thumbnail" id="avatar"alt="avatar" />}
+            {!props.user.img && <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" className="avatar img-circle img-thumbnail" id="avatar"alt="avatar" />}
           </div>
-          <br />
+          <br/>
 
           <div className="col-sm-9" style={{ padding: "50px" }} id="profile_data">
           <Form className="form" action="##" method="post" id="registrationForm" onSubmit={handleSubmit}>
@@ -64,8 +62,11 @@ export default function EditProfile(props) {
                 <div className="col-xs-6">
                 <Form.Label><h4>Full Name:</h4></Form.Label>
                 <Form.Control type="text" className="form-control" name="name" id="name" placeholder="Name" />
-                <Form.Text className='text-muted'>
-                </Form.Text>
+                </div>
+                <div>
+                <Form.Label><h4>Profile Image:</h4></Form.Label>
+                <Form.Control type="text" className="form-control" name="name" id="name" placeholder="Add image URL" />
+                <Form.Text className='text-muted'></Form.Text>
                 </div>
                 </Form.Group>
                 <Form.Group  className="form-group">
@@ -114,7 +115,7 @@ export default function EditProfile(props) {
             <div className="form-group">
               <div className="col-xs-12">
                 <br />
-                <button variant='primary' type='submit' >Save</button>;
+                <Button className="btn btn-lg"  type='submit' >Save</Button>;
                 <Button className="btn btn-lg" type="reset"><i className="glyphicon glyphicon-repeat" /> Cancel</Button>
               </div>
             </div>
