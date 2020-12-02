@@ -12,7 +12,6 @@ console.log("HERE")
       client.send(data);
     });
   };
-
   wss.on('connection', (socket) => {
     console.log('Client Connected yo!');
     socket.on("message", (data) => {
@@ -23,12 +22,9 @@ console.log("HERE")
       console.log(message)
       // will send message to all client connected to socket
       wss.broadcast(JSON.stringify(message))
-
     })
-
     socket.on('close', data => {
       console.log("client disconnected")
     });
   });
-
 };
