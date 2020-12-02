@@ -2,14 +2,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@100;200;400&display=swap');
 
 .body{
-  background-image: url('concrete.jpeg');
+  background-image: url('/searching.jpeg');
   background-repeat: repeat;
 }
 
 #profile_container {
   display: block;
   padding-top: 50px;
-  background-image: url('concrete.jpeg');
+  background-image: url('/searching.jpeg');
   background-repeat: repeat;
 }
 #name_profile {
@@ -36,16 +36,22 @@
   
   font-family: 'Quattrocento Sans', sans-serif;
 }
-#profile_data {
+#profile_data-us {
   display: flow-root;
-  width: 80%;
+  width: 50%;
   padding-left: 20px;
-  margin-left: 24px;
+  margin-left: 180px;
   border-radius: 1rem;
   background-color: rgb(233, 102, 69, 0.7);
   box-shadow: 0px 6px 15px 0px rgba(0, 0, 0, 0.8);
   color: #f2f2f2;
 
+}
+
+#namep{
+  font-family: 'Montserrat Alternates', sans-serif;
+  color:rgb(4, 76, 104);
+  font-size: 24px;
 }
 #avatar {
   border-radius: 8rem;

@@ -1,5 +1,6 @@
 import React from "react";
 import { useHistory } from 'react-router-dom';
+import"./userProfile.css"
 
   //import users from "../../../express_backend/routes/users";
 // find the html code i used in https://bootsnipp.com/snippets/5Moza
@@ -11,7 +12,7 @@ export default function UserProfile(props) {
     <div id="profile_container">
       <div className="container bootstrap snippet" id="container_profile">
         <div className="container" id="name_profile">
-          <div className="col-sm-10"><h1>{user.full_name}</h1></div>
+          <div id='namep'><h1>{user.full_name}</h1></div>
          
         </div>
         </div>
@@ -23,7 +24,7 @@ export default function UserProfile(props) {
               
             </div><br />
           </div>{/*/col-3*/}
-          <div className="col-sm-9" style={{padding: "50px"}} id="profile_data">
+          <div  style={{padding: "50px"}} id="profile_data-us">
                 <hr />
                   <div className="form-group profile_data" id="profile_email" >
                       <label><h4>Language:</h4></label>
