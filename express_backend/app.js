@@ -5,6 +5,7 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const db = require('./db');
 const app = express();
+const useChat = require('./useChat'),
 const dbHelpers = require('./models')(db);
 const server = require("http").createServer(app);
 const io = require("socket.io")(server, {

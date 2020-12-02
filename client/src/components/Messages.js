@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import './messages.css'
+import axios from "axios"
 import useChat from "../hooks/useChat"
 
 export default function Messages(props) {
@@ -8,57 +9,63 @@ export default function Messages(props) {
   const { messages, sendMessage } = useChat(roomId); // Creates a websocket and manages messaging
   const [newMessage, setNewMessage] = React.useState(""); // Message to be sent
 
+  const handleNewMessages = (event) => {
+  
+    axios.post('/messages', { user_id: localStorage.getItem('id'), newMessage: newMessage })
+      .then((result) => {
+        setNewMessage((prevnewMessage) => [...prevnewMessage, result.data])
+        return false
+      })
+  };
+
+  function onSubmitMessage(event) {
+    event.preventDefault();
+    const newMsg = () => {
+      setNewMessage(event.target.value);
+
+    }
+    axios.post("/message", newMsg)
+      .then(res => {
+        setNewMessage(res.data)
+      })
+      .catch((err) => {
+        { console.log(err.message); }
+      })
+
+  };
+
+  useEffect(() => {
+    // axios to get all the created messages from the db by user id
+    axios({
+      method: 'GET',
+      url: 'http://localhost:3005/messages',
+
+    })
+    // then take the result and set that result.data as the new rooms array state. 
+    .then(result => {
+      console.log("res", result.data)
+      setNewMessage(result.data)
+      onSubmitMessage(setNewMessage(result.data))
+    })
+  }, [])
 
   // Node.js server registers query for notification
   // On notification of change, node.js server pulls changes from database
   // On successful retrieval of changes, node.js server uses socket.io to publish changes to all interested clients
 
-
-
-
-
-  // const sendMessage = (event) => {
-  //   event.preventDefault()
-  //   const newMessage = {
-  //     user: props.fullName,
-  //     message: text
-  //   }
-
-  //   props.socket.send(JSON.stringify(newMessage))
-  //   setText('')
-  //   console.log("props.socket", props.socket)
-
-  // }
-  // const messageList = props.messages.map((message) => <li key= {message.id} >{message.user} {message.message}</li>)
   const handleNewMessageChange = (event) => {
     setNewMessage(event.target.value);
   };
 
   const handleSendMessage = () => {
-    sendMessage(newMessage);
+    handleNewMessages(newMessage);
     setNewMessage("");
     // post messages to db
   };
 
   return (
     console.log("Messages", messages) || <div id='chat_container'>
-      {/*<div class="row" id="chat_box">
-       populate list of users rooms (ie: get all rooms with user_id
-        <div id='history_messages'>
-        <div id='chat_card'>
-        <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" className="avatar img-circle img-thumbnail" id="avatar-msg"alt="avatar" />
-          <p>old message</p>
-        </div>
-        <div id='chat_card'>
-        <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" className="avatar img-circle img-thumbnail" id="avatar-msg"alt="avatar" />
-          <p>old message</p>
-        </div>
-        <div id='chat_card'>
-        <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" className="avatar img-circle img-thumbnail" id="avatar-msg"alt="avatar" />
-          <p>old message</p>
-  </div>*/}
-
-
+    
       <div className="chat-room-container">
         <h1 className="room-name">Room: {roomId}</h1>
         <div className="messages-container">
