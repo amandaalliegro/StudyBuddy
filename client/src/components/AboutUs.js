@@ -7,7 +7,8 @@ export default function AboutUs() {
   
 return (
   <div id='about-bd'>
-    <h1 id='title-abt'>About Us</h1>
+    <h1 id='title-abt'>
+    <a id='AboutUs'>About Us</a></h1>
      <div id='about-txt'>
        <div>
         <p><b>Study buddy</b> is a community where you can find mates to study together.</p> 

@@ -29,7 +29,8 @@ export default function Landing(props) {
       <div class="row" id="body_landing-container">
       
         <div class="column">
-          <div class="card" onClick={handleSubmit}><b>About us</b>
+          <a href="#AboutUs"></a>
+          <div class="card" onClick={handleSubmit}><a href="#AboutUs"><b>About us</b></a>
         
           <p><img src="./about_us.png" class="img-fluid"></img></p>
           </div>
@@ -59,7 +60,19 @@ export default function Landing(props) {
       
       
       </div>
-      <AboutUs/>
+      <div id='about-bd'>
+    <h1 id='title-abt'>
+    <a id='AboutUs'>About Us</a></h1>
+     <div id='about-txt'>
+       <div>
+        <p><b>Study buddy</b> is a community where you can find mates to study together.</p> 
+        <p>You and your <b><i>buddies</i></b> will be able to find each other by doing a search using names or your interests in common. You can start a conversation and decide to go forward with the study and even add other people on the chat and have a group.</p>
+        <p>Set yourself as a student, mentor, or even silent student and enjoy our community by making your contributions on the chats!</p>
+        <p>Be a <b>Buddy</b>, help us to build well-structured knowledge!</p>
+      </div>
+      <img id='together-img' src='02.jpg'/>
+      </div>
+  </div>
       <div id='topics-box'>
       <div id='img-icon-own'>
         <p><img src='own-it.png'></img></p>
