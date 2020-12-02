@@ -17,7 +17,7 @@ console.log("HERE")
   };
 
   wss.on('connection', (socket) => {
-    console.log('Client Connected yo!');
+    console.log('Client Connected hyhy yo!');
     // gets current message log from the db
     //retrieveMessages(data)
     socket.on("message", (data) => {

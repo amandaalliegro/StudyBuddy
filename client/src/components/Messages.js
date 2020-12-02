@@ -23,10 +23,12 @@ export default function Messages(props) {
   // }
   // const messageList = props.messages.map((message) => <li key= {message.id} >{message.user} {message.message}</li>)
   const handleNewMessageChange = (event) => {
+    event.preventDefault()
     setNewMessage(event.target.value);
   };
 
-  const handleSendMessage = () => {
+  const handleSendMessage = (event) => {
+    event.preventDefault()
     sendMessage(newMessage);
     setNewMessage("");
   };
@@ -53,7 +55,7 @@ export default function Messages(props) {
         <h1>Room: {roomId}</h1>
         
         
-          <ul id='messages'>
+          <ol id='messages'>
           {messages.map((message, i) => (
               <li
                 key={i}
@@ -66,7 +68,7 @@ export default function Messages(props) {
             ))}
             
             
-            </ul>
+            </ol>
             <form action>
             <textarea
           value={newMessage}
