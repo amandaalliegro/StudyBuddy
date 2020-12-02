@@ -63,10 +63,11 @@ router.post('/', async (req, res, next) => {
       mentor, 
       silent_buddy,
       // ,
-      // location,
+      location,
       description,
-      // img,
-      subject
+      img,
+      subject,
+      language
     } = req.body;
     const { id } = req.params;
     console.log(`req body: ${JSON.stringify(req.body)}`)
@@ -89,10 +90,11 @@ router.post('/', async (req, res, next) => {
             mentor, 
             silent_buddy,
             // ,
-            // location,
+            location,
             description,
-            // img,
-            subject
+            img,
+            subject,
+            language
           })
         })
         .then(updatedUser => {
