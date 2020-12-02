@@ -1,9 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@100;200;400&display=swap');
 
 #body_container {
-  background-color: #ffffff;
+  background-color: #fff6f0;
   padding-top: 15px;
   
+}
+#chat-img{
+  height: 115px;
+  width: auto;
 }
 
 #jumbo-logged {

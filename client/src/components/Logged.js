@@ -18,21 +18,18 @@ export default function Logged(props) {
       </div>
       <div class="row" id="body_container">
         <div class="column">
-          <div class="card"><b>About us</b>
-          <p><img src="./about_us.png" class="img-fluid"></img></p>
+          <div class="card"><b>Check your messages!</b>
+          <p><img id='chat-img' src='/chat.png'/></p>
           </div>
         </div>
         <div class="column">
-          <div class="card"><b>Find a mentor!</b> 
-          <p><img src="./apple_mentor.png" class="img-fluid"></img></p>
+          <div class="card"><b>Find new buddies!</b> 
+          <p><img id='chat-img' src='/search.png'/></p>
           
           </div>
         </div>
-        <div class="column">
-          <div class="card"><b>Study together!</b>
-          <p><img src="./study_together.png" class="img-fluid"></img></p>
-          </div>
-        </div>
+
+        
       </div>
     </div>
 

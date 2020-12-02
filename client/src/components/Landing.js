@@ -11,6 +11,8 @@ export default function Landing(props) {
   const {user} = props;
   function handleSubmit(event) {
     event.preventDefault()
+
+
     
   }
   return (
@@ -29,8 +31,8 @@ export default function Landing(props) {
       <div class="row" id="body_landing-container">
       
         <div class="column">
-          <a href="#AboutUs"></a>
-          <div class="card" onClick={handleSubmit}><a href="#AboutUs"><b>About us</b></a>
+          
+          <div class="card" ><b>About us</b>
         
           <p><img src="./about_us.png" class="img-fluid"></img></p>
           </div>

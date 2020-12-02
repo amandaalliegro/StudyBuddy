@@ -13,6 +13,7 @@
     "cors": "^2.8.5",
     "http-proxy-middleware": "^1.0.6",
     "leaflet": "^1.6.0",
+    "mdbreact": "^5.0.0",
     "react": "^16.14.0",
     "react-bootstrap": "^1.4.0",
     "react-cookie": "^4.0.3",
