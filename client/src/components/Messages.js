@@ -1,26 +1,39 @@
 import React, { useState } from "react";
 import './messages.css'
-
+import useChat from "../hooks/useChat"
 
 export default function Messages(props) {
   const [text, setText] = useState('')
-  const sendMessage = (event) => {
-    event.preventDefault()
-    const newMessage = {
-      user: props.fullName,
-      message: text
-    }
-    
-    props.socket.send(JSON.stringify(newMessage))
-    setText('')
+  const [roomId, setRoomId] = useState(19) //props.history.location.state.data
+  const { messages, sendMessage } = useChat(roomId); // Creates a websocket and manages messaging
+  const [newMessage, setNewMessage] = React.useState(""); // Message to be sent
+  // const sendMessage = (event) => {
+  //   event.preventDefault()
+  //   const newMessage = {
+  //     user: props.fullName,
+  //     message: text
+  //   }
 
-  }
-  const messageList = props.messages.map((message) => <li key= {message.id} >{message.user} {message.message}</li>)
-  
+  //   props.socket.send(JSON.stringify(newMessage))
+  //   setText('')
+  //   console.log("props.socket", props.socket)
+
+  // }
+  // const messageList = props.messages.map((message) => <li key= {message.id} >{message.user} {message.message}</li>)
+  const handleNewMessageChange = (event) => {
+    setNewMessage(event.target.value);
+  };
+
+  const handleSendMessage = () => {
+    sendMessage(newMessage);
+    setNewMessage("");
+  };
+
   return (
-    <div id='chat_container'>
-    <div class="row" id="chat_box">
-      <div id='history_messages'>
+    console.log("Messages", messages) || <div id='chat_container'>
+      {/*<div class="row" id="chat_box">
+       populate list of users rooms (ie: get all rooms with user_id
+        <div id='history_messages'>
         <div id='chat_card'>
         <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" className="avatar img-circle img-thumbnail" id="avatar-msg"alt="avatar" />
           <p>old message</p>
@@ -32,21 +45,35 @@ export default function Messages(props) {
         <div id='chat_card'>
         <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" className="avatar img-circle img-thumbnail" id="avatar-msg"alt="avatar" />
           <p>old message</p>
-        </div>
+  </div>*/}
 
-      </div>
-        <title>chat</title>
-        <div id='message_side'>
-        <ul id="messages">{messageList}</ul>
-        <form action>
-          <div id="m.container">
-            <input id="m" autoComplete="off" onChange= {(event) => setText(event.target.value)}/><button id='send-btn' onClick= {sendMessage}>Send</button>
-            
-          </div>
-        </form>
+
+      <div className="chat-room-container">
+        <h1 className="room-name">Room: {roomId}</h1>
+        <div className="messages-container">
+          <ol className="messages-list">
+            {messages.map((message, i) => (
+              <li
+                key={i}
+                className={`message-item ${
+                  message.ownedByCurrentUser ? "my-message" : "received-message"
+                  }`}
+              >
+                {message.body}
+              </li>
+            ))}
+          </ol>
         </div>
-        </div>
-      
+        <textarea
+          value={newMessage}
+          onChange={handleNewMessageChange}
+          placeholder="Write message..."
+          className="new-message-input-field"
+        />
+        <button onClick={handleSendMessage} className="send-message-button">
+          Send
+      </button>
       </div>
+    </div>
   );
 };

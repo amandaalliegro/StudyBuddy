@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -44,22 +44,7 @@ function App(props) {
       path: "/"
     });
   }
-  useEffect(() => {
-    // socket server '/'
-    const socket = new WebSocket('ws://localhost:3005');
-    setSocket(socket);
-    socket.onopen = () => console.log("Connected to server")
-    socket.onmessage = event => {
-      const message = JSON.parse(event.data);
-      console.log(message)
-      dispatch({type: SET_MESSAGE, message})
-    }
-    socket.onclose = () => console.log('disconected from server')
-    socket.onerror = (err) => console.log(err)
-    // return () => {
-    //   socket.onclose();
-    // };
-  }, [])
+  
   useEffect(() => {
     // this is how you talk to the backend
     axios({
@@ -102,17 +87,8 @@ function App(props) {
       setUser(result.data.user)
     })
   },[])
-// const userList = state.users.map((user) => (
-// <li key={user.id} id={user.id}>
-//    {user.full_name} 
-//    {user.password} 
-//    {user.email} 
-//    {user.gender} 
-//    {user.student} 
-//    {user.silent_body} 
-//    {user.description} 
-//   </li>));
-// console.log("userList =" , userList)
+
+  
   return (
     <Router>
       <div>
@@ -134,16 +110,26 @@ function App(props) {
             <Profile user={user}
             setUser={setUser} />
           </Route>
-          <Route path="/search">
-            <MainSearch user={user}
-            setUser={setUser}/>
-          </Route>
+          <Route path="/search" render={({match, history}) => 
+            <MainSearch
+              user={user}
+              setUser={setUser}
+              history={history}
+            />
+          } />
+            
           <Route path="/community">
             <CommunityBoard />
           </Route>
-          <Route path="/messages">
-            <Messages socket = {socket} fullName = {fullName} messages = {state.messages}/>
-          </Route>
+          <Route path="/messages" render={({match, history}) => 
+            <Messages
+              socket={socket}
+              fullName={fullName}
+              messages={state.messages}
+              history={history}
+            />
+          }/>
+            
           <Route path="/register">
           {!Object.keys(user).length && <Register setUser = {setUser}/>}
           {Object.keys(user).length && <Redirect to="/user/:id"/>}
