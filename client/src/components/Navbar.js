@@ -11,7 +11,8 @@ export default function Navbar(props) {
   return (
     
 <div class='topnav'>
-      <a class='active brand_text' id='#font_jumbo' href='/home'>Study<b>Buddy</b></a>
+      {user.full_name && <a class='active brand_text' id='#font_jumbo' href='/home/:id'>Study<b>Buddy</b></a>}
+      {!user.full_name && <a class='active brand_text' id='#font_jumbo' href='/home'>Study<b>Buddy</b></a>}
       {user.full_name && <a href='/profile'>Profile</a>}
       {user.full_name && <a href='/messages'>Messages</a>}
       {user.full_name && <a href='/search'>Find Buddies</a>}
