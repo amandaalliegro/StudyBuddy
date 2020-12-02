@@ -21,7 +21,6 @@ display: flex;
   justify-content: center;
   height: 100%;
   width: 100%;
-  justify-content: center;
   height: 100%;
   padding-top: 50px;
   background-color:white;
@@ -55,11 +54,33 @@ display: flex;
    border-radius: 25px;
    background-color: white;
    height: 7rem;
-   width:50rem;
+   width:70rem;
 
 }
-
+#chat_card1{
+  display: flex;
+  box-shadow: 3px 6px 10px 3px rgba(0, 0, 0, 0.5); /* this adds the "card" effect */
+  border-radius: 1rem;
+  text-align: center;
+  background-color: rgb(235, 123, 95) !important;
+  height: 100px;
+  color: #ffffff;
+  font-family: 'Montserrat Alternates', sans-serif;
+  margin: 1px;
+  padding-right: 15px;
+font-weight: bold;
+  justify-content: flex-start;
+  align-items: center;
+  
+}
+#image_button{
+  display: flex;
+justify-content: flex-start;
+align-items: center ;
+margin: 5px
+}
   #search_button{
+
     outline: transparent;
     border-radius: 1rem;
     border: 0;
@@ -72,4 +93,30 @@ display: flex;
     border-color: rgb(233, 102, 69);
     color:white;
     background-color: rgb(233, 102, 69) !important;
+  }
+  #search_button1{
+    outline: transparent;
+    border-radius: 1rem;
+    border: 0;
+    font-size: 20px;
+    height: 80px;
+    line-height: 1.2rem;
+    width: 10rem;
+    border-width: 2px;
+    border-color: rgb(233, 102, 69);
+    color:white;
+    background-color: rgb(233, 102, 69) !important;
+    margin: 5px;
+  }
+  #result{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  #result_item{
+display: flex;
+justify-content: flex-start;
+margin: 1px;
+
   }

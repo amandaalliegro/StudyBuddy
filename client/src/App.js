@@ -26,16 +26,7 @@ function App(props) {
   const [socket, setSocket] = useState(null);
   const { state, dispatch } = useApplicationData();
   const [fullName, setFullName] = useState('')
-  const [id, setId] = useState('')
-  const [email, setEmail] = useState('')
-  const [language, setLanguage] = useState('')
-  const [location, setLocation] = useState('')
-  const [gender, setGender] = useState('')
-  const [mentor, setMentor] = useState(false)
-  const [student, setStudent] = useState(true)
-  const [silent_buddy, setSilentBuddy] = useState(false)
-  const [description, setDescription] = useState('')
-  const [interests, setInterests] = useState('')
+  
   // sets state and gets setUser data from login.js
   const [user, setUser] = useState({})
   const [buddyUser, setBuddyUser] = useState({})

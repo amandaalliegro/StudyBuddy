@@ -53,8 +53,10 @@ export default function MainSearch(props) {
           <tbody >
             {users.map(user => (
               <tr key={user.user_id} id="search_output">
+                <div id='chat_card1'>
+                  <div id="image_button">
                 <td>
-                  <button onClick ={
+                  <button id="search_button1" onClick ={
                     event => { 
                       console.log("main search button clicked",user)
                       props.setBuddyUser(user)
@@ -63,8 +65,15 @@ export default function MainSearch(props) {
                   } 
                   >{user.full_name}</button>
                 </td>
-                <td>Subject: {user.subject}</td>
-                <td>Description: {user.description}</td>
+                <img src={user.img} className="avatar img-circle img-thumbnail" id="avatar-msg"alt="avatar" />
+                </div>
+                <div id="result">
+                <td id="result_item">Subject: {user.subject}</td>
+                {user.student &&<td id="result_item" >student</td>}
+                {user.mentor &&<td id="result_item" >mentor</td>}
+                <td id="result_item">Description: {user.description}</td>
+                </div>
+                </div>
               </tr>
             ))}
           </tbody>

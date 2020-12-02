@@ -16,8 +16,8 @@ export default function Profile(props) {
         <div className="container" id="profile_element">
           <div className="col-sm-3">{/*left col*/}
             <div className="text-center">
-            {user.img && <img src= {user.img} className="avatar img-circle img-thumbnail" id="avatar"alt="avatar" />}
-              {!user.img && <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" className="avatar img-circle img-thumbnail" id="avatar"alt="avatar" />}
+            {user.img && <img src= {user.img}  id="image"alt="image" />}
+              {!user.img && <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png"  id="image"alt="image" />}
                             
             </div><br />
           </div>{/*/col-3*/}
@@ -29,17 +29,16 @@ export default function Profile(props) {
                   </div>
                   <div className="form-group" id="profile_location">
                       <label><h4>Location:</h4></label>
-                      {user.location && <label><h4>{user.location}</h4></label>}
-                  </div>
+                      {user.location && <label><h4>{user.location}</h4></label>}                  </div>
                   <div className="form-group" id="profile_gender">
-                    <label><h4>Gender:</h4></label>
-                    <label><h4>{user.gender}</h4></label>
+                    <label><h4>language:</h4></label>
+                    {user.language &&<label><h4>{user.language}</h4></label>}
                   </div>
                   <div className="form-group" id="profile_class">
                       <label><h4>You are a:</h4></label>
-                      {user.student === true && <label><h4>Student</h4></label>}
-                      {user.mentor === true && <label><h4>mentor</h4></label>}
-                      {user.silent_buddy === true && <label><h4>silent buddy</h4></label>}
+                      {user.student && <label><h4>student</h4></label>}
+                      {user.mentor && <label><h4>mentor</h4></label>}
+                      {user.silent_buddy && <label><h4>silent buddy</h4></label>}
                       
                   </div>
                   <div className="form-group" id="profile_subjects">
