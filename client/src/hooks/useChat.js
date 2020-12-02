@@ -3,9 +3,16 @@ import socketIOClient from "socket.io-client";
 const NEW_CHAT_MESSAGE_EVENT = "newChatMessage"; // Name of the event
 const SOCKET_SERVER_URL = "http://localhost:3005";
 
+let iterator = 0;
+
 const useChat = (roomId) => {
   const [messages, setMessages] = useState([]); // Sent and received messages
   const socketRef = useRef();
+
+  if (iterator < 1) {
+    setMessages((messages) => [...messages, 'Test message'])
+    iterator++
+  }
 
   useEffect(() => {
     console.log("useChat called")
@@ -39,7 +46,10 @@ const useChat = (roomId) => {
     socketRef.current.emit(NEW_CHAT_MESSAGE_EVENT, {
       body: messageBody,
       senderId: socketRef.current.id,
-    });
+    })
+    .then(() => {
+      setMessages(messages)
+    })
   };
 
   return { messages, sendMessage };

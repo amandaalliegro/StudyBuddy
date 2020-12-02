@@ -20,8 +20,6 @@ router.post( '/search' , function (req, res) {
        })
    
  })
- // get chats that a user is connected to 
-
  
 router.post('/login', (req, res) => {
   const { email, password } = req.body;
@@ -41,8 +39,10 @@ router.post('/login', (req, res) => {
     .catch(e => console.log(e));
 });
 
+// WHEN USER CREATES A NEW ROOM => POST THAT NEW ROOM INFO TO THE DB THEN SEND RESULT
 router.post('/room_chat', (req, res) => {
   console.log("post to room chat", req.body, "post new room", postNewRoom)
+  // postNewRoom located in models/index.js
   postNewRoom(req.body.roomName, req.body.user_id, "1").then(result => {
     console.log("server", result) 
     res.send(result)
@@ -52,7 +52,7 @@ router.post('/room_chat', (req, res) => {
 })
 
 // create express router.get(/room_chat) that calls db function
-
+// GETS THE ROOMS FROM THE DB 
 router.get('/room_chat', (req, res) => {
   console.log(req.headers)
   fetchRooms(req.headers.user_id)

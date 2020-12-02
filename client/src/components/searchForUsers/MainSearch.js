@@ -15,19 +15,19 @@ export default function MainSearch(props) {
   const [name, setName] = useState("");
   const [users, setUsers] = useState([]);
   const [roomName, setRoomName] = React.useState("");
-  // state.room create
+  // set rooom state
   const [rooms, setRooms] = useState([]);
- 
+ // when a user creates a new room => axios posts the room name and the user id of its creator to the db
   const handleRoomNameChange = (event) => {
     event.preventDefault()
     axios.post('/room_chat', { user_id: localStorage.getItem('id'), roomName: roomName})
     .then((result) => {
       console.log("result front end", result)
-// sets state for rooms to resu
+// sets state to previous state plus new addition (prev"Statename") => [...prev"statename"])
       setRooms((prevrooms) =>[...prevrooms, result.data])
     })
   };
-
+// search bar
   function onSubmitForm(event) {
 
     event.preventDefault();
@@ -44,16 +44,16 @@ export default function MainSearch(props) {
       })
     
   };
-
+// use effect for created chat room list 
   useEffect(() => {
-    
+    // axios to get all the created rooms from the db by user id
     axios({
       method: 'GET',
       url: 'http://localhost:3005/room_chat',
       headers: {
         user_id: localStorage.getItem("id") 
       }
-      
+    // then take the result and set that result.data as the new rooms array state. 
     }).then(result => {
       console.log("res", result.data)
       setRooms(result.data)
@@ -129,7 +129,7 @@ export default function MainSearch(props) {
         </section>
         { rooms && <section>
           <table>
-            {/* set a link on click useState for rooms */}
+            {/* set a link on each chat room so what when click => it takes you to that roomName state */}
             <tbody className="table my-5">
               {rooms.map(r => 
               <div key= {r.id}>

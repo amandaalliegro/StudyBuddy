@@ -7,6 +7,16 @@ export default function Messages(props) {
   const [roomId, setRoomId] = useState(19) //props.history.location.state.data
   const { messages, sendMessage } = useChat(roomId); // Creates a websocket and manages messaging
   const [newMessage, setNewMessage] = React.useState(""); // Message to be sent
+
+
+  // Node.js server registers query for notification
+  // On notification of change, node.js server pulls changes from database
+  // On successful retrieval of changes, node.js server uses socket.io to publish changes to all interested clients
+
+
+
+
+
   // const sendMessage = (event) => {
   //   event.preventDefault()
   //   const newMessage = {
@@ -27,6 +37,7 @@ export default function Messages(props) {
   const handleSendMessage = () => {
     sendMessage(newMessage);
     setNewMessage("");
+    // post messages to db
   };
 
   return (

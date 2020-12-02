@@ -28,6 +28,8 @@ io.on("connection", (socket) => {
   console.log("connected")
   // Join a conversation
   const { roomId } = socket.handshake.query;
+
+  // join room
   socket.join(roomId);
 
   console.log("roomid", roomId)
@@ -36,12 +38,20 @@ io.on("connection", (socket) => {
   socket.on(NEW_CHAT_MESSAGE_EVENT, (data) => {
     console.log("data", data)
     io.in(roomId).emit(NEW_CHAT_MESSAGE_EVENT, data);
+    // multiple
   });
 
   // Leave the room if the user closes the socket
   socket.on("disconnect", () => {
     socket.leave(roomId);
   });
+
+  
+
+  socket.on(NEW_CHAT_MESSAGE_EVENT, (data) => {
+    // Find element in page
+    // element.append(<p>data</p>)
+  })
 });
 
 // server.listen(PORT, () => {
