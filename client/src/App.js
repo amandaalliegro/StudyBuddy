@@ -97,16 +97,29 @@ const [isLoading, setIsLoading] = useState('')
             <Profile user={user}
             setUser={setUser} />
           </Route>
-          <Route path="/search">
-            <MainSearch buddyUser={buddyUser}
-            setBuddyUser={setBuddyUser}/>
-          </Route>
+          
+          <Route path="/search" render={({match, history}) => 
+            <MainSearch
+              user={user}
+              setUser={setUser}
+              history={history}
+              buddyUser={buddyUser}
+              setBuddyUser={setBuddyUser}
+            />
+          } />
+          
           <Route path="/community">
             <CommunityBoard />
           </Route>
-          <Route path="/messages">
-            <Messages socket = {socket} fullName = {fullName} messages = {state.messages}/>
-          </Route>
+          <Route path="/messages" render={({match, history}) => 
+            <Messages
+              socket={socket}
+              fullName={fullName}
+              messages={state.messages}
+              history={history}
+            />
+            }/>
+            
           <Route path="/register">
           {!Object.keys(user).length && <Register setUser = {setUser}/>}
           {Object.keys(user).length && <Redirect to="/user/:id"/>}

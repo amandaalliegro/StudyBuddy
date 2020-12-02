@@ -19,7 +19,7 @@ export default function Navbar(props) {
       <div id='login_nav'>
      <div id='login-name'>
      {!user.full_name && <Login user={user} setUser={props.setUser} id='login_form'/>}
-       {user.full_name && <p> Welcome {user.full_name}</p>}
+       {user.full_name && <p><b> Welcome {user.full_name}</b></p>}
      </div>
     </div>
     </div>

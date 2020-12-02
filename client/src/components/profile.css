@@ -19,10 +19,11 @@
   padding-right: 40px;
   width: 100%;
   font-family: 'Montserrat Alternates', sans-serif;
-  color:#f2f2f2;
+  color:rgb(226, 63, 23);
   
-  
-  
+}
+#name{
+  color:rgb(158, 50, 23);
 }
 #image {
   height: 200px;

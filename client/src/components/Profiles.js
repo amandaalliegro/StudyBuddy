@@ -10,7 +10,7 @@ export default function Profile(props) {
     <div id="profile_container">
       <div className="container bootstrap snippet" id="container_profile">
         <div className="container" id="name_profile">
-          {user.full_name && <div className="col-sm-10"><h1>{user.full_name}</h1></div>}
+          {user.full_name && <div className="col-sm-10" id='name'><h1>{user.full_name}</h1></div>}
         </div>
         </div>
         <div className="container" id="profile_element">

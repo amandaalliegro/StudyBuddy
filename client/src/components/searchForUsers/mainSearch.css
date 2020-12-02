@@ -1,15 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@100;200;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quattrocento+Sans&display=swap');
+
+#backnav{
+  height: 40px;
+  width: 100%;
+  background-color: mediumorchid;
+}
+
 #body_search {
   display: block;
   justify-content: center;
-  height: 100%;
+  height: 900px;
   width: 100%;
   padding: 50px;
-  background-color: white;
+  background-color: #fff6f0;
+  
 }
 
 #search_form {
-  height: 100%;
-  width: 100%;
+  
 margin: 0.3rem;
 padding:0.3rem;
 display: flex;
@@ -23,7 +32,7 @@ display: flex;
   width: 100%;
   height: 100%;
   padding-top: 50px;
-  background-color:white;
+  font-family: 'Montserrat Alternates', sans-serif;
 }
 
 
@@ -52,7 +61,7 @@ display: flex;
    outline: rgb(233, 102, 69);
    outline-color: rgb(233, 102, 69);
    border-radius: 25px;
-   background-color: white;
+   
    height: 7rem;
    width:70rem;
 
@@ -63,7 +72,7 @@ display: flex;
   border-radius: 1rem;
   text-align: center;
   background-color: rgb(235, 123, 95) !important;
-  height: 100px;
+  height: 130px;
   color: #ffffff;
   font-family: 'Montserrat Alternates', sans-serif;
   margin: 1px;

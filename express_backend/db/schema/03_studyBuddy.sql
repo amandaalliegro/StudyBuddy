@@ -6,6 +6,7 @@ DROP TABLE IF EXISTS room_chat CASCADE;
 DROP TABLE IF EXISTS chat CASCADE;
 DROP TABLE IF EXISTS user_groups CASCADE;
 DROP TABLE IF EXISTS public_board CASCADE;
+DROP TABLE IF EXISTS messages CASCADE;
 
 
 -- add community table 
@@ -54,13 +55,21 @@ CREATE TABLE user_groups(
 CREATE TABLE room_chat(
   id SERIAL PRIMARY KEY,
   new BOOLEAN DEFAULT FALSE,
+  name TEXT NOT NULL,
   interest_id INTEGER REFERENCES interests(id) ON DELETE CASCADE,
-  group_of_study_id INTEGER REFERENCES groups_of_study(id) ON DELETE CASCADE,
-  messages VARCHAR(255)
+  user_id INTEGER REFERENCES users(id) ON DELETE CASCADE
+  
 );
 CREATE TABLE public_board(
   id SERIAL PRIMARY KEY,
   user_id INTEGER REFERENCES users(id),
   message VARCHAR(255)
+);
+CREATE TABLE messages(
+  id SERIAL PRIMARY KEY,                          -- MESSAGE ID
+  roomchat_id INTEGER REFERENCES room_chat(id),   -- ROOMCHAT FK
+  user_id INTEGER REFERENCES users(id),           -- USER WHO MADE MSG
+  message TEXT NOT NULL,                          -- TEXT
+  date DATE DEFAULT NOW()                         -- DTG
 );
 

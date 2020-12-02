@@ -1,13 +1,34 @@
 import React, { Fragment, useState } from "react";
 import "./mainSearch.css";
 import axios from "axios";
-import { useHistory } from 'react-router-dom';
+
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useHistory
+} from "react-router-dom";
 
 
 export default function MainSearch(props) {
   const [name, setName] = useState("");
   const [users, setUsers] = useState([]);
   let history = useHistory();
+  const [roomName, setRoomName] = React.useState("");
+  // state.room create
+  const [rooms, setRooms] = useState([]);
+  
+  const handleRoomNameChange = (event) => {
+    event.preventDefault()
+    axios.post('/room_chat', { user_id: localStorage.getItem('id'), roomName: roomName})
+    .then((result) => {
+      console.log("result front end", result)
+// sets state for rooms to resu
+      setRooms((prevrooms) =>[...prevrooms, result.data])
+    })
+  };
+
   function onSubmitForm(event) {
     event.preventDefault();
       const newSearch = {
@@ -22,14 +43,16 @@ export default function MainSearch(props) {
       })
   };
   return (
+    
     <div id="body_search">
+      
       {/* Meta Information */}
       <title>Study Buddy - Search page</title>
       {/* External CSS */}
      
         
           
-          <dev id="search_container" >
+          <div id="search_container" >
             <h1 className="h1"></h1>
             <form id="search_form" onSubmit={onSubmitForm}>
              <input
@@ -42,14 +65,12 @@ export default function MainSearch(props) {
              />
               <button id="search_button">Search!</button>
             </form>
-            </dev>
+            {users.length === 0 && <p>No Results Found</p>}
+            
           <section>
             <ul>
             <table>
-            <thead>
-            <tr>
-            </tr>
-          </thead>
+
           <tbody >
             {users.map(user => (
               <tr key={user.user_id} id="search_output">
@@ -75,13 +96,63 @@ export default function MainSearch(props) {
                 </div>
                 </div>
               </tr>
+              
             ))}
+            
           </tbody>
         </table>
-        {users.length === 0 && <p>No Results Found</p>}
+        
             </ul>
           </section>
-     
+          <section>
+          <form className="home-container" onSubmit={handleRoomNameChange}>
+            <input
+              name="roomName"
+              type="text"
+              placeholder="Room"
+              value={roomName}
+              className="text-input-field"
+              onChange={(event) => setRoomName(event.target.value)}
+            />
+            <button className="btn btn-success" type="submit">
+              Create Room
+            </button> 
+          </form>
+        </section>
+        <section>
+          <table>
+            <tbody className="table my-5">
+              {users.map(user => (
+                <tr key={user.user_id}>
+                  <td>Name: {user.full_name}</td>
+                  <td>Subject: {user.subject}</td>
+                  <td>Description: {user.description}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          <ul>
+            {users.length === 0 && <p></p>}
+          </ul>
+        </section>
+        { rooms && <section>
+          <table>
+            {/* set a link on click useState for rooms */}
+            <tbody className="table my-5">
+              {rooms.map(r => 
+              <div key= {r.id}>
+                <Link to= {{
+                  pathname: '/messages',
+                  state: {room: r.name}
+                }}>{r.name}</Link>
+              
+            </div>)}
+            
+            </tbody>
+          </table>
+        </section>}
+      </div>
     </div>
+    
   );
 }
