@@ -118,20 +118,39 @@ module.exports = (db) => {
       }
     throw 'It seems that the user id is missing or there are no fields to update';
   };
-// for message message log queries 
-   const postMessage = (roomchat, user, message) => {
 
-    return db.query(`INSERT INTO messages(${roomchat}, ${user}, ${message})
-    VALUES (${roomchat}, ${user}, ${message})`)
-      .catch(error => console.log(error))    
+  // for message message log queries 
+     const postMessage = (roomchat, user, message) => {
+  
+      console.log(roomchat)   
+  
+     };
 
-   }
+    const postNewRoom = (roomname, user_id, interest_id) => {
+      const query = {
+        text: `INSERT INTO room_chat(name, user_id, interest_id) VALUES ($1, $2, $3) RETURNING *`,
+        values: [roomname, user_id, interest_id]
+      };
 
-   const retrieveMessages = (roomchat) => {
-     return db.query(`SELECT * FROM messages WHERE roomchat_id =${roomchat}`)
-     .then(result => result)
+      return db.query(query)
+        .then(result => result.rows[0])
+        .catch(error => console.log(error)) 
+    }
 
-   }
+     const retrieveMessages = (roomchat) => {
+       return db.query(`SELECT * FROM messages WHERE roomchat_id =${roomchat}`)
+       .then(result => result)
+       .catch(err => err);
+  
+     }
+// create db function that fetches all rooms (or all rooms belonging to user iD) (models/index.js)
+     const fetchRooms = (user_id) => {
+      return db.query(`SELECT * FROM room_chat WHERE user_id =${user_id}`)
+      .then(result => result)
+      .catch(err => err);
+ 
+    };
+
   return {
     findAccount,
     getUsers,
@@ -141,6 +160,9 @@ module.exports = (db) => {
     getSpecificUser,
     findUser,
     editUser,
-    postMessage
+    postMessage,
+    retrieveMessages,
+    postNewRoom,
+    fetchRooms
   };
 };

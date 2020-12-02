@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt');
 let salt = bcrypt.genSaltSync(10);
 // const { getPostsByUsers, findAccount, addUser } = require('../helpers/dataHelpers');
 module.exports = ({ 
-  getUsers, getUserByEmail, addUser, getUsersPosts, getSpecificUser, editUser}) => {
+  getUsers, getUserByEmail, addUser, getUsersPosts, getSpecificUser, editUser, fetchRooms}) => {
   /* GET users listing. */
   // name space defined in app.js /api/users
   // axios in app.js on client 
@@ -27,6 +27,18 @@ module.exports = ({
         error: err.message
       }));
   });
+
+  // create express router.get(/room_chat) that calls db function
+router.get('/room_chat', (req, res) => {
+  fetchRooms(user_id)
+  .then(result => {
+    console.log(res)
+    res.send(result)
+  })
+})
+
+
+
   // register route 
 router.post('/', async (req, res, next) => {
   console.log("HEEEEE--E-EEEE-EEEE-EYYYYY")

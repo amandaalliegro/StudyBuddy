@@ -1,7 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../db');
-const { getUserByEmail , findUser, editUser} = require('../models/index.js')(db);
+const { getUserByEmail , findUser, editUser, postMessage, postNewRoom, retrieveMessages, fetchRooms } = require('../models/index.js')(db);
+
+console.log(postNewRoom)
 
 const bcrypt = require('bcrypt');
 /* GET home page. */
@@ -38,4 +40,25 @@ router.post('/login', (req, res) => {
     })
     .catch(e => console.log(e));
 });
+
+router.post('/room_chat', (req, res) => {
+  console.log("post to room chat", req.body, "post new room", postNewRoom)
+  postNewRoom(req.body.roomName, req.body.user_id, "1").then(result => {
+    console.log("server", result) 
+    res.send(result)
+  })
+
+
+})
+
+// create express router.get(/room_chat) that calls db function
+
+router.get('/room_chat', (req, res) => {
+  console.log(req.headers)
+  fetchRooms(req.headers.user_id)
+  .then(result => {
+    console.log(res)
+    res.send(result.rows)
+  })
+})
 module.exports = router;

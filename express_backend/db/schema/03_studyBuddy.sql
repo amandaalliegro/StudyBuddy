@@ -62,9 +62,10 @@ CREATE TABLE user_groups(
 DROP TABLE IF EXISTS room_chat CASCADE;
 CREATE TABLE room_chat(
   id SERIAL PRIMARY KEY,
+  name TEXT NOT NULL, 
   new BOOLEAN DEFAULT TRUE,
   interest_id INTEGER REFERENCES interests(id) ON DELETE CASCADE,
-  study_group_id INTEGER REFERENCES study_groups(id) ON DELETE CASCADE
+  user_id INTEGER REFERENCES users(id) ON DELETE CASCADE
 );
 
 
@@ -111,7 +112,7 @@ INSERT INTO users_interests(user_id, interest_id) VALUES (1, 1);
 INSERT INTO study_groups(id, user_count) VALUES (1, 1);
 
 -- R O O M   C H A T S
-INSERT INTO room_chat(interest_id, study_group_id) VALUES (1,1);
+INSERT INTO room_chat(interest_id, name, user_id) VALUES (1, 'JavaScript', 1);
 
 -- M E S S A G E S
 INSERT INTO messages(roomchat_id, user_id, message)
