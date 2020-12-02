@@ -61,13 +61,20 @@ router.post('/', async (req, res, next) => {
       password, 
       student, 
       mentor, 
-      silent_buddy
+      silent_buddy,
+      // ,
+      location,
+      description,
+      img,
+      subject,
+      language
     } = req.body;
     const { id } = req.params;
+    console.log(`req body: ${JSON.stringify(req.body)}`)
     password = bcrypt.hashSync(password, salt);
     getSpecificUser(id)
         .then(user => {
-          console.log(user);
+          console.log("user from get specific user in put request",user);
           if (!user) {
             res.json({
               msg: 'Sorry,user does not exists'
@@ -81,7 +88,13 @@ router.post('/', async (req, res, next) => {
             password, 
             student, 
             mentor, 
-            silent_buddy
+            silent_buddy,
+            // ,
+            location,
+            description,
+            img,
+            subject,
+            language
           })
         })
         .then(updatedUser => {

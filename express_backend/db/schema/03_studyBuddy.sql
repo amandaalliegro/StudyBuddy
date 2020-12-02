@@ -23,7 +23,8 @@ CREATE TABLE users(
     email VARCHAR(255) NOT NULL,
     silent_buddy boolean DEFAULT FALSE,
     description VARCHAR(255),
-    subject VARCHAR(255)
+    subject VARCHAR(255),
+    img VARCHAR(255)
 
 
 );
