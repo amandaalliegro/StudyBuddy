@@ -7,6 +7,7 @@ export default function Register(props) {
   let history = useHistory();
   const {user} = props;
   const [error, setError] = useState(null);
+
   function handleSubmit(event) {
     event.preventDefault()
     const newUser = {
@@ -30,6 +31,7 @@ export default function Register(props) {
       })
     }
   }
+  
   return (
     <Container>
       <div class='container'>

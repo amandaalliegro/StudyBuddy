@@ -98,6 +98,7 @@ body {
   height: 200px;
   color: #ffffff;
   font-family: 'Montserrat Alternates', sans-serif;
+  border-radius: 25px;
 }
 
 #btn_register {

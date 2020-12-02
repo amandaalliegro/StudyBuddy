@@ -30,6 +30,7 @@ function App(props) {
   // sets state and gets setUser data from login.js
   const [user, setUser] = useState({})
   const [buddyUser, setBuddyUser] = useState({})
+  const [chatUser, setChatUser] = useState({})
 
 // console.log("id",id)
 // console.log("user",user.id)
@@ -56,6 +57,8 @@ const [isLoading, setIsLoading] = useState('')
     socket.onclose = () => console.log('disconected from server')
     socket.onerror = (err) => console.log(err)
   }, [])
+// console.log("messege from app.js" , message)
+
   useEffect(() => {
     axios({
       method: 'GET',
@@ -64,15 +67,16 @@ const [isLoading, setIsLoading] = useState('')
       // then. set state function (result => dispatch)result is what server gives back (res)
       .then(result => dispatch({ type: SET_USERS, users: result.data }))
       .catch(err => console.log(err.message))
-    
   }, [])
+
+
   useEffect(() => {
     axios({
       method: 'GET',
       url: '/api/users/' + localStorage.getItem('id')
     }).then(result => {
-      
       setUser(result.data.user)
+      // setUser(result.data.user)
     })
   },[])
 
@@ -88,7 +92,9 @@ const [isLoading, setIsLoading] = useState('')
           {!Object.keys(user).length && <Redirect to="/profile"/>}
           </Route>
           <Route path="/user/buddy">
-            <UserProfile buddyUser = {buddyUser} setBuddyUser = {setBuddyUser}/>
+            <UserProfile buddyUser = {buddyUser} setBuddyUser = {setBuddyUser}
+                         chatUser = {chatUser} setChatUser = {setChatUser}
+            />
           </Route>
           <Route path="/home/:id">
             <Logged />
@@ -105,11 +111,11 @@ const [isLoading, setIsLoading] = useState('')
             <CommunityBoard />
           </Route>
           <Route path="/messages">
-            <Messages socket = {socket} fullName = {fullName} messages = {state.messages}/>
+            <Messages socket = {socket} user = {user} setUser = {setUser} chatUser={chatUser} setChatUser={setChatUser} messages = {state.messages}/>
           </Route>
           <Route path="/register">
           {!Object.keys(user).length && <Register setUser = {setUser}/>}
-          {Object.keys(user).length && <Redirect to="/user/:id"/>}
+          {Object.keys(user).length && <Redirect to="/user/:id/edit"/>}
           </Route>
           <Route path="/">
             <Landing user={user} setUser={setUser} />

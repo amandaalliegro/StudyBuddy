@@ -1,17 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@100;200;400&display=swap');
-
 #body_container {
-  background-color: #ffffff;
+  background-color: #fff6f0;
   padding-top: 15px;
   
 }
-
+#chat-img{
+  height: 115px;
+  width: auto;
+}
 #jumbo-logged {
   display: flex;
   align-items: center;
   justify-content: flex-end;
   padding-right: 210px;
-  background-image: url("material.jpeg");
+  background-image: url("material.jpg");
   margin-block-start: 0px;
   background-size: cover;
   background-repeat: no-repeat;
@@ -24,7 +26,6 @@
   background-color: #eeeeee;
   font-family: 'Montserrat Alternates', sans-serif;
 }
-
 #jumbo{
   font-size: 4em;
 }
@@ -37,7 +38,6 @@
 #subtitle_brand {
   font-size: 2em;
 }
-
 * {
   box-sizing: border-box;
 }
@@ -56,19 +56,16 @@
 #brand_box .h1{
   font-size: 7em !important;
 }
-
 body {
   font-family: Arial, Helvetica, sans-serif;
   padding-top: 0px;
 }
-
 /* Float four columns side by side */
 .column {
   float: left;
   width: 25%;
   padding: 0 10px;
 }
-
 /* Remove extra left and right margins, due to padding in columns */
 .row {
   display: flex;
@@ -76,14 +73,12 @@ body {
   justify-content: center;
   margin: 0 -5px;
 }
-
 /* Clear floats after the columns */
 .row:after {
   content: "";
   display: table;
   clear: both;
 }
-
 /* Style the counter cards */
 .card {
   box-shadow: 3px 6px 10px 3px rgba(0, 0, 0, 0.5); /* this adds the "card" effect */
@@ -93,8 +88,9 @@ body {
   height: 200px;
   color: #ffffff;
   font-family: 'Montserrat Alternates', sans-serif;
-}
+  border-radius: 25px;
 
+}
 #btn_register {
   border-radius: 1rem;
   border: 0;
@@ -115,7 +111,6 @@ body {
   border-color: rgb(233, 102, 69);
   background-color: rgb(233, 102, 69) ;
 }
-
 /* Responsive columns - one column layout (vertical) on small screens */
 @media screen and (max-width: 600px) {
   .column {

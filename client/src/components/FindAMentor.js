@@ -3,11 +3,17 @@ import { Link, BrowserRouter as Router, Route } from "react-router-dom";
 
 export default function FindAMentor() {
   
-    
+  function handleClickUp(event) {
+    event.preventDefault()
+    if (event) {
+      window.scrollTo(0, 0);
+    }
+  }
+  
   
 return (
   <div id='about-bd'>
-    <h1 id='title-abt'>Find a Mentor</h1>
+    <h1 id='title-abt' onClick={handleClickUp}>Find a Mentor</h1>
      <div id='about-txtf'>
        <div id='text-img'>
      <img id='mentor-img' src='mentor.jpeg'/>

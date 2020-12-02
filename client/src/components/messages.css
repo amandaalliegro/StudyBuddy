@@ -3,10 +3,9 @@
   justify-content: center;
   background-color: rgb(255, 255, 255);
   background-image: url("01.jpg");
-  height: 800px;
+  height: auto;
   width: 100%;
 }
-
 #chat_box {
   display: flex;
   margin-top: 50px;
@@ -15,18 +14,17 @@
   padding-right: 15px;
   align-items: center;
   justify-content: space-between;
+  padding-top: 40px;
 }
-
 #history_messages {
   width: 30%;
   height: 100%;
   margin-top: 25px;
   margin-right: 0.4cm;
   margin-left: 0.4cm;
-  
+  align-self: start;
   justify-self: start;
 }
-
 #chat_card{
   display: flex;
   box-shadow: 3px 6px 10px 3px rgba(0, 0, 0, 0.5); /* this adds the "card" effect */
@@ -39,7 +37,6 @@
   font-family: 'Montserrat Alternates', sans-serif;
   margin: 0.1cm
 }
-
 #avatar-msg {
   border-radius: 8rem;
   border-width: 10px;
@@ -50,15 +47,15 @@
   margin-right: 25px;
  
 }
-
 #message_side {
-  height: 100%;
+  justify-self: start;
+  height: 700px;
   width: 830px;
+ align-self: start;
 }
-
 #messages { 
   width: 100%;
-  height: 570px;
+  height: 450px;
   padding: 1cm;
   border-radius: 0.6rem;
   justify-content: flex-end;
@@ -77,14 +74,12 @@
   font-family: 'Montserrat Alternates', sans-serif;
   margin: 0.1cm
 }
-
 #m.container {
   float: right;
   position: fixed;
   align-items: center;
   height: 100%;
 }
-
 #m {
   float: left;
   width: 770px;
@@ -98,7 +93,6 @@
   font-size: 18px;
   padding: 0.5cm;
 }
-
 #send-btn{
   height: 60px;
   border-radius: 0.6rem;

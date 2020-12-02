@@ -26,8 +26,8 @@ export default function UserProfile(props) {
           <div className="col-sm-9" style={{padding: "50px"}} id="profile_data">
                 <hr />
                   <div className="form-group profile_data" id="profile_email" >
-                      <label><h4>Email:</h4></label>
-                      <label><h4>{user.email}</h4></label>
+                      <label><h4>Language:</h4></label>
+                      <label><h4>{user.language}</h4></label>
                   </div>
                   <div className="form-group" id="profile_location">
                       <label><h4>Location:</h4></label>
@@ -54,7 +54,16 @@ export default function UserProfile(props) {
                   </div>
                   <div className="form-group">
                       <br />
-                      <button onClick={() => history.push(`/messeges`)} type="submit" className="btn btn-primary edit_btn" id="btn_profile">Send a message!</button>
+                      <button onClick={() => { 
+                            console.log("main search button clicked",user)
+                            props.setChatUser(user)
+                            history.push(`/messages`)
+                          } 
+                        } 
+                        type="submit" className="btn btn-primary edit_btn" id="btn_profile"
+                      >
+                        Send a message!
+                      </button>
                   </div>
                 <hr />
            </div>   

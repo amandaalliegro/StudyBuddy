@@ -7,7 +7,7 @@ export default function Messages(props) {
   const sendMessage = (event) => {
     event.preventDefault()
     const newMessage = {
-      user: props.fullName,
+      user: props.user.full_name,
       message: text
     }
     props.socket.send(JSON.stringify(newMessage))
@@ -15,6 +15,7 @@ export default function Messages(props) {
 
   }
   const messageList = props.messages.map((message) => <li key= {message.id} >{message.user} {message.message}</li>)
+  
   
   return (
     <div id='chat_container'>

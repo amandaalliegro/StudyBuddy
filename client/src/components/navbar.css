@@ -5,15 +5,15 @@
 /* Add a black background color to the top navigation */
 .topnav {
   display: flex;
-  background-color: rgba(224, 107, 77, 0.3);
+  background-color: rgba(240, 87, 49, 0.4);
   overflow: hidden;
  
   position: absolute;
   width: 100%;
   font-family: 'Quattrocento Sans', sans-serif;
   padding: 5px;
-
 }
+
 #font_jumbo{
   font-size: 4em;
 }

@@ -3,11 +3,17 @@ import { Link, BrowserRouter as Router, Route } from "react-router-dom";
 
 export default function StudyTogether() {
   
-    
+  function handleClickUp(event) {
+    event.preventDefault()
+    if (event) {
+      window.scrollTo(0, 0);
+    }
+  }
+  
   
 return (
-  <div id='about-bd'>
-    <h1 id='title-abt'>Study Together</h1>
+  <div id='about-bd' >
+    <h1 id='title-abt' onClick={handleClickUp}>Study Together</h1>
      <div id='about-txt-std'>
        <div>
         <p><b>Study buddy</b> is a community where you can find mates to study together.</p> 

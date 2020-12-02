@@ -70,7 +70,7 @@ export default function EditProfile(props) {
                 <Form.Control type="text" className="form-control" name="name" id="name" placeholder="Name" />
                 </div>
                 <div>
-                <Form.Label><h4>Profile Image:</h4></Form.Label>
+                <Form.Label><h4>Image URL:</h4></Form.Label>
                 <Form.Control type="text" className="form-control" name="name" id="name" placeholder="Add image URL" />
                 <Form.Text className='text-muted'></Form.Text>
                 </div>

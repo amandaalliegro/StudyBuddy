@@ -3,12 +3,18 @@ import { Link, BrowserRouter as Router, Route } from "react-router-dom";
 
 export default function AboutUs() {
   
-    
+  function handleClickUp(event) {
+    event.preventDefault()
+    if (event) {
+      window.scrollTo(0, 0);
+    }
+  }
+  
   
 return (
   <div id='about-bd'>
     <h1 id='title-abt'>
-    <a id='AboutUs'>About Us</a></h1>
+    <a id='AboutUs' onClick={handleClickUp} >About Us</a></h1>
      <div id='about-txt'>
        <div>
         <p><b>Study buddy</b> is a community where you can find mates to study together.</p> 
