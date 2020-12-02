@@ -4,6 +4,8 @@ import AboutUs from './AboutUs';
 import { Link } from "react-router-dom";
 
 import classNames from 'classnames/bind';
+import FindAMentor from "./FindAMentor";
+import StudyTogether from "./StudyTogether";
 
 export default function Landing(props) {
   const {user} = props;
@@ -46,7 +48,38 @@ export default function Landing(props) {
           
         </div>
       </div>
+      <div id='topics-box'>
+      <div id='img-icon'>
+        <p><img src='you-learn.png'></img></p>
+        </div>
+      <div id='topics'>
+        <h1>You learn</h1>
+        <p>Two (or more) heads are always better than one!</p>
+      </div>
+      
+      
+      </div>
       <AboutUs/>
+      <div id='topics-box'>
+      <div id='img-icon-own'>
+        <p><img src='own-it.png'></img></p>
+        </div>
+      <div id='topics'>
+        <h1>You Own it</h1>
+        <p>Improve your confidence!</p>
+      </div>
+      </div>
+      <FindAMentor/>
+      <div id='topics-box'>
+      <div id='img-icon-own'>
+        <p><img src='std-tgt.png'></img></p>
+        </div>
+      <div id='topics'>
+        <h1>You Share it</h1>
+        <p>You can be the difference!</p>
+      </div>
+      </div>
+      <StudyTogether/>
     </div>
 
   ) 
