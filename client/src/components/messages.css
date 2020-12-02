@@ -6,7 +6,7 @@
   height: auto;
   width: 100%;
 }
-#chat_box {
+#chat_box-msg {
   display: flex;
   margin-top: 50px;
   width: 100%;
@@ -47,10 +47,11 @@
   margin-right: 25px;
  
 }
-#message_side {
-  justify-self: start;
+#message_side-msg {
+  margin-left: 6cm;
+  justify-self: center;
   height: 700px;
-  width: 830px;
+  width: 960px;
  align-self: start;
 }
 #messages { 

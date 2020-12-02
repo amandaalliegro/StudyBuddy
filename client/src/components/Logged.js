@@ -17,13 +17,13 @@ export default function Logged(props) {
       </div>
       <div class="row" id="body_container">
         <div class="column">
-          <div class="card"><b>Check your messages!</b>
-          <p><img id='chat-img' src='/chat.png'/></p>
+          <div class="card"><a href='/messages'><b>Check your messages!</b> 
+          <p><img id='chat-img' src='/chat.png'/></p></a>
           </div>
         </div>
         <div class="column">
-          <div class="card"><b>Find new buddies!</b> 
-          <p><img id='chat-img' src='/search.png'/></p>
+          <div class="card"><a href='/search'><b>Find new buddies!</b> 
+          <p><img id='chat-img' src='/search.png'/></p></a>
           
           </div>
         </div>

@@ -39,24 +39,24 @@ export default function Register(props) {
           <div class='register_container'>
           {error && <Alert variant='danger'>{error}</Alert>}
           <Form onSubmit={handleSubmit}>
-            <h1>Be a <i>Buddy!</i></h1>
-            <Form.Group controlId='formBasicName'>
-              <Form.Label>Full Name:</Form.Label>
+            <h2>Be a Buddy!</h2>
+            <Form.Group id='setname-form'>
+              <Form.Label id='setname-form'>Full Name:</Form.Label>
               <Form.Control type='text' placeholder='Username' />
               <Form.Text className='text-muted'>
     </Form.Text>
             </Form.Group>
-            <Form.Group controlId='formBasicEmail'>
-              <Form.Label>Email:</Form.Label>
+            <Form.Group id='setname-form'>
+              <Form.Label id='setname-form'>Email:</Form.Label>
               <Form.Control type='email' placeholder='Enter email' />
               <Form.Text className='text-muted'>
     </Form.Text>
             </Form.Group>
-            <Form.Group controlId='formBasicPassword'>
-              <Form.Label>Password:</Form.Label>
+            <Form.Group id='setname-form'>
+              <Form.Label id='setname-form'>Password:</Form.Label>
               <Form.Control type='password' placeholder='Password' />
             </Form.Group>
-            <button variant='primary' type='submit' > Register!</button>  </Form>
+            <button variant='primary' id='register-btn' type='submit' > Register!</button>  </Form>
         </div>
         </div>
         </div>

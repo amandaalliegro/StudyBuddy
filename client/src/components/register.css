@@ -36,9 +36,11 @@ body {
 }
 
 .register_container{
+  display: block;
   background-color:rgb(235, 123, 95, 0.98);
-  
-  width: 20%;
+  height: 9.5cm;
+  width: 18%;
+  align-items: stretch;
   border-radius: 1rem;
   text-align: center;
   margin-top: 0;
@@ -46,10 +48,34 @@ body {
   margin-left: 800px;
   padding-bottom: 20px;
   color: #f2f2f2;
+  font-size: 20px;
   box-shadow: 0px 6px 10px 0px rgba(0, 0, 0, 0.5);
 }
 .register_container .form .input[type='text']{
   padding-top: 0 !important;
+}
+
+#setname-form{
+  display: block;
+  justify-content: space-around;
+  padding-bottom: 10px;
+}
+
+#register-btn{
+  outline: transparent;
+  border-radius: 1rem;
+  border: 0;
+  font-size: 1rem;
+  height: 2.2rem;
+  line-height: 1.2rem;
+  margin: 5px;
+  width: 5.5rem;
+  border-width: 2px;
+  border-color: rgb(233, 102, 69);
+  color:white;
+  background-color: rgb(233, 102, 69) !important;
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-weight: bold;
 }
 .btn-primary{
   margin-top: 10px;

@@ -62,9 +62,10 @@ export default function EditProfile(props) {
           </div>
           <br/>
 
-          <div className="col-sm-9" style={{ padding: "50px" }} id="profile_data">
+          <div className="col-sm-9" style={{ padding: "50px" }} id="profile_data2">
           <Form className="form"   id="registrationForm" onSubmit={handleSubmit}>
             <Form.Group className="form-group">
+              <div id='first'>
                 <div className="col-xs-6">
                 <Form.Label><h4>Full Name:</h4></Form.Label>
                 <Form.Control type="text" className="form-control" name="name" id="name" placeholder="Name" />
@@ -74,8 +75,11 @@ export default function EditProfile(props) {
                 <Form.Control type="text" className="form-control" name="name" id="name" placeholder="Add image URL" />
                 <Form.Text className='text-muted'></Form.Text>
                 </div>
+                </div>
                 </Form.Group>
+                <div id='first'>
                 <Form.Group  className="form-group">
+                
                   <div className="col-xs-6">
                   <Form.Label><h4>Location</h4></Form.Label>
                   <Form.Control type="location" className="form-control" name="location" id="location" placeholder="your location here" title="enter your location." />
@@ -90,7 +94,11 @@ export default function EditProfile(props) {
                   <Form.Text className='text-muted'>
                   </Form.Text>
                   </div>
+                  
                   </Form.Group>
+                  
+                  </div>
+                  <div id='first'>
                 <Form.Group  className="form-group">
                   <div className="col-xs-6">
                   <Form.Label><h4>Email</h4></Form.Label>
@@ -99,19 +107,24 @@ export default function EditProfile(props) {
                   </Form.Text>
                   </div>
                   </Form.Group>
+                  </div>
                   
 
               <div id="profile_location">
-                <h4>you are a:</h4>
+              <div id='first'>
+              <Form.Label><h4>you are a:</h4></Form.Label>
                 <div>
                 <Form.Control type="checkbox" id="student" name="student" />
                   <Form.Label> Student</Form.Label><br />
                   <Form.Control type="checkbox" id="mentor" name="mentor"  />
                   <Form.Label> Mentor</Form.Label><br />
-                  <Form.Check type="checkbox" id="silent-student" name="silent-student" />
-                  <Form.Label> Silent</Form.Label><br />
+                  <Form.Control type="checkbox" id="silent-student" name="silent-student" />
+                  <Form.Label>Silent buddy</Form.Label><br />
                 </div>
               </div>
+              </div>
+              
+              <div id='first1'>
               <Form.Group className="form-group">
               <div className="col-xs-6">
                 <Form.Label><h4>Subject:</h4></Form.Label>
@@ -126,7 +139,9 @@ export default function EditProfile(props) {
                   </Form.Text>
                 </div>
                 </Form.Group>
+                </div>
             <div id="profile_location">
+            <div id='first'>
             <Form.Group className="form-group">
                 <div className="col-xs-6">
                 <Form.Label><h4>Password</h4></Form.Label>
@@ -141,6 +156,7 @@ export default function EditProfile(props) {
                   </Form.Text>
                 </div>
             </Form.Group>
+            </div>
             </div>
             <div className="form-group">
               <div className="col-xs-12">

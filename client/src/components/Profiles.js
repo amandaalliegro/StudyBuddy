@@ -9,45 +9,48 @@ export default function Profile(props) {
   return (
     <div id="profile_container">
       <div className="container bootstrap snippet" id="container_profile">
-        <div className="container" id="name_profile">
-          {user.full_name && <div className="col-sm-10"><h1>{user.full_name}</h1></div>}
+        <div  id="name_profile">
+          {user.full_name && <div id='namep' ><h1>{user.full_name}</h1></div>}
         </div>
         </div>
         <div className="container" id="profile_element">
-          <div className="col-sm-3">{/*left col*/}
+          <div id='name'>{/*left col*/}
             <div className="text-center">
             {user.img && <img src= {user.img}  id="image"alt="image" />}
               {!user.img && <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png"  id="image"alt="image" />}
                             
             </div><br />
           </div>{/*/col-3*/}
-          <div className="col-sm-9" style={{padding: "50px"}} id="profile_data">
+          <div style={{padding: "50px"}} id="profile_data1">
                 <hr />
                   <div className="form-group profile_data" id="profile_email" >
                       <label><h4>Email:</h4></label>
-                      {user.email && <label><h4>{user.email}</h4></label>}
+                      <p></p>
+                      {user.email && <label><p>{user.email}</p></label>}
                   </div>
                   <div className="form-group" id="profile_location">
                       <label><h4>Location:</h4></label>
-                      {user.location && <label><h4>{user.location}</h4></label>}                  </div>
+                      <p></p>
+                      {user.location && <label><p>{user.location}</p></label>}                  </div>
                   <div className="form-group" id="profile_gender">
                     <label><h4>language:</h4></label>
-                    {user.language &&<label><h4>{user.language}</h4></label>}
+                    {user.language &&<label><p>{user.language}</p></label>}
                   </div>
                   <div className="form-group" id="profile_class">
                       <label><h4>You are a:</h4></label>
-                      {user.student && <label><h4>student</h4></label>}
-                      {user.mentor && <label><h4>mentor</h4></label>}
-                      {user.silent_buddy && <label><h4>silent buddy</h4></label>}
+                      {user.student && <label><p>student</p></label>}
+                      {user.mentor && <label><p>mentor</p></label>}
+                      {user.silent_buddy && <label><p>silent buddy</p></label>}
                       
                   </div>
                   <div className="form-group" id="profile_subjects">
                       <label><h4>preferred Subjects:</h4></label>
-                      <label><h4>{user.subject}</h4></label>
+                      <label><p>{user.subject}</p></label>
                   </div>
                   <div className="form-group" id="profile_description">
                       <label><h4>Description:</h4></label>
-                      <label><h4>{user.description}</h4></label>
+                      <p></p>
+                      <label><p>{user.description}</p></label>
                   </div>
                   <div className="form-group">
                       <br />

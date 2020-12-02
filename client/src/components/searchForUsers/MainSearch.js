@@ -29,7 +29,7 @@ export default function MainSearch(props) {
      
         
           
-          <dev id="search_container" >
+          <div id="search_container" >
             <h1 className="h1"></h1>
             <form id="search_form" onSubmit={onSubmitForm}>
              <input
@@ -42,7 +42,8 @@ export default function MainSearch(props) {
              />
               <button id="search_button">Search!</button>
             </form>
-            </dev>
+            {users.length === 0 && <p>No Results Found</p>}
+           
           <section>
             <ul>
             <table>
@@ -53,7 +54,7 @@ export default function MainSearch(props) {
           <tbody >
             {users.map(user => (
               <tr key={user.user_id} id="search_output">
-                <div id='chat_card1'>
+                <div id='chat_card-search'>
                   <div id="image_button">
                 <td>
                   <button id="search_button1" onClick ={
@@ -78,10 +79,10 @@ export default function MainSearch(props) {
             ))}
           </tbody>
         </table>
-        {users.length === 0 && <p>No Results Found</p>}
+        
             </ul>
           </section>
-     
+          </div>
     </div>
   );
 }

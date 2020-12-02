@@ -1,19 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Quattrocento+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@100;200;400&display=swap');
+
+
 #body_search {
   display: block;
   justify-content: center;
-  height: 100%;
+  height: 900px;
   width: 100%;
   padding: 50px;
-  background-color: white;
+  background-color:#fff6f0;
+  background-image: url('/searching.jpeg');
 }
 
 #search_form {
-  height: 100%;
+  height: 60px;
   width: 100%;
 margin: 0.3rem;
 padding:0.3rem;
 display: flex;
   justify-content: center;
+  font-family: 'Montserrat Alternates', sans-serif;
+  color:#fff6f0;
 }
 
 #search_container {
@@ -23,7 +30,11 @@ display: flex;
   width: 100%;
   height: 100%;
   padding-top: 50px;
-  background-color:white;
+  font-family: 'Montserrat Alternates', sans-serif;
+  color:rgb(4, 76, 104);
+  font-weight: bold;
+  font-size: 20px;
+  
 }
 
 
@@ -52,18 +63,18 @@ display: flex;
    outline: rgb(233, 102, 69);
    outline-color: rgb(233, 102, 69);
    border-radius: 25px;
-   background-color: white;
+   background-color:#fff6f0;
    height: 7rem;
    width:70rem;
 
 }
-#chat_card1{
+#chat_card-search{
   display: flex;
   box-shadow: 3px 6px 10px 3px rgba(0, 0, 0, 0.5); /* this adds the "card" effect */
   border-radius: 1rem;
   text-align: center;
   background-color: rgb(235, 123, 95) !important;
-  height: 100px;
+  height: 130px;
   color: #ffffff;
   font-family: 'Montserrat Alternates', sans-serif;
   margin: 1px;
