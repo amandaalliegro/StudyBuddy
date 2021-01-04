@@ -15,11 +15,9 @@ npm start dev
 
 ## Screen Shots
 
-HOME PAGE
+Home page
 !["Home page"](https://github.com/amandaalliegro/StudyBuddy/blob/production/docs/home_top.png?raw=true)
-
 !["Home page"](https://github.com/amandaalliegro/StudyBuddy/blob/production/docs/home_2nd.png?raw=true)
-
 !["Home page"](https://github.com/amandaalliegro/StudyBuddy/blob/production/docs/home_3rd.png?raw=true)
 
 !["Home page"](https://github.com/amandaalliegro/StudyBuddy/blob/production/docs/home_4th.png?raw=true)
@@ -29,6 +27,25 @@ HOME PAGE
 !["Home page"](https://github.com/amandaalliegro/StudyBuddy/blob/production/docs/home_6th.png?raw=true)
 
 !["Home page"](https://github.com/amandaalliegro/StudyBuddy/blob/production/docs/home_7th.png?raw=true)
+
+Register page
+
+!["register page"](https://github.com/amandaalliegro/StudyBuddy/blob/production/docs/register.png?raw=true)
+
+Edit profile
+!["edit page"](https://github.com/amandaalliegro/StudyBuddy/blob/production/docs/edit_profile.png?raw=true)
+
+Profile view
+!["profile page"](https://github.com/amandaalliegro/StudyBuddy/blob/production/docs/profile_2.png?raw=true)
+
+Search Page
+!["search page"](https://github.com/amandaalliegro/StudyBuddy/blob/production/docs/search.png?raw=true)
+
+Buddy profile
+!["buddy page"](https://github.com/amandaalliegro/StudyBuddy/blob/production/docs/profile_search.png?raw=true)
+
+Message page
+!["message page"](https://github.com/amandaalliegro/StudyBuddy/blob/production/docs/message.png?raw=true)
 
 
 
