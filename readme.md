@@ -15,6 +15,20 @@ npm start dev
 
 ## Screen Shots
 
+HOME PAGE
+!["Home page"](https://github.com/amandaalliegro/StudyBuddy/blob/production/docs/home_top.png?raw=true)
+
+!["Home page"](https://github.com/amandaalliegro/StudyBuddy/blob/production/docs/home_2nd.png?raw=true)
+
+!["Home page"](https://github.com/amandaalliegro/StudyBuddy/blob/production/docs/home_3rd.png?raw=true)
+
+!["Home page"](https://github.com/amandaalliegro/StudyBuddy/blob/production/docs/home_4th.png?raw=true)
+
+!["Home page"](https://github.com/amandaalliegro/StudyBuddy/blob/production/docs/home_5th.png?raw=true)
+
+!["Home page"](https://github.com/amandaalliegro/StudyBuddy/blob/production/docs/home_6th.png?raw=true)
+
+!["Home page"](https://github.com/amandaalliegro/StudyBuddy/blob/production/docs/home_7th.png?raw=true)
 
 
 
