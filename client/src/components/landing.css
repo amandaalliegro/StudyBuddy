@@ -16,6 +16,15 @@
 
   height: 100%;
 }
+
+#logoStuddy{
+  height: 340px;
+  width: auto;
+  padding-right: 3cm;
+  padding-top: 0;
+  padding-bottom: 0;
+  
+}
 .jumbotron {
   display: flex;
   align-items: center;
@@ -38,14 +47,12 @@
 #jumbo{
   font-size: 4em;
 }
-#font-size-brand{
-  font-size: 5em;
-  font-family: 'Montserrat Alternates', sans-serif;
-  font-weight: 600;
- 
-}
+
 #subtitle_brand {
+  margin: 0;
+  padding-top: 0;
   font-size: 2em;
+  padding-right: 0.55cm;
 }
 
 * {
@@ -59,8 +66,9 @@
   display: block;
   justify-content: flex-end;
   margin-right: 100px;
-  font-size: 5em;
+  font-size: 18px;
   font-family: 'Montserrat Alternates', sans-serif;
+  padding-right: 5cm;
   
 }
 #brand_box .h1{
@@ -115,6 +123,7 @@ body {
   
   background-color: rgb(233, 102, 69);
   color: white;
+  margin-right: 16cm;
 }
 .button--confirm {
   color: white;

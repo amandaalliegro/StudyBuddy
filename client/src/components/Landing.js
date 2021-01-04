@@ -40,7 +40,7 @@ function handleClickUp(event) {
       <div class="container" >
         <div class="jumbotron" id="#jumbo">
           <div id="#brand_box">
-          <h1 id="font-size-brand"><b>Study Buddy</b></h1>
+          <img id='logoStuddy' src='StudyBuddyLogo_2.png'/>
           <p id="subtitle_brand"><b><i>Study Together!</i></b></p>
           <Link to="/register">
           {!user.full_name && <button type="button" className="btn btn-primary edit_btn" id="btn_register" href="/register">Register!</button>}
