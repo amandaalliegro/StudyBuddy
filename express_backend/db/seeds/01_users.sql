@@ -1,6 +1,7 @@
 INSERT INTO users(full_name, password, student, mentor, location, language, gender, email, silent_buddy, description, subject, img)
 VALUES 
-('Joe Levesque', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.', TRUE, FALSE, 'Edmonton', 'english', 'male', 'socialconsequences@gmail.com', TRUE, 'I love to study webDevelpment', 'web Development','https://ca.slack-edge.com/T2G8TE2E5-U018FKFCM2S-1a6c35b91379-512'),
+('Joe Le', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.', TRUE, FALSE, 'Edmonton', 'english', 'male', 'sl@gmail.com
+ ', TRUE, 'I love to study webDevelpment', 'web Development','https://ca.slack-edge.com/T2G8TE2E5-U018FKFCM2S-1a6c35b91379-512'),
 ('Affaf Rai', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.', TRUE, TRUE, 'Toronto', 'english', 'female', 'affaf-rai@hotmail.com', FALSE, 'optimistic about getting my chimistry project done', 'Chemistry','https://avatars0.githubusercontent.com/u/67074428?s=400&u=4bd5ad73c1cfae287e0b5bb1b0e8f20fedaf3c0c&v=4'),
 ('Amanda Arnaut', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.', TRUE, TRUE, 'Toronto', 'english', 'female', 'amanda.m.arnaut@gmail.com', FALSE, 'looking for people to study with me 3 hours a week', 'web development', 'https://avatars2.githubusercontent.com/u/68923553?s=460&u=3c5c9c947f2962f7ad13a6f22ad5c63461b93318&v=4'),
 ('Dominic Tremblay', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.', TRUE, TRUE, 'Toronto', 'english', 'male', 'DominicMockEmail@gmail.com', FALSE, 'Web Dev Guru', 'Web Delevopment','https://i2.wp.com/www.primatimes.com/wp-content/uploads/2020/06/myAvatar-2.png?fit=500%2C500&ssl=1'),
